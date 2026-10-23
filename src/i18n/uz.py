@@ -1,0 +1,267 @@
+# -*- coding: utf-8 -*-
+"""O'zbekcha (lotin) versiya — sayt asosiy tili."""
+
+S = {
+    "lang": {"code": "uz", "html": "uz", "og": "uz_UZ", "label": "UZ", "name": "O'zbekcha"},
+
+    "nav": {
+        "home": "Bosh sahifa", "about": "Biz haqimizda", "tours": "Turlar", "uz": "O'zbekiston bo'ylab turlar",
+        "intl": "Xalqaro turlar", "info": "Info-turlar", "contacts": "Aloqa",
+        "cta": "Tur tanlash", "menu": "Menyu", "close": "Yopish", "tg": "Telegramda yozish",
+        "lang": "Sayt tili", "skip": "Asosiy qismga o'tish",
+    },
+
+    "common": {
+        "more": "Batafsil", "all_dest": "Barcha yo'nalishlar", "home_crumb": "Bosh sahifa",
+        "photo_slot": "Agentlik fotosurati uchun joy", "on_request": "so'rov bo'yicha",
+        "by_agreement": "kelishuv asosida", "example": "namuna", "demo_review": "demo",
+    },
+
+    "hero": {
+        "eyebrow": "Sayohat · Kashfiyot · Taassurot",
+        "title": "Carat Tour bilan dunyoni kashf eting",
+        "text": "Xalqaro yo'nalishlar, O'zbekiston bo'ylab sayohatlar va tanishuv info-turlari — sizning yo'nalishingiz va qiziqishlaringizga mos.",
+        "btn_intl": "Xalqaro turlar", "btn_uz": "O'zbekiston bo'ylab turlar",
+        "tagline": "Shunchaki sayohatdan ko'proq",
+        "img_alt": "Samarqanddagi Registon maydoni",
+    },
+
+    "search": {
+        "aria": "Turni tezkor tanlash",
+        "dest": "Yo'nalish", "dest_ph": "Yo'nalishni tanlang",
+        "dates": "Sanalar", "dates_opts": ["Istalgan sana", "Yaqin bir oy ichida", "1–3 oydan keyin", "3–6 oydan keyin", "Keyinroq"],
+        "tourists": "Sayyohlar", "tourists_opts": ["1 kattalar", "2 kattalar", "3 kattalar", "Bolali oila", "5+ kishilik guruh"],
+        "btn": "Tur topish",
+        "group_uz": "O'zbekiston", "group_intl": "Xorijda", "group_info": "Info-turlar", "info_opt": "Info-tur (mutaxassislar uchun)",
+    },
+
+    "home": {
+        "meta_title": "Carat Tour & Study — O'zbekiston bo'ylab turlar, xalqaro turlar va info-turlar",
+        "meta_desc": "Carat Tour & Study turistik agentligi: O'zbekiston bo'ylab sayohatlar, xalqaro turlar va tanishuv info-turlari. Individual tanlov va safar davomida qo'llab-quvvatlash.",
+        "uz_title": "O'zbekiston bo'ylab turlar",
+        "uz_sub": "Yurtimizning betakror shaharlari, boy tarixi va mehmondo'stligini kashf eting.",
+        "intl_title": "Xalqaro yo'nalishlar",
+        "intl_sub": "Carat Tour bilan butun dunyo bo'ylab sayohat qiling. Uslubingiz, byudjetingiz va istaklaringizga mos tur tanlaymiz.",
+        "info_title": "Info-turlar",
+        "info_text": "Tanishuv turlari — yo'nalishlar, mehmonxonalar, madaniyat va turistik marshrutlar bilan jonli tanishish imkoniyati.",
+        "info_points": ["Mehmonxona vakillari bilan uchrashuvlar", "Madaniyat va an'analarni o'rganish", "Turistik obyektlar bilan tanishish", "Professional turlarda ishtirok etish"],
+        "info_btn": "Info-turlar haqida",
+        "why_title": "Nega Carat Tour & Study?",
+        "promo_title": "Yangi taassurotlar yaqin",
+        "promo_text": "Chimyon tog'lari va Chorvoq — Toshkentdan bir-ikki soatlik masofada. Dam olish kunlari uchun ajoyib tanlov.",
+        "promo_btn": "Yo'nalishni ko'rish",
+        "reviews_title": "Mijozlarimiz fikrlari",
+        "final_title": "Keyingi sayohatingiz shu yerdan boshlanadi",
+        "final_text": "Ariza qoldiring — siz uchun maxsus tur tanlaymiz.",
+        "final_btn2": "Telegramda muhokama qilish",
+    },
+
+    "why": [
+        {"icon": "public", "title": "Individual marshrutlar", "text": "Qiziqishlaringiz va byudjetingizga mos tur tanlaymiz."},
+        {"icon": "support_agent", "title": "Kuzatuv va qo'llab-quvvatlash", "text": "Safarning har bir bosqichida aloqadamiz."},
+        {"icon": "account_balance", "title": "Madaniyat va diqqatga sazovor joylar", "text": "Oddiy turizmdan chuqurroq."},
+        {"icon": "groups", "title": "Guruhli va individual turlar", "text": "Oilalar, do'stlar va korporativ mijozlar uchun."},
+    ],
+
+    "lead": {
+        "title": "Sayohatga tayyormisiz?",
+        "text": "Ariza qoldiring — mos turni tanlab, tez orada siz bilan bog'lanamiz.",
+        "name": "Ismingiz", "name_ph": "Masalan, Aziz",
+        "contact": "Telefon yoki Telegram", "contact_ph": "+998 __ ___ __ __ yoki @username",
+        "direction": "Qiziqtirgan yo'nalish", "direction_ph": "Yo'nalishni tanlang", "direction_other": "Boshqa / hali hal qilmadim",
+        "type": "Tur turi", "types": {"intl": "Xalqaro", "uz": "O'zbekiston bo'ylab", "info": "Axborot (info-tur)"},
+        "dates": "Istalgan sanalar", "dates_ph": "Masalan, may, 7–10 kun",
+        "comment": "Izoh", "comment_ph": "Sayyohlar soni, mehmonxona bo'yicha istaklar, byudjet…",
+        "optional": "ixtiyoriy",
+        "consent_pre": "Men", "consent_link": "shaxsiy ma'lumotlarimni qayta ishlashga roziman",
+        "submit": "Ariza yuborish", "sending": "Yuborilmoqda…",
+        "error": "Arizani yuborib bo'lmadi. Qayta urinib ko'ring yoki bizga Telegramda yozing.",
+        "err_required": "Ushbu maydonni to'ldiring", "err_name": "Ismingizni kiriting (kamida 2 belgi)",
+        "err_contact": "Telefon (+998…) yoki Telegram (@username) kiriting",
+        "err_consent": "Ma'lumotlarni qayta ishlashga rozilik kerak",
+        "search_note": "Qidiruv parametrlari",
+    },
+
+    "contacts": {
+        "tg": "Telegram", "tg_text": "Bir bosishda yozing",
+        "phone": "Telefon", "email": "Email", "address": "Ofis manzili", "hours": "Ish vaqti",
+    },
+
+    "reviews": [
+        {"name": "Anna Petrova", "place": "Rossiya", "text": "Samarqandga sayohat unutilmas bo'ldi! Hammasi yuqori darajada tashkil etilgan."},
+        {"name": "John Smith", "place": "Buyuk Britaniya", "text": "Professionallik va tafsilotlarga e'tibor uchun rahmat. Carat Tourni tavsiya qilaman!"},
+        {"name": "Li Vey", "place": "Xitoy", "text": "Ajoyib jamoa, O'zbekiston bo'ylab ideal marshrut tanlashga yordam berishdi. Hammasi a'lo darajada o'tdi!"},
+    ],
+
+    "footer": {
+        "about": "Turistik agentlik: xalqaro turlar, O'zbekiston bo'ylab sayohatlar va tanishuv info-turlari.",
+        "sections": "Bo'limlar", "contacts": "Aloqa", "privacy": "Maxfiylik siyosati",
+        "consent": "Ma'lumotlarni qayta ishlashga rozilik", "rights": "Barcha huquqlar himoyalangan.",
+        "slogan": "Sayohatlar. Kashfiyotlar. Yangi ufqlar.",
+    },
+
+    "pages": {
+        "uz": {
+            "meta_title": "O'zbekiston bo'ylab turlar — Toshkent, Samarqand, Buxoro, Xiva, Chimyon | Carat Tour",
+            "meta_desc": "Carat Tour & Study bilan O'zbekiston bo'ylab sayohatlar: Toshkent, Samarqand, Buxoro, Xiva va Chimyon tog'lari. Individual va guruhli dasturlar.",
+            "h1": "O'zbekiston bo'ylab turlar",
+            "intro": "O'zbekiston bilan tanishuv boshlanadigan beshta yo'nalish: zamonaviy poytaxtdan Buyuk ipak yo'lining qadimiy shaharlari va tog' manzaralarigacha.",
+        },
+        "dest": {
+            "about": "Yo'nalish haqida", "sights": "Nimalarni ko'rish mumkin", "gallery": "Fotogalereya",
+            "programs": "Turistik dasturlar",
+            "programs_text": "Dasturlar sizning sanalaringiz, guruh tarkibi va qiziqishlaringizga qarab tuziladi: bir kunlik ekskursiyalar, bir necha kunlik turlar yoki bir nechta shaharni qamrab oluvchi marshrutlar.",
+            "duration": "Davomiyligi", "dates": "Sanalar", "price": "Narxi",
+            "dates_val": "yil davomida",
+            "similar": "O'xshash yo'nalishlar",
+            "form_title": "Sayohat rejalashtiryapsizmi: {name}?",
+            "form_text": "Rejalaringiz haqida yozing — dastur tayyorlab, narxini hisoblab beramiz.",
+            "meta_title": "{name} — tur va ekskursiyalar | Carat Tour & Study",
+        },
+        "intl": {
+            "meta_title": "Xalqaro turlar — Maldiv, Turkiya, BAA, Tailand, Yevropa | Carat Tour",
+            "meta_desc": "Carat Tour & Study bilan O'zbekistondan xalqaro turlar: plyaj dam olishi, shaharlar va ekskursiyalar. Byudjet va sanalaringizga mos tur tanlash.",
+            "h1": "Xalqaro turlar",
+            "intro": "Mashhur xorijiy yo'nalishlar. Aniq dasturlar, sanalar va narxlar so'rovingiz bo'yicha tanlanadi.",
+            "filter": "Dam olish turi", "all": "Barchasi",
+            "kinds": {"beach": "Plyaj dam olishi", "city": "Shaharlar va ekskursiyalar", "nature": "Tabiat"},
+            "empty": "Tanlangan filtr bo'yicha yo'nalishlar hozircha yo'q.",
+        },
+        "tour": {
+            "about": "Yo'nalish haqida", "highlights": "Dasturga nimalarni kiritish mumkin",
+            "conditions": "Dastur, sanalar va narx",
+            "conditions_text": "Dolzarb dasturlar, uchish sanalari, narx va shartlarni individual tanlaymiz va bron qilishdan oldin tasdiqlaymiz. Ariza qoldiring — menejer siz bilan bog'lanadi.",
+            "discuss": "Tanlashda nimalarni muhokama qilamiz",
+            "discuss_items": ["Safar sanalari va davomiyligi", "Dam olish formati va sayyohlar tarkibi", "Mehmonxona darajasi va joylashuvi", "Ekskursiyalar va qo'shimcha xizmatlar", "Qulay byudjet"],
+            "form_title": "Tur so'rovi: {name}",
+            "other": "Boshqa yo'nalishlar",
+            "meta_title": "{name} turi — narxlar so'rov bo'yicha | Carat Tour",
+        },
+        "info": {
+            "meta_title": "Turizm mutaxassislari uchun info-turlar | Carat Tour & Study",
+            "meta_desc": "Carat Tour & Study tanishuv info-turlari turagentlar va soha mutaxassislari uchun: yo'nalishlar, mehmonxonalar va marshrutlar bilan tanishuv.",
+            "h1": "Info-turlar",
+            "intro": "Turizm sohasi mutaxassislari uchun tanishuv safarlari — faoliyatimizning alohida yo'nalishi. Keyinchalik mijozlarga tavsiya qiladigan mehmonxonalar, marshrutlar va obyektlarni o'z ko'zingiz bilan ko'rasiz.",
+            "for_title": "Kimlar uchun",
+            "for_items": [
+                {"icon": "badge", "title": "Turagentlar va menejerlar", "text": "O'zingiz ko'rgan yo'nalishni sotish uchun."},
+                {"icon": "hotel", "title": "Mehmonxona vakillari", "text": "Hamkorlar va bozor bilan tanishish uchun."},
+                {"icon": "handshake", "title": "Hamkorlar va turoperatorlar", "text": "Qo'shma dasturlar tuzish uchun."},
+                {"icon": "groups", "title": "Professional guruhlar", "text": "Soha delegatsiyalari va o'quv safarlari uchun."},
+            ],
+            "goals_title": "Ishtirok etish maqsadi va afzalliklari",
+            "goals": ["Yo'nalish va turistik obyektlar bilan shaxsan tanishish", "Mehmonxonalar va qabul qiluvchi tomon vakillari bilan uchrashuvlar", "Madaniyat, an'analar va marshrutlarni o'rganish", "Yangi professional aloqalar", "Mijozlar bilan ishlash uchun materiallar va taassurotlar"],
+            "dirs_title": "Info-turlar yo'nalishlari",
+            "dirs_text": "Asosiy geografiya — O'zbekiston shaharlari va hududlari. Xorijiy info-turlar dasturlar shakllanishiga qarab tashkil etiladi.",
+            "cond_title": "Sanalar va ishtirok shartlari",
+            "cond_text": "Har bir safarning sanalari, dasturi, ishtirok shartlari va narxi u shakllangani sari e'lon qilinadi. Ariza qoldiring — eng yaqin info-turlar haqida xabar beramiz.",
+            "gallery_title": "Oldingi safarlardan suratlar",
+            "form_title": "Info-turga ariza",
+        },
+        "about": {
+            "meta_title": "Carat Tour & Study haqida — O'zbekistondagi turistik agentlik",
+            "meta_desc": "Carat Tour & Study — turistik agentlik: xalqaro turlar, O'zbekiston bo'ylab sayohatlar va soha mutaxassislari uchun info-turlar.",
+            "h1": "Kompaniya haqida",
+            "intro": "Carat Tour & Study — O'zbekistonlik sayyohlarga dunyoni kashf etishda yordam beruvchi va butun dunyodan kelgan mehmonlarni O'zbekiston bilan tanishtiruvchi turistik agentlik.",
+            "text": [
+                "Biz sayohatni aniq inson, oila yoki guruh uchun tanlaymiz: qiziqishlar, sanalar, safar sur'ati va byudjetni hisobga olamiz.",
+                "Faoliyatimiz uch yo'nalishga asoslangan — xalqaro turlar, O'zbekiston bo'ylab sayohatlar va turizm sohasi mutaxassislari uchun tanishuv info-turlari.",
+            ],
+            "dirs_title": "Faoliyat yo'nalishlari",
+            "dirs": [
+                {"icon": "flight_takeoff", "title": "Xalqaro turlar", "text": "Xorijda plyaj dam olishi, shaharlar va ekskursiya dasturlari."},
+                {"icon": "mosque", "title": "O'zbekiston bo'ylab turlar", "text": "Toshkent, Samarqand, Buxoro, Xiva va Chimyon tog'lari."},
+                {"icon": "travel_explore", "title": "Info-turlar", "text": "Soha mutaxassislari uchun tanishuv safarlari."},
+            ],
+            "principles_title": "Ish tamoyillari",
+            "team_title": "Jamoa va tadbirlar",
+        },
+        "contacts": {
+            "meta_title": "Carat Tour & Study bilan aloqa — telefon, Telegram, email",
+            "meta_desc": "Carat Tour & Study bilan bog'laning: Telegram, telefon va email. Tur tanlash uchun ariza qoldiring.",
+            "h1": "Aloqa",
+            "intro": "Bizga Telegramda yozing, qo'ng'iroq qiling yoki forma orqali ariza qoldiring — javob beramiz va tanlashda yordam beramiz.",
+            "form_title": "Qayta aloqa formasi",
+        },
+        "thanks": {
+            "meta_title": "Ariza yuborildi | Carat Tour & Study",
+            "h1": "Rahmat! Ariza yuborildi",
+            "text": "Arizangizni qabul qildik va tez orada siz bilan bog'lanamiz. Agar savol shoshilinch bo'lsa — Telegramda yozing.",
+            "home": "Bosh sahifaga",
+        },
+        "privacy": {
+            "meta_title": "Maxfiylik siyosati | Carat Tour & Study",
+            "h1": "Maxfiylik siyosati",
+            "body": [
+                ["Umumiy qoidalar", "Ushbu siyosat Carat Tour & Study carattourandstudy.uz sayti tashrifchilarining shaxsiy ma'lumotlarini qanday qayta ishlashini tavsiflaydi. Saytdan foydalanib va ariza yuborib, siz ushbu siyosatga rozilik bildirasiz."],
+                ["Qanday ma'lumotlarni olamiz", "Ism, telefon yoki Telegram foydalanuvchi nomi, qiziqtirgan yo'nalish, istalgan sanalar va izoh — faqat ariza formasida o'zingiz ko'rsatgan ma'lumotlar. Sayt statistika uchun shaxsga bog'lanmagan texnik ma'lumotlarni (brauzer turi, ko'rilgan sahifalar) ham to'plashi mumkin."],
+                ["Qayta ishlash maqsadlari", "Ma'lumotlar faqat siz bilan bog'lanish, tur tanlash va so'rovingizga javob berish uchun ishlatiladi. Sizning roziligingiz bilan safarni tashkil etish uchun zarur bo'lgan yoki qonunda nazarda tutilgan hollardan tashqari, ma'lumotlaringizni sotmaymiz va uchinchi shaxslarga bermaymiz."],
+                ["Saqlash va himoya", "Arizalar mas'ul xodimga himoyalangan kanallar orqali yuboriladi va ochiq e'lon qilinmaydi. Ma'lumotlar qayta ishlash maqsadlari uchun zarur bo'lgan muddatdan ortiq saqlanmaydi."],
+                ["Sizning huquqlaringiz", "«Aloqa» sahifasidagi Telegram yoki email orqali yozib, ma'lumotlaringizni aniqlashtirish, o'zgartirish yoki o'chirishni so'rashingiz mumkin."],
+            ],
+            "updated": "Hujjat nashr etilishidan oldin buyurtmachi va yurist bilan kelishilishi kerak.",
+        },
+        "consent": {
+            "meta_title": "Shaxsiy ma'lumotlarni qayta ishlashga rozilik | Carat Tour & Study",
+            "h1": "Shaxsiy ma'lumotlarni qayta ishlashga rozilik",
+            "body": [
+                ["Rozilik", "carattourandstudy.uz saytidagi formani yuborish orqali men Carat Tour & Study ga shaxsiy ma'lumotlarim — ismim, telefonim yoki Telegram foydalanuvchi nomim hamda arizada ko'rsatilgan ma'lumotlarni qayta ishlashga rozilik beraman."],
+                ["Maqsad", "Qayta ishlash men bilan bog'lanish, turistik safarni tanlash va tashkil etish hamda so'rovimga javob berish uchun amalga oshiriladi."],
+                ["Muddat va bekor qilish", "Rozilik qayta ishlash maqsadlariga erishilgunga qadar amal qiladi va saytda ko'rsatilgan kontaktlarga xabar yuborish orqali istalgan vaqtda bekor qilinishi mumkin."],
+            ],
+            "updated": "Hujjat nashr etilishidan oldin buyurtmachi va yurist bilan kelishilishi kerak.",
+        },
+        "e404": {
+            "meta_title": "Sahifa topilmadi | Carat Tour & Study",
+            "h1": "Sahifa topilmadi",
+            "text": "Sahifa ko'chirilgan yoki manzil xato kiritilgan bo'lishi mumkin.",
+            "home": "Bosh sahifaga",
+        },
+    },
+
+    "uz_dest": {
+        "tashkent": {
+            "name": "Toshkent", "tag": "Zamonaviy poytaxt",
+            "desc": "Toshkent — Markaziy Osiyoning eng yirik shahri bo'lib, unda keng shohko'chalar va zamonaviy mavzelar eski shahar, bozorlar va masjidlar bilan qo'shni. Mamlakat bo'ylab har qanday sayohat uchun qulay boshlang'ich nuqta.",
+            "sights": [["Hazrati Imom majmuasi", "Madrasa, masjidlar va qadimiy Qur'on qo'lyozmasiga ega Toshkentning ma'naviy markazi."], ["Chorsu bozori", "Mashhur gumbaz ostidagi rang-barang sharq bozori — ziravorlar, quruq mevalar, non."], ["Toshkent metrosi", "Marmar, mozaika va qandillar bilan bezatilgan muzey-bekatlar — dunyodagi eng go'zal metrolardan biri."], ["Amir Temur xiyoboni", "Sohibqiron haykali, muzey va sayr xiyobonlari joylashgan shahar markazi."]],
+        },
+        "samarkand": {
+            "name": "Samarqand", "tag": "Tarixiy meros va me'morchilik",
+            "desc": "Samarqand — Buyuk ipak yo'lining durdonasi va Temur saltanatining poytaxti. Feruza gumbazlar, sirkor peshtoqlar va Registon maydoni tajribali sayyohlarni ham hayratga soladi.",
+            "sights": [["Registon maydoni", "Uch madrasadan iborat ansambl — O'zbekistonning asosiy ramzi."], ["Go'ri Amir maqbarasi", "Ichki bezaklari zarhal bilan bezatilgan Temur maqbarasi."], ["Shohi Zinda majmuasi", "Betakror koshinkor bezaklarga ega maqbaralar ko'chasi."], ["Bibixonim masjidi", "O'z davrining eng yirik masjidlaridan biri."]],
+        },
+        "bukhara": {
+            "name": "Buxoro", "tag": "Qadimiy shahar va sharq madaniyati",
+            "desc": "Buxoro — savdo gumbazlari, karvonsaroylar va madrasalar saqlanib qolgan jonli muzey-shahar. Bu yerda eski ko'chalarda shoshilmay sayr qilib, hovuz bo'yida choy ichiladi.",
+            "sights": [["Labi hovuz ansambli", "Madrasalar bilan o'ralgan hovuz bo'yidagi eski shahar yuragi."], ["Poi Kalon majmuasi", "Kalon minorasi, masjid va Mir Arab madrasasi."], ["Ark qal'asi", "Buxoro hukmdorlarining qadimiy qarorgohi."], ["Somoniylar maqbarasi", "X asr g'isht me'morchiligining durdonasi."]],
+        },
+        "khiva": {
+            "name": "Xiva", "tag": "Ichan qal'a tarixiy majmuasi",
+            "desc": "Xiva — ichki shahri Ichan qal'a to'liq YUNESKO Jahon merosi ro'yxatiga kiritilgan qal'a-shahar. Loy devorlar, minoralar va qal'a uzra quyosh botishi ertaknamo muhit yaratadi.",
+            "sights": [["Ichan qal'a", "Qal'a devorlari ortidagi ichki shahar — ochiq osmon ostidagi muzey."], ["Kalta minor", "Tugallanmagan feruza minora — Xivaning tashrif qog'ozi."], ["Juma masjidi", "Ikki yuzdan ortiq o'ymakor yog'och ustunli masjid."], ["Toshhovli saroyi", "Koshinkor ayvonli Xiva xonlari saroyi."]],
+        },
+        "chimgan": {
+            "name": "Chimyon", "tag": "Tog'lar, tabiat va faol dam olish",
+            "desc": "Chimyon tog'lari — Toshkent yaqinidagi mashhur dam olish maskani. Yozda — trekking va ko'llar, qishda — tog' chang'isi, yil davomida — toza havo va Chorvoq manzaralari.",
+            "sights": [["Katta Chimyon cho'qqisi", "Balandligi 3300 m dan ortiq cho'qqi — trekking maqsadi."], ["Chorvoq suv ombori", "Plyajlar va dam olish zonalariga ega feruza tog' ko'li."], ["Amirsoy kurorti", "Osma yo'llarga ega zamonaviy tog' kurorti."], ["Beldersoy osma yo'li", "Tog' yonbag'irlari va ko'rish maydonchalariga ko'tarilish."]],
+        },
+    },
+
+    "intl_dest": {
+        "maldives": {"name": "Maldiv orollari", "tag": "Ikki kishi uchun jannat",
+                     "desc": "Hind okeanidagi oppoq plyajlar, feruza lagunalar va suv ustidagi villalarga ega atollar. Asal oyi va osoyishta dam olish uchun ideal.",
+                     "highlights": ["Suv ustida va qirg'oqdagi villalar", "Riflar yonida snorkeling va dayving", "Juftliklar va yangi turmush qurganlar uchun", "Spa va dengiz sayrlari"]},
+        "turkey": {"name": "Turkiya", "tag": "Tarix va dengiz",
+                   "desc": "O'rta yer dengizi kurortlari, tarixiy Istanbul va Kappadokiya manzaralari — dengizda dam olishni boy ekskursiyalar bilan osongina birlashtirish mumkin bo'lgan yo'nalish.",
+                   "highlights": ["Sohilda plyaj dam olishi", "Istanbul bo'ylab ekskursiyalar", "Kappadokiya va havo sharlari", "Oilaviy mehmonxonalar"]},
+        "uae": {"name": "BAA", "tag": "Zamonaviylik va hashamat",
+                "desc": "Dubay osmono'parlari, Abu-Dabining madaniy joylari, Fors ko'rfazi plyajlari va cho'l safarilari — qisqa safar va xarid uchun qulay yo'nalish.",
+                "highlights": ["Dubay va Abu-Dabi", "Cho'l safarisi", "Plyajlar va akvaparklar", "Xarid va ko'ngilochar dasturlar"]},
+        "thailand": {"name": "Tailand", "tag": "Ekzotika va yorqin taassurotlar",
+                     "desc": "Tropik orollar, Bangkok ibodatxonalari, tay oshxonasi va iliq dengiz — dam olishni yangi taassurotlar bilan uyg'unlashtirmoqchi bo'lganlar uchun.",
+                     "highlights": ["Orollar va plyajlar", "Bangkok ibodatxonalari va bozorlari", "Dengiz ekskursiyalari", "Tay oshxonasi va massaj"]},
+        "europe": {"name": "Yevropa", "tag": "Sayohatlar klassikasi",
+                   "desc": "Parij, Rim, Praga va Yevropaning boshqa shaharlari — muzeylar, me'morchilik va gastronomiyaga boy bir yoki bir nechta mamlakat bo'ylab ekskursiya marshrutlari.",
+                   "highlights": ["Bir nechta mamlakat bo'ylab marshrutlar", "Muzeylar va me'morchilik", "Gastronomik sayrlar", "Shahar dam olish kunlari"]},
+    },
+}

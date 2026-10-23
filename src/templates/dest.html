@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% import 'partials/macros.html' as m with context %}
+{% block content %}
+{% call m.page_hero(D.name, D.tag, [{'name': S.nav.uz, 'href': url('uzbekistan/')}, {'name': D.name}], D.slug ~ '.webp', D.name) %}
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a href="#lead" class="btn-accent">{{ S.nav.cta }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+    <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-outline-light">{{ m.tg() }}Telegram</a>
+  </div>
+{% endcall %}
+
+<section class="section">
+  <div class="container grid gap-10 lg:grid-cols-[1fr_340px]">
+    <div class="min-w-0">
+      <h2 class="section-title">{{ P.about }}</h2>
+      <p class="mt-5 text-lg leading-relaxed text-ink">{{ D.desc }}</p>
+
+      <h2 class="section-title mt-14">{{ P.sights }}</h2>
+      <ol class="mt-6 grid gap-4 sm:grid-cols-2">
+        {% for s in D.sights %}
+        <li class="card flex gap-4 p-5">
+          <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-50 text-sm font-bold text-accent-600">{{ '%02d' % loop.index }}</span>
+          <span><h3 class="text-base font-bold">{{ s[0] }}</h3><p class="mt-1 text-sm leading-relaxed text-ink-soft">{{ s[1] }}</p></span>
+        </li>
+        {% endfor %}
+      </ol>
+
+      <h2 class="section-title mt-14">{{ P.gallery }}</h2>
+      <div class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <a href="{{ asset('img/' ~ D.slug ~ '.webp') }}" class="col-span-2 row-span-2 block overflow-hidden rounded-2xl" data-lightbox>
+          <img src="{{ asset('img/' ~ D.slug ~ '.webp') }}" alt="{{ D.name }} — {{ D.sights[0][0] }}" width="420" height="324" loading="lazy" class="img-cover aspect-[4/3] md:aspect-auto">
+        </a>
+        {% for i in range(4) %}{{ m.photo_slot('aspect-[4/3]') }}{% endfor %}
+      </div>
+
+      <h2 class="section-title mt-14">{{ P.programs }}</h2>
+      <p class="mt-5 leading-relaxed text-ink">{{ P.programs_text }}</p>
+    </div>
+
+    <aside class="lg:sticky lg:top-28 lg:self-start">
+      <div class="card overflow-hidden">
+        <div class="bg-navy p-5 text-white"><p class="text-lg font-bold">{{ D.name }}</p><p class="text-sm text-white/75">{{ D.tag }}</p></div>
+        <dl class="divide-y divide-navy/10 px-5">
+          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft">{{ m.icon('schedule', 'text-navy') }}{{ P.duration }}</dt><dd class="text-right text-sm font-semibold text-navy">{{ S.common.by_agreement }}</dd></div>
+          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft">{{ m.icon('event', 'text-navy') }}{{ P.dates }}</dt><dd class="text-right text-sm font-semibold text-navy">{{ P.dates_val }}</dd></div>
+          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft">{{ m.icon('payments', 'text-navy') }}{{ P.price }}</dt><dd class="text-right text-sm font-semibold text-navy">{{ S.common.on_request }}</dd></div>
+        </dl>
+        <div class="space-y-3 p-5 pt-2">
+          <a href="#lead" class="btn-accent w-full">{{ S.nav.cta }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+          <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-ghost w-full">{{ m.tg() }}{{ S.nav.tg }}</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="pb-14 md:pb-20">
+  <div class="container">
+    {{ m.section_head(P.similar, None, url('uzbekistan/'), S.common.all_dest) }}
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {% for d in UZ if d.slug != D.slug %}{{ m.uz_card(d) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ m.lead_section(P.form_title.format(name=D.name), P.form_text, D.slug, 'uz') }}
+{% endblock %}

@@ -1,0 +1,217 @@
+{# ===== Иконки ===== #}
+{% macro tg(cls='h-[1.1em] w-[1.1em]') -%}
+<svg viewBox="0 0 24 24" class="{{ cls }}" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>
+{%- endmacro %}
+
+{% macro icon(name, cls='') -%}<span class="material-symbols-rounded {{ cls }}" aria-hidden="true">{{ name }}</span>{%- endmacro %}
+
+{# ===== Заголовок секции ===== #}
+{% macro section_head(title, sub=None, link=None, link_text=None, tag='h2') -%}
+<div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+  <div>
+    <{{ tag }} class="section-title">{{ title }}</{{ tag }}>
+    {% if sub %}<p class="section-sub">{{ sub }}</p>{% endif %}
+  </div>
+  {% if link %}<a href="{{ link }}" class="link-arrow shrink-0">{{ link_text }}{{ icon('arrow_forward', 'text-lg') }}</a>{% endif %}
+</div>
+{%- endmacro %}
+
+{# ===== Карточка направления по Узбекистану (фото + подпись поверх) ===== #}
+{% macro uz_card(d, lazy=True) -%}
+<a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-card sm:aspect-[3/4]">
+  <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="420" height="324" {% if lazy %}loading="lazy" decoding="async"{% endif %} class="img-cover transition duration-500 group-hover:scale-105">
+  <span class="bg-card-fade absolute inset-0"></span>
+  <span class="absolute inset-x-0 bottom-0 p-4 text-white">
+    <span class="block text-lg font-bold leading-tight">{{ d.name }}</span>
+    <span class="mt-1 block text-[13px] leading-snug text-white/85">{{ d.tag }}</span>
+  </span>
+  <span class="absolute right-3 top-3 inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 text-navy opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">{{ icon('arrow_outward', 'text-lg') }}</span>
+</a>
+{%- endmacro %}
+
+{# ===== Карточка международного направления (фото сверху, текст снизу) ===== #}
+{% macro intl_card(d, show_btn=False) -%}
+<a href="{{ url('international/' ~ d.slug ~ '/') }}" class="group card flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-float" data-kinds="{{ d.kinds|join(' ') }}">
+  <span class="block aspect-[7/6] overflow-hidden">
+    <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="420" height="360" loading="lazy" decoding="async" class="img-cover transition duration-500 group-hover:scale-105">
+  </span>
+  <span class="flex flex-1 flex-col p-4">
+    <span class="font-bold text-navy">{{ d.name }}</span>
+    <span class="mt-1 text-[13px] text-ink-soft">{{ d.tag }}</span>
+    {% if show_btn %}<span class="mt-auto pt-4 link-arrow">{{ S.common.more }}{{ icon('arrow_forward', 'text-lg') }}</span>{% endif %}
+  </span>
+</a>
+{%- endmacro %}
+
+{# ===== Хлебные крошки ===== #}
+{% macro breadcrumbs(items) -%}
+<nav aria-label="breadcrumb" class="mb-4 text-xs font-semibold uppercase tracking-wide">
+  <ol class="flex flex-wrap items-center gap-1.5 text-white/70">
+    <li><a href="{{ url('') }}" class="hover:text-white">{{ S.common.home_crumb }}</a></li>
+    {% for it in items %}
+      <li aria-hidden="true">/</li>
+      <li>{% if it.get('href') %}<a href="{{ it.href }}" class="hover:text-white">{{ it.name }}</a>{% else %}<span class="text-accent" aria-current="page">{{ it.name }}</span>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</nav>
+{%- endmacro %}
+
+{# ===== Шапка внутренней страницы ===== #}
+{% macro page_hero(title, intro=None, crumbs=[], img=None, img_alt='') -%}
+<section class="relative overflow-hidden bg-navy-900 text-white">
+  {% if img %}
+  <img src="{{ asset('img/' ~ img) }}" alt="{{ img_alt }}" width="1600" height="900" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45">
+  <span class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/80 to-navy-900/20"></span>
+  {% else %}
+  <span class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal/25 blur-3xl" aria-hidden="true"></span>
+  <span class="absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-accent/20 blur-3xl" aria-hidden="true"></span>
+  {% endif %}
+  <div class="container relative py-14 md:py-20 {{ 'lg:py-28' if img }}">
+    {{ breadcrumbs(crumbs) }}
+    <h1 class="max-w-3xl text-3xl font-extrabold leading-tight !text-white md:text-5xl text-balance">{{ title }}</h1>
+    {% if intro %}<p class="mt-5 max-w-2xl text-base leading-relaxed text-white/85 md:text-lg">{{ intro }}</p>{% endif %}
+    {% if caller is defined %}{{ caller() }}{% endif %}
+  </div>
+</section>
+{%- endmacro %}
+
+{# ===== Пустой слот под фото заказчика ===== #}
+{% macro photo_slot(cls='aspect-[4/3]') -%}
+<div class="photo-slot {{ cls }}">{{ icon('add_photo_alternate', 'text-3xl text-navy/30') }}<span class="px-3">{{ S.common.photo_slot }}</span></div>
+{%- endmacro %}
+
+{# ===== Список контактов ===== #}
+{% macro contact_list(dark=False) -%}
+{% set t = 'text-white' if dark else 'text-navy' %}
+{% set s = 'text-white/70' if dark else 'text-ink-soft' %}
+{% set c = 'bg-white text-navy' if dark else 'bg-navy text-white' %}
+<ul class="space-y-5">
+  <li><a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="group flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ tg('h-5 w-5') }}</span>
+    <span><span class="block font-semibold {{ t }} group-hover:underline">{{ S.contacts.tg }}</span><span class="block text-sm {{ s }}">{{ SITE.telegram_handle }} · {{ S.contacts.tg_text }}</span></span></a></li>
+  {% for p in SITE.phones %}
+  <li><a href="tel:{{ p|replace(' ', '') }}" class="group flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('call', 'text-xl') }}</span>
+    <span><span class="block font-semibold {{ t }}">{{ S.contacts.phone }}</span><span class="block text-sm {{ s }} group-hover:underline">{{ p }}</span></span></a></li>
+  {% endfor %}
+  {% if SITE.email %}
+  <li><a href="mailto:{{ SITE.email }}" class="group flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('mail', 'text-xl') }}</span>
+    <span><span class="block font-semibold {{ t }}">{{ S.contacts.email }}</span><span class="block break-all text-sm {{ s }} group-hover:underline">{{ SITE.email }}</span></span></a></li>
+  {% endif %}
+  {% if SITE.address and SITE.address[L] %}
+  <li class="flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('location_on', 'text-xl') }}</span>
+    <span><span class="block font-semibold {{ t }}">{{ S.contacts.address }}</span><span class="block text-sm {{ s }}">{{ SITE.address[L] }}</span></span></li>
+  {% endif %}
+  {% if SITE.hours and SITE.hours[L] %}
+  <li class="flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('schedule', 'text-xl') }}</span>
+    <span><span class="block font-semibold {{ t }}">{{ S.contacts.hours }}</span><span class="block text-sm {{ s }}">{{ SITE.hours[L] }}</span></span></li>
+  {% endif %}
+</ul>
+{%- endmacro %}
+
+{# ===== Форма заявки ===== #}
+{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False) -%}
+<form id="{{ form_id }}" class="lead-form space-y-4" novalidate data-lead-form>
+  <input type="hidden" name="page" value="{{ abs_url(L, path) }}">
+  <input type="hidden" name="lang" value="{{ L }}">
+  <input type="hidden" name="search" value="">
+  <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+    <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+  </div>
+  <input type="hidden" name="ts" value="">
+
+  <div class="grid gap-4 {{ '' if compact else ('sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2') }}">
+    <div>
+      <label class="field-label" for="{{ form_id }}-name">{{ S.lead.name }} <span class="text-red-500">*</span></label>
+      <input class="field" id="{{ form_id }}-name" name="name" type="text" autocomplete="name" placeholder="{{ S.lead.name_ph }}" required minlength="2" maxlength="80">
+      <p class="field-error" data-msg-required="{{ S.lead.err_name }}">{{ S.lead.err_name }}</p>
+    </div>
+    <div>
+      <label class="field-label" for="{{ form_id }}-contact">{{ S.lead.contact }} <span class="text-red-500">*</span></label>
+      <input class="field" id="{{ form_id }}-contact" name="contact" type="text" inputmode="text" autocomplete="tel" placeholder="{{ S.lead.contact_ph }}" required maxlength="60" data-validate="contact">
+      <p class="field-error">{{ S.lead.err_contact }}</p>
+    </div>
+  </div>
+
+  <div>
+    <label class="field-label" for="{{ form_id }}-direction">{{ S.lead.direction }}</label>
+    <select class="field field-select" id="{{ form_id }}-direction" name="direction">
+      {{ direction_options(preset_dest) }}
+    </select>
+  </div>
+
+  <fieldset>
+    <legend class="field-label">{{ S.lead.type }}</legend>
+    <div class="flex flex-wrap gap-2">
+      {% for k, v in S.lead.types.items() %}
+      <label class="relative">
+        <input type="radio" name="tour_type" value="{{ k }}" class="chip-input peer sr-only" {% if k == preset_type %}checked{% endif %}>
+        <span class="chip">{{ v }}</span>
+      </label>
+      {% endfor %}
+    </div>
+  </fieldset>
+
+  {% if not compact %}
+  <div class="grid gap-4 {{ 'sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2' }}">
+    <div>
+      <label class="field-label" for="{{ form_id }}-dates">{{ S.lead.dates }} <span class="font-normal normal-case text-ink-soft">({{ S.lead.optional }})</span></label>
+      <input class="field" id="{{ form_id }}-dates" name="dates" type="text" maxlength="80" placeholder="{{ S.lead.dates_ph }}">
+    </div>
+    <div>
+      <label class="field-label" for="{{ form_id }}-comment">{{ S.lead.comment }} <span class="font-normal normal-case text-ink-soft">({{ S.lead.optional }})</span></label>
+      <textarea class="field min-h-[52px] resize-y" id="{{ form_id }}-comment" name="comment" rows="1" maxlength="1000" placeholder="{{ S.lead.comment_ph }}"></textarea>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="field-wrap">
+    <label class="flex cursor-pointer items-start gap-3 text-sm text-ink-soft">
+      <input type="checkbox" name="consent" value="1" required class="mt-0.5 h-5 w-5 shrink-0 cursor-pointer rounded border-navy/30 accent-[#0B2A7A]">
+      <span>{{ S.lead.consent_pre }} <a href="{{ url('consent/') }}" class="font-semibold text-navy underline underline-offset-2" target="_blank">{{ S.lead.consent_link }}</a></span>
+    </label>
+    <p class="field-error">{{ S.lead.err_consent }}</p>
+  </div>
+
+  <button type="submit" class="btn-accent w-full !py-3.5 text-base">
+    <span data-label>{{ S.lead.submit }}</span>{{ icon('arrow_forward', 'text-xl') }}
+  </button>
+  <p class="hidden rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700" role="alert" data-form-error>{{ S.lead.error }}</p>
+</form>
+{%- endmacro %}
+
+{# ===== Опции направления (общие для поиска и формы) ===== #}
+{% macro direction_options(selected='', placeholder=True) -%}
+{% if placeholder %}<option value="">{{ S.lead.direction_ph }}</option>{% endif %}
+<optgroup label="{{ S.search.group_uz }}">
+  {% for d in UZ %}<option value="{{ d.name }}" {% if selected == d.slug %}selected{% endif %}>{{ d.name }}</option>{% endfor %}
+</optgroup>
+<optgroup label="{{ S.search.group_intl }}">
+  {% for d in INTL %}<option value="{{ d.name }}" {% if selected == d.slug %}selected{% endif %}>{{ d.name }}</option>{% endfor %}
+</optgroup>
+<optgroup label="{{ S.search.group_info }}">
+  <option value="{{ S.search.info_opt }}" {% if selected == 'info' %}selected{% endif %}>{{ S.search.info_opt }}</option>
+</optgroup>
+<option value="{{ S.lead.direction_other }}">{{ S.lead.direction_other }}</option>
+{%- endmacro %}
+
+{# ===== Секция «форма + контакты» ===== #}
+{% macro lead_section(title=None, text=None, preset_dest='', preset_type='', bg='bg-sky-50') -%}
+<section id="lead" class="section {{ bg }} scroll-mt-20">
+  <div class="container">
+    <div class="grid gap-8 overflow-hidden rounded-3xl bg-white p-6 shadow-card ring-1 ring-navy/5 md:p-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
+      <div>
+        <h2 class="text-2xl font-bold md:text-3xl">{{ title or S.lead.title }}</h2>
+        <p class="mb-6 mt-2 text-ink-soft">{{ text or S.lead.text }}</p>
+        {{ lead_form(preset_dest=preset_dest, preset_type=preset_type) }}
+      </div>
+      <div class="lg:border-l lg:border-navy/10 lg:pl-12">
+        {{ contact_list() }}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endmacro %}

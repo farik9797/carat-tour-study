@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% import 'partials/macros.html' as m with context %}
+{% block content %}
+{{ m.page_hero(P.h1, None, [{'name': P.h1}]) }}
+<section class="section">
+  <div class="container max-w-3xl">
+    <div class="prose-site">
+      {% for sec in P.body %}<h2>{{ loop.index }}. {{ sec[0] }}</h2><p>{{ sec[1] }}</p>{% endfor %}
+    </div>
+    {% if SHOW_DEV_NOTES %}<p class="mt-10 rounded-xl bg-accent-50 px-4 py-3 text-sm text-navy">{{ m.icon('info', 'text-accent-600') }} {{ P.updated }}</p>{% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ S.lang.html }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ meta_title }}</title>
+  {% if meta_desc %}<meta name="description" content="{{ meta_desc }}">{% endif %}
+  {% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+  <link rel="canonical" href="{{ abs_url(L, path) }}">
+  {% if not noindex %}{% for l in LANGS %}
+  <link rel="alternate" hreflang="{{ HREFLANG[l] }}" href="{{ abs_url(l, path) }}">{% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ abs_url(DEFAULT_LANG, path) }}">{% endif %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Carat Tour &amp; Study">
+  <meta property="og:title" content="{{ meta_title }}">
+  {% if meta_desc %}<meta property="og:description" content="{{ meta_desc }}">{% endif %}
+  <meta property="og:url" content="{{ abs_url(L, path) }}">
+  <meta property="og:image" content="{{ SITE.domain }}/assets/img/{{ og_image or 'hero-samarkand.webp' }}">
+  <meta property="og:locale" content="{{ S.lang.og }}">
+  {% for l in LANGS if l != L %}<meta property="og:locale:alternate" content="{{ LANG_OG[l] }}">
+  {% endfor %}<meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0B2A7A">
+
+  <link rel="icon" href="{{ asset('img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap">
+  {% if L == 'zh' %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap">{% endif %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names={{ ICON_NAMES }}&display=block">
+  {% if preload_img %}<link rel="preload" as="image" href="{{ asset('img/' ~ preload_img) }}" fetchpriority="high">{% endif %}
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ VERSION }}">
+  {% for ld in jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>
+  {% endfor %}
+</head>
+<body class="flex min-h-screen flex-col" data-lang="{{ L }}" data-endpoint="{{ rel_root }}send.php" data-thanks="{{ url('thanks/') }}">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-card">{{ S.nav.skip }}</a>
+  {% include 'partials/header.html' %}
+  <main id="main" class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+  {% include 'partials/footer.html' %}
+  <script>window.CARAT_I18N = {{ js_i18n | tojson }};</script>
+  <script src="{{ asset('js/app.js') }}?v={{ VERSION }}" defer></script>
+</body>
+</html>

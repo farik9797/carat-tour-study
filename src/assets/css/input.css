@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-white text-ink font-sans antialiased; }
+  :lang(zh) body, html[lang="zh-Hans"] body { font-family: 'Noto Sans SC', 'Montserrat', system-ui, sans-serif; }
+  h1, h2, h3, h4 { @apply text-navy font-bold tracking-tight; }
+  ::selection { @apply bg-accent/40; }
+  [x-cloak] { display: none !important; }
+  .material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 1.25em; line-height: 1; vertical-align: middle; user-select: none;
+    display: inline-block; width: 1em; overflow: hidden;
+  }
+  .icon-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  :focus-visible { @apply outline-none ring-2 ring-accent ring-offset-2; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 whitespace-nowrap; }
+  .btn-accent { @apply btn bg-accent text-navy-900 shadow-soft hover:bg-accent-600 hover:-translate-y-0.5; }
+  .btn-navy { @apply btn bg-navy text-white hover:bg-navy-800; }
+  .btn-ghost { @apply btn bg-white/90 text-navy ring-1 ring-navy/20 hover:ring-navy/50 hover:bg-white; }
+  .btn-outline-light { @apply btn text-white ring-1 ring-white/50 hover:bg-white/10; }
+
+  .section { @apply py-14 md:py-20; }
+  .section-title { @apply relative pl-5 text-2xl md:text-3xl font-bold text-navy; }
+  .section-title::before { content: ''; @apply absolute left-0 top-1 bottom-1 w-1.5 rounded-full bg-accent; }
+  .section-sub { @apply mt-3 max-w-2xl text-ink-soft md:text-[17px] leading-relaxed; }
+  .link-arrow { @apply inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-accent-600 transition; }
+
+  .card { @apply rounded-2xl bg-white shadow-card ring-1 ring-navy/5; }
+  .field-label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-navy/70; }
+  .field { @apply w-full rounded-xl border border-navy/15 bg-white px-4 py-3 text-[15px] text-ink placeholder:text-ink-soft/70 transition focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/15; }
+  .field-select { @apply appearance-none bg-no-repeat pr-10; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230B2A7A'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-size: 22px; background-position: right .75rem center; }
+  .nav-link { @apply relative rounded-lg px-3 py-2 text-navy/80 transition hover:text-navy; }
+  .nav-link.is-active { @apply text-navy; }
+  .nav-link.is-active::after { content: ''; @apply absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-accent; }
+  .field.is-invalid { @apply border-red-500 ring-2 ring-red-500/15; }
+  .field-error { @apply mt-1 hidden text-xs font-medium text-red-600; }
+  .is-invalid + .field-error, .field-wrap.is-invalid .field-error { @apply block; }
+
+  .chip { @apply inline-flex cursor-pointer items-center gap-2 rounded-full border border-navy/15 bg-white px-4 py-2 text-sm font-medium text-navy transition hover:border-navy/40; }
+  .chip-input:checked + .chip, .chip.is-active { @apply border-navy bg-navy text-white; }
+  .chip-input:focus-visible + .chip { @apply ring-2 ring-accent ring-offset-2; }
+
+  .prose-site p { @apply mb-4 leading-relaxed text-ink; }
+  .prose-site h2 { @apply mb-3 mt-10 text-xl md:text-2xl; }
+  .prose-site ul { @apply mb-4 list-disc space-y-1.5 pl-5; }
+
+  .img-cover { @apply h-full w-full object-cover; }
+  .photo-slot { @apply flex flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-navy/15 bg-sky-50 text-center text-sm text-ink-soft; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .bg-hero-fade { background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.92) 32%, rgba(255,255,255,.35) 55%, rgba(255,255,255,0) 72%); }
+  .bg-card-fade { background: linear-gradient(180deg, rgba(6,41,88,0) 40%, rgba(6,41,88,.85) 100%); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }

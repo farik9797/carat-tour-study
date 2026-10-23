@@ -1,0 +1,267 @@
+# -*- coding: utf-8 -*-
+"""English version."""
+
+S = {
+    "lang": {"code": "en", "html": "en", "og": "en_US", "label": "EN", "name": "English"},
+
+    "nav": {
+        "home": "Home", "about": "About", "tours": "Tours", "uz": "Uzbekistan tours",
+        "intl": "International tours", "info": "Info tours", "contacts": "Contacts",
+        "cta": "Find a tour", "menu": "Menu", "close": "Close", "tg": "Message on Telegram",
+        "lang": "Site language", "skip": "Skip to content",
+    },
+
+    "common": {
+        "more": "Learn more", "all_dest": "All destinations", "home_crumb": "Home",
+        "photo_slot": "Space for agency photo", "on_request": "on request",
+        "by_agreement": "flexible", "example": "example", "demo_review": "demo",
+    },
+
+    "hero": {
+        "eyebrow": "Travel · Discover · Explore",
+        "title": "Discover the world with Carat Tour",
+        "text": "International destinations, journeys across Uzbekistan and familiarization info tours — built around your route and interests.",
+        "btn_intl": "International tours", "btn_uz": "Uzbekistan tours",
+        "tagline": "More than just travel",
+        "img_alt": "Registan Square in Samarkand",
+    },
+
+    "search": {
+        "aria": "Quick tour search",
+        "dest": "Destination", "dest_ph": "Choose a destination",
+        "dates": "Dates", "dates_opts": ["Any dates", "Within a month", "In 1–3 months", "In 3–6 months", "Later"],
+        "tourists": "Travellers", "tourists_opts": ["1 adult", "2 adults", "3 adults", "Family with children", "Group of 5+"],
+        "btn": "Find a tour",
+        "group_uz": "Uzbekistan", "group_intl": "Abroad", "group_info": "Info tours", "info_opt": "Info tour (for professionals)",
+    },
+
+    "home": {
+        "meta_title": "Carat Tour & Study — Uzbekistan tours, international tours and info tours",
+        "meta_desc": "Carat Tour & Study travel agency: journeys across Uzbekistan, international tours and familiarization info tours. Tailor-made planning and support on the road.",
+        "uz_title": "Uzbekistan tours",
+        "uz_sub": "Discover unique cities, rich history and the famous hospitality of our country.",
+        "intl_title": "International destinations",
+        "intl_sub": "Travel the world with Carat Tour. We will match a tour to your style, budget and wishes.",
+        "info_title": "Info tours",
+        "info_text": "Familiarization tours are a chance to see destinations, hotels, culture and tourist routes first-hand.",
+        "info_points": ["Meetings with hotel representatives", "Discovering culture and traditions", "Visiting tourist sites", "Joining professional tours"],
+        "info_btn": "About info tours",
+        "why_title": "Why choose Carat Tour & Study?",
+        "promo_title": "New experiences nearby",
+        "promo_text": "The Chimgan mountains and Charvak lake are just a couple of hours from Tashkent. Perfect for a weekend.",
+        "promo_btn": "View destination",
+        "reviews_title": "What our clients say",
+        "final_title": "Your next journey starts here",
+        "final_text": "Send a request — we will put together a tour just for you.",
+        "final_btn2": "Discuss on Telegram",
+    },
+
+    "why": [
+        {"icon": "public", "title": "Tailor-made routes", "text": "We match the tour to your interests and budget."},
+        {"icon": "support_agent", "title": "Guidance and support", "text": "We stay in touch at every stage of your trip."},
+        {"icon": "account_balance", "title": "Culture and landmarks", "text": "Deeper than ordinary sightseeing."},
+        {"icon": "groups", "title": "Group and private tours", "text": "For families, friends and corporate clients."},
+    ],
+
+    "lead": {
+        "title": "Ready to travel?",
+        "text": "Send a request — we will find the right tour and get back to you shortly.",
+        "name": "Your name", "name_ph": "e.g. John",
+        "contact": "Phone or Telegram", "contact_ph": "+998 __ ___ __ __ or @username",
+        "direction": "Destination of interest", "direction_ph": "Choose a destination", "direction_other": "Other / not sure yet",
+        "type": "Tour type", "types": {"intl": "International", "uz": "Uzbekistan", "info": "Info tour"},
+        "dates": "Preferred dates", "dates_ph": "e.g. May, 7–10 days",
+        "comment": "Comment", "comment_ph": "Number of travellers, hotel wishes, budget…",
+        "optional": "optional",
+        "consent_pre": "I agree to the", "consent_link": "processing of my personal data",
+        "submit": "Send request", "sending": "Sending…",
+        "error": "We couldn't send your request. Please try again or message us on Telegram.",
+        "err_required": "Please fill in this field", "err_name": "Enter your name (at least 2 characters)",
+        "err_contact": "Enter a phone number (+998…) or Telegram (@username)",
+        "err_consent": "Consent to data processing is required",
+        "search_note": "Search parameters",
+    },
+
+    "contacts": {
+        "tg": "Telegram", "tg_text": "Message us in one click",
+        "phone": "Phone", "email": "Email", "address": "Office address", "hours": "Working hours",
+    },
+
+    "reviews": [
+        {"name": "Anna Petrova", "place": "Russia", "text": "The trip to Samarkand was unforgettable! Everything was organised perfectly."},
+        {"name": "John Smith", "place": "United Kingdom", "text": "Thank you for your professionalism and attention to detail. I recommend Carat Tour!"},
+        {"name": "Li Wei", "place": "China", "text": "A great team that helped us find the perfect route around Uzbekistan. Everything went smoothly!"},
+    ],
+
+    "footer": {
+        "about": "Travel agency: international tours, journeys across Uzbekistan and familiarization info tours.",
+        "sections": "Sections", "contacts": "Contacts", "privacy": "Privacy policy",
+        "consent": "Consent to data processing", "rights": "All rights reserved.",
+        "slogan": "Travel. Discovery. New horizons.",
+    },
+
+    "pages": {
+        "uz": {
+            "meta_title": "Uzbekistan tours — Tashkent, Samarkand, Bukhara, Khiva, Chimgan | Carat Tour",
+            "meta_desc": "Travel across Uzbekistan with Carat Tour & Study: Tashkent, Samarkand, Bukhara, Khiva and the Chimgan mountains. Private and group programmes.",
+            "h1": "Uzbekistan tours",
+            "intro": "Five destinations to start exploring Uzbekistan: from the modern capital to the ancient Silk Road cities and mountain landscapes.",
+        },
+        "dest": {
+            "about": "About the destination", "sights": "What to see", "gallery": "Photo gallery",
+            "programs": "Tour programmes",
+            "programs_text": "Programmes are put together around your dates, group and interests: one-day excursions, multi-day tours or combined routes across several cities.",
+            "duration": "Duration", "dates": "Dates", "price": "Price",
+            "dates_val": "all year round",
+            "similar": "Similar destinations",
+            "form_title": "Planning a trip: {name}?",
+            "form_text": "Tell us about your plans — we will prepare a programme and calculate the price.",
+            "meta_title": "{name} — tours and excursions | Carat Tour & Study",
+        },
+        "intl": {
+            "meta_title": "International tours — Maldives, Turkey, UAE, Thailand, Europe | Carat Tour",
+            "meta_desc": "International tours from Uzbekistan with Carat Tour & Study: beach holidays, cities and excursions. Tours matched to your budget and dates.",
+            "h1": "International tours",
+            "intro": "Popular destinations abroad. Specific programmes, dates and prices are selected on request.",
+            "filter": "Holiday type", "all": "All",
+            "kinds": {"beach": "Beach holiday", "city": "Cities & excursions", "nature": "Nature"},
+            "empty": "No destinations match this filter yet.",
+        },
+        "tour": {
+            "about": "About the destination", "highlights": "What can be included",
+            "conditions": "Programme, dates and price",
+            "conditions_text": "We select current programmes, departure dates, prices and terms individually and confirm them before booking. Send a request and a manager will contact you.",
+            "discuss": "What we will discuss",
+            "discuss_items": ["Travel dates and length of stay", "Holiday style and who is travelling", "Hotel level and location", "Excursions and extra services", "A comfortable budget"],
+            "form_title": "Tour request: {name}",
+            "other": "Other destinations",
+            "meta_title": "{name} tour — prices on request | Carat Tour",
+        },
+        "info": {
+            "meta_title": "Info tours for travel professionals | Carat Tour & Study",
+            "meta_desc": "Carat Tour & Study familiarization info tours for travel agents and industry professionals: destinations, hotels and routes first-hand.",
+            "h1": "Info tours",
+            "intro": "Familiarization trips for travel industry professionals are a separate line of our work. You see the hotels, routes and sites you later recommend to clients with your own eyes.",
+            "for_title": "Who they are for",
+            "for_items": [
+                {"icon": "badge", "title": "Travel agents and managers", "text": "To sell a destination you have seen yourself."},
+                {"icon": "hotel", "title": "Hotel representatives", "text": "To meet partners and get to know the market."},
+                {"icon": "handshake", "title": "Partners and tour operators", "text": "To build joint programmes."},
+                {"icon": "groups", "title": "Professional groups", "text": "For industry delegations and study trips."},
+            ],
+            "goals_title": "Goals and benefits",
+            "goals": ["Getting to know the destination and its sites in person", "Meetings with hotels and the host side", "Learning about culture, traditions and routes", "New professional contacts", "Material and impressions for working with clients"],
+            "dirs_title": "Info tour destinations",
+            "dirs_text": "The main geography is the cities and regions of Uzbekistan. Info tours abroad are organised as programmes are formed.",
+            "cond_title": "Dates and participation terms",
+            "cond_text": "Dates, programme, terms and price are published as each trip is formed. Send a request and we will let you know about upcoming info tours.",
+            "gallery_title": "Photos from previous trips",
+            "form_title": "Info tour request",
+        },
+        "about": {
+            "meta_title": "About Carat Tour & Study — travel agency in Uzbekistan",
+            "meta_desc": "Carat Tour & Study is a travel agency offering international tours, journeys across Uzbekistan and info tours for travel professionals.",
+            "h1": "About us",
+            "intro": "Carat Tour & Study is a travel agency that helps travellers from Uzbekistan discover the world and introduces guests from all over the world to Uzbekistan.",
+            "text": [
+                "We plan journeys for a specific person, family or group, taking into account interests, dates, pace and budget.",
+                "Our work covers three areas — international tours, journeys across Uzbekistan and familiarization info tours for travel professionals.",
+            ],
+            "dirs_title": "What we do",
+            "dirs": [
+                {"icon": "flight_takeoff", "title": "International tours", "text": "Beach holidays, cities and sightseeing programmes abroad."},
+                {"icon": "mosque", "title": "Uzbekistan tours", "text": "Tashkent, Samarkand, Bukhara, Khiva and the Chimgan mountains."},
+                {"icon": "travel_explore", "title": "Info tours", "text": "Familiarization trips for industry professionals."},
+            ],
+            "principles_title": "How we work",
+            "team_title": "Team and events",
+        },
+        "contacts": {
+            "meta_title": "Contact Carat Tour & Study — phone, Telegram, email",
+            "meta_desc": "Get in touch with Carat Tour & Study via Telegram, phone or email. Send a request to find your tour.",
+            "h1": "Contacts",
+            "intro": "Message us on Telegram, call us or send a request through the form — we will reply and help you choose.",
+            "form_title": "Contact form",
+        },
+        "thanks": {
+            "meta_title": "Request sent | Carat Tour & Study",
+            "h1": "Thank you! Your request has been sent",
+            "text": "We have received your request and will contact you shortly. If it is urgent, message us on Telegram.",
+            "home": "Back to home",
+        },
+        "privacy": {
+            "meta_title": "Privacy policy | Carat Tour & Study",
+            "h1": "Privacy policy",
+            "body": [
+                ["General", "This policy describes how Carat Tour & Study processes the personal data of visitors to carattourandstudy.uz. By using the site and sending a request, you agree to this policy."],
+                ["What data we receive", "Your name, phone number or Telegram username, destination of interest, preferred dates and comment — only the data you enter in the request form. The site may also collect anonymised technical data (browser type, pages visited) for statistics."],
+                ["Purpose of processing", "The data is used only to contact you, select a tour and answer your request. We do not sell or share your data with third parties, except where necessary to arrange a trip with your consent or where required by law."],
+                ["Storage and protection", "Requests are forwarded to the responsible employee via secure channels and are never published. Data is kept no longer than necessary for the purposes of processing."],
+                ["Your rights", "You can ask us to correct, change or delete your data by messaging us on Telegram or by email as listed on the Contacts page."],
+            ],
+            "updated": "This document must be approved by the client and a lawyer before publication.",
+        },
+        "consent": {
+            "meta_title": "Consent to personal data processing | Carat Tour & Study",
+            "h1": "Consent to personal data processing",
+            "body": [
+                ["Consent", "By submitting a form on carattourandstudy.uz, I consent to Carat Tour & Study processing my personal data: my name, phone number or Telegram username and the information provided in the request."],
+                ["Purpose", "Processing is carried out to contact me, select and arrange a trip and answer my request."],
+                ["Term and withdrawal", "This consent is valid until the purposes of processing are achieved and may be withdrawn at any time by sending a message to the contacts listed on the site."],
+            ],
+            "updated": "This document must be approved by the client and a lawyer before publication.",
+        },
+        "e404": {
+            "meta_title": "Page not found | Carat Tour & Study",
+            "h1": "Page not found",
+            "text": "The page may have been moved or the address was typed incorrectly.",
+            "home": "Back to home",
+        },
+    },
+
+    "uz_dest": {
+        "tashkent": {
+            "name": "Tashkent", "tag": "A modern capital",
+            "desc": "Tashkent is the largest city in Central Asia, where wide avenues and modern districts sit next to the old town, bazaars and mosques. A convenient starting point for any trip around the country.",
+            "sights": [["Hazrati Imam complex", "The spiritual heart of Tashkent with madrasahs, mosques and an ancient Quran manuscript."], ["Chorsu Bazaar", "A colourful oriental market under its famous dome — spices, dried fruit and flatbread."], ["Tashkent Metro", "Museum-like stations with marble, mosaics and chandeliers — one of the most beautiful metros in the world."], ["Amir Timur Square", "The city centre with the Tamerlane monument, a museum and shady alleys."]],
+        },
+        "samarkand": {
+            "name": "Samarkand", "tag": "Historic heritage and architecture",
+            "desc": "Samarkand is the jewel of the Great Silk Road and the capital of Timur's empire. Turquoise domes, majolica portals and Registan Square impress even seasoned travellers.",
+            "sights": [["Registan Square", "An ensemble of three madrasahs — the main symbol of Uzbekistan."], ["Gur-e-Amir Mausoleum", "Timur's tomb with a gilded interior."], ["Shah-i-Zinda Necropolis", "A street of mausoleums with unique tilework."], ["Bibi-Khanym Mosque", "One of the largest mosques of its time."]],
+        },
+        "bukhara": {
+            "name": "Bukhara", "tag": "An ancient city of oriental culture",
+            "desc": "Bukhara is a living museum city with trading domes, caravanserais and madrasahs. Here you stroll unhurriedly along old streets and drink tea by the pool.",
+            "sights": [["Lyabi-Hauz ensemble", "The heart of the old town around a pool framed by madrasahs."], ["Poi-Kalyan complex", "The Kalyan Minaret, mosque and Mir-i-Arab Madrasah."], ["Ark Fortress", "The ancient residence of Bukhara's rulers."], ["Samanid Mausoleum", "A 10th-century masterpiece of brick architecture."]],
+        },
+        "khiva": {
+            "name": "Khiva", "tag": "The Itchan Kala historic complex",
+            "desc": "Khiva is a fortress city whose inner town, Itchan Kala, is entirely a UNESCO World Heritage Site. Clay walls, minarets and sunsets over the fortress create a fairy-tale atmosphere.",
+            "sights": [["Itchan Kala", "The inner town behind fortress walls — an open-air museum."], ["Kalta Minor Minaret", "The unfinished turquoise minaret, the symbol of Khiva."], ["Juma Mosque", "A mosque with a forest of over two hundred carved wooden columns."], ["Tash-Hauli Palace", "The palace of the Khiva khans with tiled iwans."]],
+        },
+        "chimgan": {
+            "name": "Chimgan", "tag": "Mountains, nature and outdoor activities",
+            "desc": "The Chimgan mountains are a popular getaway near Tashkent. Trekking and lakes in summer, skiing in winter, and fresh air with views of Charvak all year round.",
+            "sights": [["Big Chimgan Peak", "A summit over 3,300 m high — a goal for trekkers."], ["Charvak Reservoir", "A turquoise mountain lake with beaches and leisure areas."], ["Amirsoy Resort", "A modern mountain resort with cable cars."], ["Beldersay cable car", "A ride up to mountain slopes and viewpoints."]],
+        },
+    },
+
+    "intl_dest": {
+        "maldives": {"name": "Maldives", "tag": "Paradise for two",
+                     "desc": "Atolls in the Indian Ocean with white beaches, turquoise lagoons and overwater villas. Ideal for a honeymoon and a relaxing holiday.",
+                     "highlights": ["Overwater and beach villas", "Snorkelling and diving by the reefs", "Holidays for couples and honeymooners", "Spa and boat trips"]},
+        "turkey": {"name": "Turkey", "tag": "History and the sea",
+                   "desc": "Mediterranean resorts, historic Istanbul and the landscapes of Cappadocia — a destination that easily combines a beach holiday with rich sightseeing.",
+                   "highlights": ["Beach holidays on the coast", "Istanbul excursions", "Cappadocia and hot-air balloons", "Family hotels"]},
+        "uae": {"name": "UAE", "tag": "Modern luxury",
+                "desc": "Dubai's skyscrapers, Abu Dhabi's cultural sites, Gulf beaches and desert safaris — a comfortable choice for a short trip and shopping.",
+                "highlights": ["Dubai and Abu Dhabi", "Desert safari", "Beaches and water parks", "Shopping and entertainment"]},
+        "thailand": {"name": "Thailand", "tag": "Exotic and vivid experiences",
+                     "desc": "Tropical islands, Bangkok's temples, Thai cuisine and a warm sea — for those who want to combine relaxation with new experiences.",
+                     "highlights": ["Islands and beaches", "Bangkok temples and markets", "Sea excursions", "Thai cuisine and massage"]},
+        "europe": {"name": "Europe", "tag": "Classic journeys",
+                   "desc": "Paris, Rome, Prague and other European cities — sightseeing routes through one or several countries with museums, architecture and food.",
+                   "highlights": ["Multi-country routes", "Museums and architecture", "Food walks", "City weekends"]},
+    },
+}

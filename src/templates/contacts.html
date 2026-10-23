@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% import 'partials/macros.html' as m with context %}
+{% block content %}
+{{ m.page_hero(P.h1, P.intro, [{'name': P.h1}]) }}
+
+<section id="lead" class="section scroll-mt-20">
+  <div class="container grid gap-6 lg:grid-cols-[1fr_1.5fr]">
+    <div class="card p-6 md:p-8">
+      <h2 class="mb-6 text-xl font-bold">{{ S.footer.contacts }}</h2>
+      {{ m.contact_list() }}
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-navy mt-8 w-full">{{ m.tg() }}{{ S.nav.tg }}</a>
+    </div>
+    <div class="card p-6 md:p-8">
+      <h2 class="text-xl font-bold md:text-2xl">{{ P.form_title }}</h2>
+      <p class="mb-6 mt-2 text-ink-soft">{{ S.lead.text }}</p>
+      {{ m.lead_form() }}
+    </div>
+  </div>
+</section>
+{% endblock %}

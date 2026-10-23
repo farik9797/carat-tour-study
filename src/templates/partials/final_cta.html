@@ -1,0 +1,15 @@
+{% import 'partials/macros.html' as m with context %}
+<section class="relative overflow-hidden bg-gradient-to-r from-navy-950 via-navy-900 to-navy-800 text-white">
+  <span class="absolute -left-10 top-1/2 hidden h-48 w-48 -translate-y-1/2 rounded-full ring-[18px] ring-white/5 md:block" aria-hidden="true"></span>
+  <span class="material-symbols-rounded absolute right-8 top-6 !w-auto text-6xl text-white/10 md:text-8xl" aria-hidden="true">flight</span>
+  <div class="container relative flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:py-14">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold !text-white md:text-3xl text-balance">{{ S.home.final_title }}</h2>
+      <p class="mt-2 text-white/75">{{ S.home.final_text }}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="{{ cta_href }}" class="btn-accent">{{ S.nav.cta }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-outline-light">{{ m.tg() }}{{ S.home.final_btn2 }}</a>
+    </div>
+  </div>
+</section>

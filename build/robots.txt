@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /send.php
+Disallow: /uz/thanks/
+Disallow: /ru/thanks/
+Disallow: /en/thanks/
+Disallow: /zh/thanks/
+
+Sitemap: https://carattourandstudy.uz/sitemap.xml
+Host: https://carattourandstudy.uz

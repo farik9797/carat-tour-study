@@ -1,0 +1,37 @@
+{% import 'partials/macros.html' as m with context %}
+<footer class="bg-navy-900 text-white">
+  <div class="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr]">
+    <div>
+      <a href="{{ url('') }}" class="inline-block"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="444" height="164" class="h-12 w-auto rounded-md"></a>
+      <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/70">{{ S.footer.about }}</p>
+      <div class="mt-6 flex flex-wrap gap-2" aria-label="{{ S.nav.lang }}">
+        {% for l in LANGS %}<a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" class="rounded-full px-3 py-1 text-xs font-semibold {{ 'bg-white text-navy' if l == L else 'text-white/70 ring-1 ring-white/25 hover:text-white' }}">{{ LANG_LABEL[l] }}</a>{% endfor %}
+      </div>
+    </div>
+    <nav aria-label="{{ S.footer.sections }}">
+      <p class="mb-4 text-sm font-bold uppercase tracking-wider text-accent">{{ S.footer.sections }}</p>
+      <ul class="space-y-2.5 text-sm text-white/80">
+        <li><a class="hover:text-white" href="{{ url('') }}">{{ S.nav.home }}</a></li>
+        <li><a class="hover:text-white" href="{{ url('about/') }}">{{ S.nav.about }}</a></li>
+        <li><a class="hover:text-white" href="{{ url('uzbekistan/') }}">{{ S.nav.uz }}</a></li>
+        <li><a class="hover:text-white" href="{{ url('international/') }}">{{ S.nav.intl }}</a></li>
+        <li><a class="hover:text-white" href="{{ url('info-tours/') }}">{{ S.nav.info }}</a></li>
+        <li><a class="hover:text-white" href="{{ url('contacts/') }}">{{ S.nav.contacts }}</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="mb-4 text-sm font-bold uppercase tracking-wider text-accent">{{ S.footer.contacts }}</p>
+      {{ m.contact_list(dark=True) }}
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container flex flex-col gap-3 py-5 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
+      <p>© {{ YEAR }} Carat Tour &amp; Study. {{ S.footer.rights }}</p>
+      <div class="flex flex-wrap gap-x-5 gap-y-2">
+        <a href="{{ url('privacy/') }}" class="hover:text-white">{{ S.footer.privacy }}</a>
+        <a href="{{ url('consent/') }}" class="hover:text-white">{{ S.footer.consent }}</a>
+        <span class="hidden text-white/40 md:inline">{{ S.footer.slogan }}</span>
+      </div>
+    </div>
+  </div>
+</footer>

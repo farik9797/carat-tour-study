@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% import 'partials/macros.html' as m with context %}
+{% block content %}
+
+{# ===== HERO ===== #}
+<section class="relative overflow-hidden bg-white">
+  <div class="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[64%]">
+    <img src="{{ asset('img/hero-samarkand.webp') }}" alt="{{ S.hero.img_alt }}" width="1448" height="1056" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[60%_50%] lg:aspect-auto lg:h-full">
+    <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
+    <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent lg:hidden" aria-hidden="true"></span>
+    <p class="font-hand absolute bottom-24 right-6 hidden max-w-[16rem] -rotate-6 text-right text-4xl leading-[1.05] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.45)] xl:block">{{ S.hero.tagline }}
+      <svg viewBox="0 0 200 20" class="ml-auto mt-1 h-4 w-40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M4 16C60 6 120 2 196 6"/></svg></p>
+  </div>
+  <div class="container relative pb-28 pt-6 lg:pb-40 lg:pt-20">
+    <div class="max-w-xl">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-teal-600">{{ S.hero.eyebrow }}</p>
+      <h1 class="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.5rem] text-balance">{{ S.hero.title }}</h1>
+      <p class="mt-5 max-w-md text-base leading-relaxed text-ink-soft md:text-lg">{{ S.hero.text }}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="{{ url('international/') }}" class="btn-accent">{{ S.hero.btn_intl }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+        <a href="{{ url('uzbekistan/') }}" class="btn-ghost">{{ S.hero.btn_uz }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ===== ПОИСК ТУРА ===== #}
+<section class="relative z-10 -mt-20 lg:-mt-24" aria-label="{{ S.search.aria }}">
+  <div class="container">
+    <form class="card grid gap-3 p-4 shadow-float md:grid-cols-[1.3fr_1fr_1fr_auto] md:items-center md:gap-0 md:p-3" data-tour-search>
+      <label class="flex items-center gap-3 rounded-xl px-3 py-2 md:border-r md:border-navy/10">
+        {{ m.icon('location_on', 'text-2xl text-navy') }}
+        <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.dest }}</span>
+        <select name="direction" class="field-select w-full cursor-pointer appearance-none truncate border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{{ m.direction_options() }}</select></span>
+      </label>
+      <label class="flex items-center gap-3 rounded-xl px-3 py-2 md:border-r md:border-navy/10">
+        {{ m.icon('calendar_month', 'text-2xl text-navy') }}
+        <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.dates }}</span>
+        <select name="dates" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.dates_opts %}<option {% if loop.first %}value=""{% endif %}>{{ o }}</option>{% endfor %}</select></span>
+      </label>
+      <label class="flex items-center gap-3 rounded-xl px-3 py-2">
+        {{ m.icon('group', 'text-2xl text-navy') }}
+        <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.tourists }}</span>
+        <select name="tourists" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.tourists_opts %}<option {% if loop.index == 2 %}selected{% endif %}>{{ o }}</option>{% endfor %}</select></span>
+      </label>
+      <button type="submit" class="btn-navy !rounded-xl !px-8 !py-4 md:ml-2">{{ m.icon('search', 'text-xl') }}{{ S.search.btn }}</button>
+    </form>
+  </div>
+</section>
+
+{# ===== ТУРЫ ПО УЗБЕКИСТАНУ ===== #}
+<section class="section">
+  <div class="container">
+    {{ m.section_head(S.home.uz_title, S.home.uz_sub, url('uzbekistan/'), S.common.all_dest) }}
+    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 scrollbar-none sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-5">
+      {% for d in UZ %}<div class="w-[68%] shrink-0 snap-start sm:w-auto">{{ m.uz_card(d) }}</div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== МЕЖДУНАРОДНЫЕ НАПРАВЛЕНИЯ ===== #}
+<section class="section !pt-0">
+  <div class="container">
+    {{ m.section_head(S.home.intl_title, S.home.intl_sub, url('international/'), S.common.all_dest) }}
+    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 scrollbar-none sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0 lg:grid-cols-5">
+      {% for d in INTL %}<div class="w-[62%] shrink-0 snap-start sm:w-auto">{{ m.intl_card(d) }}</div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== ИНФО-ТУРЫ ===== #}
+<section class="pb-14 md:pb-20">
+  <div class="container">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-sky-100 via-sky-50 to-white ring-1 ring-navy/5">
+      <div class="absolute inset-y-0 right-0 hidden w-[48%] md:block">
+        <img src="{{ asset('img/infotour.webp') }}" alt="" width="660" height="477" loading="lazy" class="img-cover">
+        <span class="absolute inset-0 bg-gradient-to-r from-sky-100 via-sky-100/30 to-transparent" aria-hidden="true"></span>
+      </div>
+      <div class="relative p-6 md:w-[62%] md:p-10">
+        <div class="flex items-center gap-4">
+          <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full ring-2 ring-navy text-navy">{{ m.icon('explore', 'text-3xl') }}</span>
+          <h2 class="text-2xl font-bold md:text-3xl">{{ S.home.info_title }}</h2>
+        </div>
+        <p class="mt-4 max-w-lg leading-relaxed text-ink">{{ S.home.info_text }}</p>
+        <ul class="mt-6 grid gap-3 text-sm text-navy sm:grid-cols-2">
+          {% for p in S.home.info_points %}<li class="flex items-start gap-2">{{ m.icon('check', 'text-lg text-teal-600') }}<span>{{ p }}</span></li>{% endfor %}
+        </ul>
+        <a href="{{ url('info-tours/') }}" class="btn-navy mt-8">{{ S.home.info_btn }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+      </div>
+      <img src="{{ asset('img/infotour.webp') }}" alt="" width="660" height="477" loading="lazy" class="aspect-[16/10] w-full object-cover md:hidden">
+    </div>
+  </div>
+</section>
+
+{# ===== ПОЧЕМУ МЫ ===== #}
+<section class="pb-14 md:pb-20">
+  <div class="container">
+    {{ m.section_head(S.home.why_title) }}
+    <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-navy/10">
+      {% for w in S.why %}
+      <div class="card flex flex-col items-center px-3 py-6 text-center sm:px-5 sm:py-7 lg:rounded-none lg:bg-transparent lg:shadow-none lg:ring-0">
+        <span class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-navy">{{ m.icon(w.icon, 'text-3xl') }}</span>
+        <h3 class="mt-4 text-sm font-bold sm:text-base">{{ w.title }}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{{ w.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== ПРОМО + ФОРМА ===== #}
+<section id="lead" class="scroll-mt-20 pb-14 md:pb-20">
+  <div class="container grid gap-5 lg:grid-cols-[0.8fr_1.5fr]">
+    <a href="{{ url(PROMO.href) }}" class="group relative block min-h-[320px] overflow-hidden rounded-3xl">
+      <img src="{{ asset('img/' ~ PROMO.img) }}" alt="{{ S.home.promo_title }}" width="555" height="651" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+      <span class="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/25 to-transparent" aria-hidden="true"></span>
+      <span class="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
+        <span class="font-hand block -rotate-3 text-5xl leading-none">{{ S.home.promo_title }}</span>
+        <span class="mt-4 block max-w-xs text-sm text-white/85">{{ S.home.promo_text }}</span>
+        <span class="btn-accent mt-5 !px-5 !py-2.5">{{ S.home.promo_btn }}{{ m.icon('arrow_forward', 'text-lg') }}</span>
+      </span>
+    </a>
+    <div class="rounded-3xl bg-sky-50 p-6 ring-1 ring-navy/5 md:p-8">
+      <div class="grid gap-8 xl:grid-cols-[1.6fr_1fr]">
+        <div>
+          <h2 class="text-2xl font-bold md:text-3xl">{{ S.lead.title }}</h2>
+          <p class="mb-6 mt-2 text-sm text-ink-soft">{{ S.lead.text }}</p>
+          {{ m.lead_form(stack=True) }}
+        </div>
+        <div class="xl:border-l xl:border-navy/10 xl:pl-8">{{ m.contact_list() }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ===== ОТЗЫВЫ ===== #}
+{% if REVIEWS %}
+<section class="pb-14 md:pb-20">
+  <div class="container">
+    {{ m.section_head(S.home.reviews_title) }}
+    <div class="grid gap-4 md:grid-cols-3">
+      {% for r in REVIEWS %}
+      <figure class="card relative flex flex-col p-6">
+        {{ m.icon('format_quote', 'icon-fill text-4xl text-accent/70') }}
+        {% if DEMO_REVIEWS %}<span class="absolute right-4 top-4 rounded-full bg-sky-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-navy/60">{{ S.common.demo_review }}</span>{% endif %}
+        <blockquote class="mt-2 flex-1 text-[15px] leading-relaxed text-ink">“{{ r.text }}”</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">{{ r.name[:1] }}</span>
+          <span><span class="block text-sm font-semibold text-navy">{{ r.name }}</span><span class="block text-xs text-ink-soft">{{ r.place }}</span></span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% include 'partials/final_cta.html' %}
+{% endblock %}
