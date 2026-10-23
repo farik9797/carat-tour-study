@@ -63,7 +63,7 @@ S = {
         {"icon": "groups", "title": "Guruhli va individual turlar", "text": "Oilalar, do'stlar va korporativ mijozlar uchun."},
     ],
 
-    "booking": {"title": "Turni bron qilish", "text": "Ma'lumotlaringizni qoldiring — menejer joylar va narxni tekshirib, bronni Telegram yoki telefon orqali tasdiqlaydi.", "btn": "Bron qilish", "submit": "Bron so'rovini yuborish", "tourists": "Sayyohlar soni", "close": "Yopish", "note": "Saytda to'lov talab qilinmaydi — bronni menejer tasdiqlaydi."},
+    "booking": {"title": "Turni bron qilish", "text": "Ma'lumotlaringizni qoldiring — menejer joylar va narxni tekshirib, bronni Telegram yoki telefon orqali tasdiqlaydi.", "btn": "Bron qilish", "submit": "Bron so'rovini yuborish", "tourists": "Sayyohlar soni", "close": "Yopish", "note": "Saytda to'lov talab qilinmaydi — bronni menejer tasdiqlaydi.", "social": "Yoki bizga to'g'ridan-to'g'ri yozing"},
     "lead": {
         "title": "Sayohatga tayyormisiz?",
         "text": "Ariza qoldiring — mos turni tanlab, tez orada siz bilan bog'lanamiz.",

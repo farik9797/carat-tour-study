@@ -3,6 +3,7 @@
 <svg viewBox="0 0 24 24" class="{{ cls }}" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>
 {%- endmacro %}
 
+{% macro ig(cls='h-[1.1em] w-[1.1em]') -%}<svg class="{{ cls }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>{%- endmacro %}
 {% macro icon(name, cls='') -%}<span class="material-symbols-rounded {{ cls }}" aria-hidden="true">{{ name }}</span>{%- endmacro %}
 
 {# ===== Заголовок секции ===== #}
@@ -123,7 +124,7 @@
 {%- endmacro %}
 
 {# ===== Форма заявки ===== #}
-{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False, booking=False) -%}
+{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False, booking=False, minimal=False) -%}
 <form id="{{ form_id }}" class="lead-form space-y-4" novalidate data-lead-form>
   <input type="hidden" name="page" value="{{ abs_url(L, path) }}">
   <input type="hidden" name="lang" value="{{ L }}">
@@ -134,7 +135,7 @@
   </div>
   <input type="hidden" name="ts" value="">
 
-  <div class="grid gap-4 {{ '' if compact else ('sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2') }}">
+  <div class="grid gap-4 {{ 'sm:grid-cols-2' if minimal else ('' if compact else ('sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2')) }}">
     <div>
       <label class="field-label" for="{{ form_id }}-name">{{ S.lead.name }} <span class="text-red-500">*</span></label>
       <input class="field" id="{{ form_id }}-name" name="name" type="text" autocomplete="name" placeholder="{{ S.lead.name_ph }}" required minlength="2" maxlength="80">
@@ -147,6 +148,11 @@
     </div>
   </div>
 
+  {% if minimal %}
+  {# параметры поездки приходят из поиска/кнопки (app.js → openBooking) #}
+  <input type="hidden" name="direction" value=""><input type="hidden" name="tour_type" value="">
+  <input type="hidden" name="tourists" value=""><input type="hidden" name="dates" value="">
+  {% else %}
   <div class="grid gap-4 {{ 'sm:grid-cols-[1.4fr_1fr]' if booking }}">
     <div>
       <label class="field-label" for="{{ form_id }}-direction">{{ S.lead.direction }}</label>
@@ -183,6 +189,8 @@
       <textarea class="field min-h-[52px] resize-y" id="{{ form_id }}-comment" name="comment" rows="1" maxlength="1000" placeholder="{{ S.lead.comment_ph }}"></textarea>
     </div>
   </div>
+  {% endif %}
+
   {% endif %}
 
   <div class="field-wrap">

@@ -57,16 +57,25 @@
       if (sel.options[i].value === text || sel.options[i].text === text) { sel.selectedIndex = i; return; }
     }
   }
+  var summary = dlg && $('[data-booking-summary]', dlg);
   function openBooking(opts) {
     opts = opts || {};
-    if (opts.direction) setSelectByText(bookingForm.elements.direction, opts.direction);
-    setType(bookingForm, opts.type);
-    if (opts.tourists) setSelectByText(bookingForm.elements.tourists, opts.tourists);
-    if (opts.dates && !bookingForm.elements.dates.value) bookingForm.elements.dates.value = opts.dates;
-    if (opts.search) bookingForm.elements.search.value = opts.search;
+    var f = bookingForm.elements;
+    // в попапе форма минимальная: параметры поездки — скрытые поля (каждое открытие заново)
+    f.direction.value = opts.direction || '';
+    f.tour_type.value = opts.type || '';
+    f.tourists.value = opts.tourists || '';
+    f.dates.value = opts.dates || '';
+    f.search.value = opts.search || '';
+    var text = [opts.direction, opts.dates, opts.tourists].filter(Boolean).join(' · ');
+    if (summary) {
+      summary.lastElementChild.textContent = text;
+      summary.classList.toggle('hidden', !text);
+      summary.classList.toggle('flex', !!text);
+    }
     dlg.showModal();
     body.classList.add('overflow-hidden');
-    setTimeout(function () { bookingForm.elements.name.focus(); }, 60);
+    setTimeout(function () { f.name.focus(); }, 60);
   }
   if (canDialog) {
     $$('[data-booking]').forEach(function (el) {
