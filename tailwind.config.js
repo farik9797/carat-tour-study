@@ -2,7 +2,6 @@
 module.exports = {
   content: ['./src/templates/**/*.html', './src/assets/js/**/*.js', './build.py'],
   theme: {
-    container: { center: true, padding: { DEFAULT: '1rem', sm: '1.5rem', lg: '2rem' }, screens: { '2xl': '1240px' } },
     extend: {
       colors: {
         navy: { DEFAULT: '#0B2A7A', 50: '#EEF3FB', 100: '#DCE6F7', 600: '#123A9A', 700: '#0B2A7A', 800: '#082061', 900: '#062958', 950: '#041B3D' },
@@ -23,5 +22,6 @@ module.exports = {
       borderRadius: { xl2: '1.25rem' },
     },
   },
+  corePlugins: { container: false }, // свой .container в input.css (контент 1300px)
   plugins: [],
 };

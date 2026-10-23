@@ -19,6 +19,8 @@
 }
 
 @layer components {
+  /* Контейнер: контент максимум 1300px + боковые отступы 16 / 24 (sm) / 32px (lg) */
+  .container { @apply mx-auto w-full px-4 sm:px-6 lg:px-8; max-width: calc(1300px + 2 * theme('spacing.8')); }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 whitespace-nowrap; }
   .btn-accent { @apply btn bg-accent text-navy-900 shadow-soft hover:bg-accent-600 hover:-translate-y-0.5; }
   .btn-navy { @apply btn bg-navy text-white hover:bg-navy-800; }

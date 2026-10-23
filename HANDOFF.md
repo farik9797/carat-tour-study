@@ -78,6 +78,7 @@ cd build && php -S localhost:8080   # с рабочей формой; без PHP
 - Шрифты: Montserrat 400–800 (Noto Sans SC для 中文), рукописный акцент Caveat 600 («Больше, чем просто путешествия», «Новые впечатления рядом»).
 - Компоненты: `.btn-accent`, `.btn-navy`, `.btn-ghost`, `.btn-outline-light`, `.section-title` (оранжевая полоска слева), `.card`, `.field`, `.chip`, `.photo-slot` (пустое место под фото).
 - Скругления 2xl/3xl, мягкие тени `shadow-card/soft/float`.
+- `.container` — свой (core-плагин Tailwind отключён): контент до 1300px, отступы 16/24/32px (`input.css`).
 
 ## 5. Что НЕ готово / нужно от заказчика
 
