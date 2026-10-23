@@ -9,12 +9,14 @@ Carat Tour & Study — генератор статического многоя�
 Контент: src/i18n/{uz,ru,en,zh}.py   Шаблоны: src/templates   Ассеты: src/assets
 """
 import datetime as dt
+import hashlib
 import importlib.util
 import json
 import re
 import shutil
 import subprocess
 import sys
+import urllib.request
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -56,6 +58,9 @@ GEO = {"tashkent": (41.3111, 69.2797), "samarkand": (39.6542, 66.9597), "bukhara
        "khiva": (41.3783, 60.3639), "chimgan": (41.5333, 70.0167)}
 VERSION = dt.datetime.now().strftime("%Y%m%d%H%M")
 ICONS_TOKEN = "__ICON_NAMES__"
+ICON_FONT_RE = re.compile(r"<!--ICON-FONT:([^>]*?)-->")
+GOOGLE_ICONS = ("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:"
+                "opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names={}&display=block")
 
 
 # ---------------------------------------------------------------- ЗАГРУЗКА ЯЗЫКОВ
@@ -250,9 +255,12 @@ def main():
     for html in rendered.values():
         icons |= set(re.findall(r'material-symbols-rounded[^"]*"[^>]*>([a-z0-9_]+)<', html))
     icon_param = ",".join(sorted(icons))
+    font = icon_font(icon_param)
+    shutil.copytree(SRC / "assets" / "fonts", OUT / "assets" / "fonts")
     for rel, html in rendered.items():
         p = OUT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
+        html = ICON_FONT_RE.sub(lambda mm: icon_font_head(font, mm.group(1), icon_param), html)
         p.write_text(html.replace(ICONS_TOKEN, icon_param), encoding="utf-8")
 
     write_root_index()
@@ -326,6 +334,32 @@ def write_sitemap(entries):
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
            + "\n".join(rows) + "\n</urlset>\n")
     (OUT / "sitemap.xml").write_text(xml, encoding="utf-8")
+
+
+def icon_font(names):
+    """Подмножество Material Symbols (только используемые иконки) — скачивается один раз и хранится
+    в src/assets/fonts/ms-<hash>.woff2, чтобы сайт не ходил на Google Fonts. None — нет сети и кэша."""
+    path = SRC / "assets" / "fonts" / f"ms-{hashlib.sha1(names.encode()).hexdigest()[:10]}.woff2"
+    if not path.exists():
+        try:
+            ua = {"User-Agent": "Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"}
+            css = urllib.request.urlopen(urllib.request.Request(GOOGLE_ICONS.format(names), headers=ua), timeout=20).read().decode()
+            url = re.search(r"url\((https://[^)]+)\)", css).group(1)
+            data = urllib.request.urlopen(urllib.request.Request(url, headers=ua), timeout=20).read()
+        except Exception as e:  # noqa: BLE001 — сборка не должна падать без сети
+            print(f"! шрифт иконок не скачан ({e}) — подключаю с Google Fonts")
+            return None
+        for old in path.parent.glob("ms-*.woff2"):
+            old.unlink()
+        path.write_bytes(data)
+    return path.name
+
+
+def icon_font_head(font, prefix, names):
+    if not font:
+        return f'<link rel="stylesheet" href="{GOOGLE_ICONS.format(names)}">'
+    return ("<style>@font-face{font-family:'Material Symbols Rounded';font-style:normal;font-weight:400;"
+            f"font-display:block;src:url({prefix}{font}) format('woff2')}}</style>")
 
 
 def write_robots():
