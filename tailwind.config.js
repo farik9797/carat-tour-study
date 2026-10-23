@@ -11,7 +11,7 @@ module.exports = {
         ink: { DEFAULT: '#1E2B4A', soft: '#5B6B8C' },
       },
       fontFamily: {
-        sans: ['Montserrat', 'Noto Sans SC', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
         hand: ['Caveat', 'cursive'],
       },
       boxShadow: {

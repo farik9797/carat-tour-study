@@ -29,9 +29,8 @@ for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getA
   <meta name="theme-color" content="#0B2A7A">
 
   <link rel="icon" href="{{ asset('img/favicon.svg') }}" type="image/svg+xml">
-  {# Montserrat/Caveat — свои файлы (assets/fonts, @font-face в app.css); иконки — см. build.py → icon_font() #}
-  {% if L == 'zh' %}<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"></noscript>{% endif %}
+  {# Montserrat/Caveat — свои файлы (assets/fonts, @font-face в app.css); иконки — см. build.py → icon_font();
+     中文 — системные шрифты (веб-шрифт Noto SC — ~100 файлов, LCP zh был 10.7 с) #}
   <!--ICON-FONT:{{ asset('fonts/') }}-->
   {% if preload_img %}{% set pn = preload_img[:-5] %}{% set pw = IMG_W.get(pn, (800, 2000)) %}<link rel="preload" as="image" href="{{ asset('img/' ~ pn ~ '-sm.webp') }}" imagesrcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} {{ pw[0] }}w, {{ asset('img/' ~ preload_img) }} {{ pw[1] }}w" imagesizes="100vw" fetchpriority="high">{% endif %}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ VERSION }}">

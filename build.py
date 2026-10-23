@@ -114,7 +114,7 @@ def page_list(S):
     pages = [
         ("", "home.html", "home", dict(meta_title=S["home"]["meta_title"], meta_desc=S["home"]["meta_desc"],
                                        preload_img="hero-home.webp", lead=True)),
-        ("uzbekistan/", "uz_list.html", "uz", dict(P=P["uz"], meta_title=P["uz"]["meta_title"],
+        ("uzbekistan/", "uz_list.html", "uz", dict(P=P["uz"], meta_title=P["uz"]["meta_title"], preload_img="hero-samarkand.webp",
                                                      meta_desc=P["uz"]["meta_desc"], lead=True,
                                                      crumbs=[P["uz"]["h1"]])),
     ]

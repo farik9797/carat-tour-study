@@ -13,7 +13,7 @@
 @layer base {
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body { @apply bg-white text-ink font-sans antialiased; }
-  :lang(zh) body, html[lang="zh-Hans"] body { font-family: 'Noto Sans SC', 'Montserrat', system-ui, sans-serif; }
+  :lang(zh) body, html[lang="zh-Hans"] body { font-family: 'Montserrat', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Source Han Sans SC', system-ui, sans-serif; }
   h1, h2, h3, h4 { @apply text-navy font-bold tracking-tight; }
   ::selection { @apply bg-accent/40; }
   [x-cloak] { display: none !important; }
