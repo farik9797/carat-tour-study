@@ -1,37 +1,36 @@
 {% import 'partials/macros.html' as m with context %}
+{# Футер как в макете: логотип · меню в строку · языки + иконки связи; ниже копирайт, юр. ссылки, слоган #}
 <footer class="bg-navy-900 text-white">
-  <div class="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr]">
-    <div>
-      <a href="{{ url('') }}" class="inline-block"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="757" height="220" class="h-12 w-auto"></a>
-      <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/70">{{ S.footer.about }}</p>
-      <div class="mt-6 flex flex-wrap gap-2" aria-label="{{ S.nav.lang }}">
-        {% for l in LANGS %}<a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" class="rounded-full px-3 py-1 text-xs font-semibold {{ 'bg-white text-navy' if l == L else 'text-white/70 ring-1 ring-white/25 hover:text-white' }}">{{ LANG_LABEL[l] }}</a>{% endfor %}
-      </div>
-    </div>
+  <div class="container flex flex-col items-center gap-7 py-10 text-center lg:flex-row lg:justify-between lg:gap-8 lg:text-left">
+    <a href="{{ url('') }}" class="shrink-0"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="757" height="220" class="h-12 w-auto"></a>
     <nav aria-label="{{ S.footer.sections }}">
-      <p class="mb-4 text-sm font-bold uppercase tracking-wider text-accent">{{ S.footer.sections }}</p>
-      <ul class="space-y-2.5 text-sm text-white/80">
-        <li><a class="hover:text-white" href="{{ url('') }}">{{ S.nav.home }}</a></li>
-        <li><a class="hover:text-white" href="{{ url('about/') }}">{{ S.nav.about }}</a></li>
-        <li><a class="hover:text-white" href="{{ url('uzbekistan/') }}">{{ S.nav.uz }}</a></li>
-        <li><a class="hover:text-white" href="{{ url('international/') }}">{{ S.nav.intl }}</a></li>
-        <li><a class="hover:text-white" href="{{ url('info-tours/') }}">{{ S.nav.info }}</a></li>
-        <li><a class="hover:text-white" href="{{ url('contacts/') }}">{{ S.nav.contacts }}</a></li>
+      <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/75">
+        {% for href, label, sec in [('', S.nav.home, 'home'), ('about/', S.nav.about, 'about'), ('international/', S.nav.tours, 'intl'), ('info-tours/', S.nav.info, 'info'), ('contacts/', S.nav.contacts, 'contacts')] %}
+        <li><a href="{{ url(href) }}" class="border-b-2 pb-1 transition hover:text-white {{ 'border-white font-semibold text-white' if section == sec or (sec == 'intl' and section == 'uz') else 'border-transparent' }}">{{ label }}</a></li>
+        {% endfor %}
       </ul>
     </nav>
-    <div>
-      <p class="mb-4 text-sm font-bold uppercase tracking-wider text-accent">{{ S.footer.contacts }}</p>
-      {{ m.contact_list(dark=True) }}
-    </div>
-  </div>
-  <div class="border-t border-white/10">
-    <div class="container flex flex-col gap-3 py-5 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
-      <p>© {{ YEAR }} Carat Tour &amp; Study. {{ S.footer.rights }}</p>
-      <div class="flex flex-wrap gap-x-5 gap-y-2">
-        <a href="{{ url('privacy/') }}" class="hover:text-white">{{ S.footer.privacy }}</a>
-        <a href="{{ url('consent/') }}" class="hover:text-white">{{ S.footer.consent }}</a>
-        <span class="hidden text-white/40 md:inline">{{ S.footer.slogan }}</span>
+    <div class="flex items-center gap-5">
+      <nav class="flex items-center text-xs font-semibold" aria-label="{{ S.nav.lang }}">
+        {% for l in LANGS %}
+          {% if not loop.first %}<span class="px-1.5 text-white/30" aria-hidden="true">|</span>{% endif %}
+          <a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" lang="{{ HREFLANG[l] }}" class="{{ 'text-white' if l == L else 'text-white/60 hover:text-white' }}" {% if l == L %}aria-current="true"{% endif %}>{{ LANG_LABEL[l] }}</a>
+        {% endfor %}
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-navy transition hover:bg-accent" aria-label="Telegram {{ SITE.telegram_handle }}">{{ m.tg('h-4 w-4') }}</a>
+        {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="Instagram {{ SITE.instagram_handle }}">{{ m.icon('photo_camera', 'text-lg') }}</a>{% endif %}
+        {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="{{ S.contacts.phone }} {{ p }}">{{ m.icon('call', 'text-lg') }}</a>{% endfor %}
       </div>
     </div>
+  </div>
+  <div class="container"><div class="border-t border-white/10"></div></div>
+  <div class="container flex flex-col items-center gap-3 py-6 text-center text-xs text-white/55 md:flex-row md:justify-between md:text-left">
+    <p>© {{ YEAR }} Carat Tour &amp; Study. {{ S.footer.rights }}</p>
+    <div class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+      <a href="{{ url('privacy/') }}" class="hover:text-white">{{ S.footer.privacy }}</a>
+      <a href="{{ url('consent/') }}" class="hover:text-white">{{ S.footer.consent }}</a>
+    </div>
+    <p class="text-white/70">{{ S.footer.slogan }}</p>
   </div>
 </footer>
