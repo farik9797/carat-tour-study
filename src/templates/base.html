@@ -47,6 +47,7 @@ for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getA
   </main>
   {% include 'partials/footer.html' %}
   <script>window.CARAT_I18N = {{ js_i18n | tojson }};</script>
+  {% include 'partials/booking.html' %}
   <script src="{{ asset('js/app.js') }}?v={{ VERSION }}" defer></script>
 </body>
 </html>

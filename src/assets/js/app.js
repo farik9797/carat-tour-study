@@ -42,32 +42,69 @@
     });
   });
 
-  /* ---------- Поиск тура → передаёт параметры в заявку ---------- */
+  /* ---------- Попап бронирования (<dialog>) ---------- */
+  var dlg = $('#booking');
+  var canDialog = !!(dlg && typeof dlg.showModal === 'function');
+  var bookingForm = dlg && $('[data-lead-form]', dlg);
+
+  function setType(form, type) {
+    var radio = type && form.querySelector('input[name="tour_type"][value="' + type + '"]');
+    if (radio) radio.checked = true;
+  }
+  function setSelectByText(sel, text) {
+    if (!sel || !text) return;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === text || sel.options[i].text === text) { sel.selectedIndex = i; return; }
+    }
+  }
+  function openBooking(opts) {
+    opts = opts || {};
+    if (opts.direction) setSelectByText(bookingForm.elements.direction, opts.direction);
+    setType(bookingForm, opts.type);
+    if (opts.tourists) setSelectByText(bookingForm.elements.tourists, opts.tourists);
+    if (opts.dates && !bookingForm.elements.dates.value) bookingForm.elements.dates.value = opts.dates;
+    if (opts.search) bookingForm.elements.search.value = opts.search;
+    dlg.showModal();
+    body.classList.add('overflow-hidden');
+    setTimeout(function () { bookingForm.elements.name.focus(); }, 60);
+  }
+  if (canDialog) {
+    $$('[data-booking]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        openBooking({ direction: el.getAttribute('data-direction'), type: el.getAttribute('data-type') });
+      });
+    });
+    $$('[data-booking-close]', dlg).forEach(function (b) { b.addEventListener('click', function () { dlg.close(); }); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); }); // клик по фону
+    dlg.addEventListener('close', function () { body.classList.remove('overflow-hidden'); });
+  }
+
+  /* ---------- Поиск тура → попап бронирования (или форма на странице) ---------- */
   var search = $('[data-tour-search]');
   if (search) {
     search.addEventListener('submit', function (e) {
       e.preventDefault();
+      var dir = search.elements.direction, dates = search.elements.dates, tour = search.elements.tourists;
+      var type = '';
+      if (dir.value) {
+        var grp = dir.options[dir.selectedIndex].parentElement;
+        if (grp && grp.tagName === 'OPTGROUP') type = ['uz', 'intl', 'info'][$$('optgroup', dir).indexOf(grp)];
+      }
+      var datesText = dates.value ? dates.options[dates.selectedIndex].text : '';
+      var tourText = tour.options[tour.selectedIndex].text;
+      var summary = [dir.value, datesText, tourText].filter(Boolean).join(' · ');
+      if (canDialog) {
+        openBooking({ direction: dir.value, type: type, dates: datesText, tourists: tourText, search: summary });
+        return;
+      }
       var form = $('#lead [data-lead-form]') || $('[data-lead-form]');
       if (!form) return;
-      var dir = search.elements.direction, dates = search.elements.dates, tour = search.elements.tourists;
-      // направление
-      if (dir.value) {
-        form.elements.direction.value = dir.value;
-        var opt = dir.options[dir.selectedIndex], grp = opt.parentElement;
-        if (grp && grp.tagName === 'OPTGROUP') {
-          var idx = $$('optgroup', dir).indexOf(grp);
-          var type = ['uz', 'intl', 'info'][idx];
-          var radio = form.querySelector('input[name="tour_type"][value="' + type + '"]');
-          if (radio) radio.checked = true;
-        }
-      }
-      // даты и туристы
-      var parts = [];
-      if (dates.value) parts.push(dates.options[dates.selectedIndex].text);
-      parts.push(tour.options[tour.selectedIndex].text);
-      if (form.elements.dates && dates.value) form.elements.dates.value = dates.options[dates.selectedIndex].text;
-      if (form.elements.comment && !form.elements.comment.value) form.elements.comment.value = tour.options[tour.selectedIndex].text;
-      form.elements.search.value = [dir.value].concat(parts).filter(Boolean).join(' · ');
+      if (dir.value) form.elements.direction.value = dir.value;
+      setType(form, type);
+      if (form.elements.dates && datesText) form.elements.dates.value = datesText;
+      if (form.elements.comment && !form.elements.comment.value) form.elements.comment.value = tourText;
+      form.elements.search.value = summary;
       $('#lead').scrollIntoView({ behavior: 'smooth', block: 'start' });
       setTimeout(function () { form.elements.name.focus({ preventScroll: true }); }, 500);
     });

@@ -123,11 +123,12 @@
 {%- endmacro %}
 
 {# ===== Форма заявки ===== #}
-{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False) -%}
+{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False, booking=False) -%}
 <form id="{{ form_id }}" class="lead-form space-y-4" novalidate data-lead-form>
   <input type="hidden" name="page" value="{{ abs_url(L, path) }}">
   <input type="hidden" name="lang" value="{{ L }}">
   <input type="hidden" name="search" value="">
+  {% if booking %}<input type="hidden" name="kind" value="booking">{% endif %}
   <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
     <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
   </div>
@@ -146,11 +147,17 @@
     </div>
   </div>
 
-  <div>
-    <label class="field-label" for="{{ form_id }}-direction">{{ S.lead.direction }}</label>
-    <select class="field field-select" id="{{ form_id }}-direction" name="direction">
-      {{ direction_options(preset_dest) }}
-    </select>
+  <div class="grid gap-4 {{ 'sm:grid-cols-[1.4fr_1fr]' if booking }}">
+    <div>
+      <label class="field-label" for="{{ form_id }}-direction">{{ S.lead.direction }}</label>
+      <select class="field field-select" id="{{ form_id }}-direction" name="direction">
+        {{ direction_options(preset_dest) }}
+      </select>
+    </div>
+    {% if booking %}<div>
+      <label class="field-label" for="{{ form_id }}-tourists">{{ S.booking.tourists }}</label>
+      <select class="field field-select" id="{{ form_id }}-tourists" name="tourists">{% for o in S.search.tourists_opts %}<option {% if loop.index == 2 %}selected{% endif %}>{{ o }}</option>{% endfor %}</select>
+    </div>{% endif %}
   </div>
 
   <fieldset>
@@ -187,7 +194,7 @@
   </div>
 
   <button type="submit" class="btn-accent w-full !py-3.5 text-base">
-    <span data-label>{{ S.lead.submit }}</span>{{ icon('arrow_forward', 'text-xl') }}
+    <span data-label>{{ S.booking.submit if booking else S.lead.submit }}</span>{{ icon('arrow_forward', 'text-xl') }}
   </button>
   <p class="hidden rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700" role="alert" data-form-error>{{ S.lead.error }}</p>
 </form>

@@ -62,6 +62,8 @@ $type      = $typeMap[field('tour_type', 10)] ?? '—';
 $dates     = field('dates', 80);
 $comment   = field('comment', 1000);
 $search    = field('search', 200);
+$tourists  = field('tourists', 40);
+$isBooking = field('kind', 10) === 'booking';
 $lang      = strtoupper(field('lang', 5));
 $page      = filter_var(field('page', 300), FILTER_VALIDATE_URL) ?: '';
 $consent   = field('consent', 2) === '1';
@@ -74,13 +76,14 @@ if (!$consent) out(false, 'consent', 422);
 
 // Сообщение
 $lines = [
-    '🧳 Новая заявка — Carat Tour & Study',
+    ($isBooking ? '📌 Бронирование тура — Carat Tour & Study' : '🧳 Новая заявка — Carat Tour & Study'),
     '',
     '👤 Имя: ' . $name,
     '📞 Контакт: ' . $contact,
     '📍 Направление: ' . ($direction ?: '—'),
     '🏷 Тип тура: ' . $type,
     '📅 Даты: ' . ($dates ?: '—'),
+    '👥 Туристы: ' . ($tourists ?: '—'),
     '💬 Комментарий: ' . ($comment ?: '—'),
 ];
 if ($search) $lines[] = '🔎 Поиск: ' . $search;
@@ -109,7 +112,7 @@ if ($token && $chat) {
 }
 
 if ($mail) {
-    $subject = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $name) . '?=';
+    $subject = '=?UTF-8?B?' . base64_encode(($isBooking ? 'Бронирование тура: ' : 'Заявка с сайта: ') . $name) . '?=';
     $headers = "From: Carat Tour <" . MAIL_FROM . ">\r\nContent-Type: text/plain; charset=UTF-8\r\nMIME-Version: 1.0";
     $sent = @mail($mail, $subject, $text, $headers) || $sent;
 }

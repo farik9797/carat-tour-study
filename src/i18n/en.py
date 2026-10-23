@@ -63,6 +63,7 @@ S = {
         {"icon": "groups", "title": "Group and private tours", "text": "For families, friends and corporate clients."},
     ],
 
+    "booking": {"title": "Book a tour", "text": "Leave your details — a manager will check availability and price and confirm your booking via Telegram or phone.", "btn": "Book now", "submit": "Send booking request", "tourists": "Number of travellers", "close": "Close", "note": "No online payment needed — a manager confirms the booking."},
     "lead": {
         "title": "Ready to travel?",
         "text": "Send a request — we will find the right tour and get back to you shortly.",

@@ -30,6 +30,11 @@
 }
 
 @layer components {
+  /* Попап бронирования (<dialog>) */
+  .booking-dialog { @apply m-auto w-[min(640px,calc(100vw-1.5rem))] max-h-[calc(100dvh-1.5rem)] overflow-y-auto overscroll-contain rounded-3xl bg-white p-0 text-ink shadow-float; }
+  .booking-dialog::backdrop { background: rgba(4, 27, 61, .6); backdrop-filter: blur(3px); }
+  .booking-dialog[open] { animation: booking-in .22s ease-out; }
+  @keyframes booking-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
   /* Контейнер: контент максимум 1300px + боковые отступы 16 / 24 (sm) / 32px (lg) */
   .container { @apply mx-auto w-full px-4 sm:px-6 lg:px-8; max-width: calc(1300px + 2 * theme('spacing.8')); }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 whitespace-nowrap; }
