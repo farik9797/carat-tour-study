@@ -85,7 +85,7 @@ cd build && php -S localhost:8080   # с рабочей формой; без PHP
 | # | Что | Где менять |
 |---|---|---|
 | 1 | Оригинальные фото (сейчас вырезки из макета низкого качества) ~1600 px WebP, имена те же: `hero-samarkand, tashkent, samarkand, bukhara, khiva, chimgan, maldives, turkey, uae, thailand, europe, infotour, promo` | `src/assets/img/` |
-| 2 | Логотип SVG (сейчас `logo.webp`, `logo-white.webp` — вырезки) | `src/assets/img/`, header/footer |
+| 2 | Логотип SVG — желательно. Сейчас `logo.webp` (прозрачный фон) и `logo-white.webp` (navy→белый, для футера) сделаны из PNG заказчика 2103×748, 757×220 px | `src/assets/img/`, header/footer |
 | 3 | Телефоны (сейчас пусто), подтверждённый email (`info@carattourandstudy.uz` — предположительный), адрес, график | `build.py` → `SITE` |
 | 4 | Токен Telegram-бота, chat_id менеджеров, email для заявок | `src/root/send.php` или env `CARAT_TG_TOKEN`, `CARAT_TG_CHAT`, `CARAT_MAIL_TO` |
 | 5 | Реальные отзывы с разрешением; до этого `DEMO_REVIEWS = False` (сейчас True, на карточках метка «демо») | `build.py`, `src/i18n/*.py` → `reviews` |

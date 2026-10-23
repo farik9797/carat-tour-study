@@ -2,7 +2,7 @@
 <footer class="bg-navy-900 text-white">
   <div class="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr]">
     <div>
-      <a href="{{ url('') }}" class="inline-block"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="444" height="164" class="h-12 w-auto rounded-md"></a>
+      <a href="{{ url('') }}" class="inline-block"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="757" height="220" class="h-12 w-auto"></a>
       <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/70">{{ S.footer.about }}</p>
       <div class="mt-6 flex flex-wrap gap-2" aria-label="{{ S.nav.lang }}">
         {% for l in LANGS %}<a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" class="rounded-full px-3 py-1 text-xs font-semibold {{ 'bg-white text-navy' if l == L else 'text-white/70 ring-1 ring-white/25 hover:text-white' }}">{{ LANG_LABEL[l] }}</a>{% endfor %}
