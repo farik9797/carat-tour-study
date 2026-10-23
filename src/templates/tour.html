@@ -50,7 +50,7 @@
 <section class="pb-14 md:pb-20">
   <div class="container">
     {{ m.section_head(P.other, None, url('international/'), S.common.all_dest) }}
-    <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div class="grid grid-cols-2 gap-4 lg:grid-cols-3">
       {% for d in INTL if d.slug != D.slug %}{{ m.intl_card(d) }}{% endfor %}
     </div>
   </div>

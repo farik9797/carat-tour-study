@@ -120,7 +120,7 @@ S = {
             "meta_title": "{name} — tours and excursions | Carat Tour & Study",
         },
         "intl": {
-            "meta_title": "International tours — Maldives, Turkey, UAE, Thailand, Europe | Carat Tour",
+            "meta_title": "International tours — Maldives, Turkey, Egypt, UAE, Thailand, China, Europe | Carat Tour",
             "meta_desc": "International tours from Uzbekistan with Carat Tour & Study: beach holidays, cities and excursions. Tours matched to your budget and dates.",
             "h1": "International tours",
             "intro": "Popular destinations abroad. Specific programmes, dates and prices are selected on request.",
@@ -264,5 +264,7 @@ S = {
         "europe": {"name": "Europe", "tag": "Classic journeys",
                    "desc": "Paris, Rome, Prague and other European cities — sightseeing routes through one or several countries with museums, architecture and food.",
                    "highlights": ["Multi-country routes", "Museums and architecture", "Food walks", "City weekends"]},
+        "egypt": {"name": "Egypt", "tag": "Red Sea and the Pyramids", "desc": "Hurghada and Sharm El Sheikh resorts with coral reefs, the Pyramids of Giza and Cairo, Nile cruises — a beach holiday and ancient history in one trip.", "highlights": ["Red Sea beaches and reefs", "Giza Pyramids and Cairo", "Nile cruise and Luxor", "Diving and snorkelling"]},
+        "china": {"name": "China", "tag": "Megacities and ancient traditions", "desc": "Beijing with the Great Wall and the Forbidden City, modern Shanghai, the landscapes of Zhangjiajie and Guilin — China impresses with its scale and contrasts.", "highlights": ["The Great Wall of China", "Beijing and the Forbidden City", "Shanghai and the Bund", "Zhangjiajie and Guilin nature parks"]},
     },
 }

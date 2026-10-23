@@ -10,7 +10,7 @@
       <button type="button" class="chip is-active" data-filter-value="" aria-pressed="true">{{ P.all }}</button>
       {% for k, v in P.kinds.items() %}<button type="button" class="chip" data-filter-value="{{ k }}" aria-pressed="false">{{ v }}</button>{% endfor %}
     </div>
-    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5" data-filter-list>
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4" data-filter-list>
       {% for d in INTL %}{{ m.intl_card(d, show_btn=True) }}{% endfor %}
     </div>
     <p class="hidden py-10 text-center text-ink-soft" data-filter-empty>{{ P.empty }}</p>

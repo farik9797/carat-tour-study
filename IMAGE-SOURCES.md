@@ -35,6 +35,8 @@
 | `uae.webp` | https://images.unsplash.com/photo-1512453979798-5ea266f8880c |
 | `thailand.webp` | https://images.unsplash.com/photo-1552465011-b4e21bf6e79a |
 | `europe.webp` | https://images.unsplash.com/photo-1431274172761-fca41d930114 |
+| `egypt.webp` | https://images.unsplash.com/photo-1677775766807-ff09c770da6e |
+| `china.webp` | https://images.unsplash.com/photo-1668333140118-84e827fe42ca |
 | `hero-samarkand.webp` | https://images.unsplash.com/photo-1715824633698-37810119f69c |
 | `infotour.webp` | https://images.unsplash.com/photo-1763144967763-2a8a98cb8431 |
 | `about-1.webp` | https://images.unsplash.com/photo-1511068797325-6083f0f872b1 |

@@ -120,7 +120,7 @@ S = {
             "meta_title": "{name} — tur va ekskursiyalar | Carat Tour & Study",
         },
         "intl": {
-            "meta_title": "Xalqaro turlar — Maldiv, Turkiya, BAA, Tailand, Yevropa | Carat Tour",
+            "meta_title": "Xalqaro turlar — Maldiv, Turkiya, Misr, BAA, Tailand, Xitoy, Yevropa | Carat Tour",
             "meta_desc": "Carat Tour & Study bilan O'zbekistondan xalqaro turlar: plyaj dam olishi, shaharlar va ekskursiyalar. Byudjet va sanalaringizga mos tur tanlash.",
             "h1": "Xalqaro turlar",
             "intro": "Mashhur xorijiy yo'nalishlar. Aniq dasturlar, sanalar va narxlar so'rovingiz bo'yicha tanlanadi.",
@@ -264,5 +264,7 @@ S = {
         "europe": {"name": "Yevropa", "tag": "Sayohatlar klassikasi",
                    "desc": "Parij, Rim, Praga va Yevropaning boshqa shaharlari — muzeylar, me'morchilik va gastronomiyaga boy bir yoki bir nechta mamlakat bo'ylab ekskursiya marshrutlari.",
                    "highlights": ["Bir nechta mamlakat bo'ylab marshrutlar", "Muzeylar va me'morchilik", "Gastronomik sayrlar", "Shahar dam olish kunlari"]},
+        "egypt": {"name": "Misr", "tag": "Qizil dengiz va piramidalar", "desc": "Marjon riflari bilan Hurgada va Sharm-ash-Shayx kurortlari, Giza piramidalari va Qohira, Nil bo'ylab kruizlar — bir safarda dengiz bo'yida dam olish va qadimiy tarix.", "highlights": ["Qizil dengiz plyajlari va riflari", "Giza piramidalari va Qohira", "Nil bo'ylab kruiz, Luksor", "Dayving va snorkeling"]},
+        "china": {"name": "Xitoy", "tag": "Megapolislar va qadimiy an'analar", "desc": "Buyuk Xitoy devori va Taqiqlangan shahar bilan Pekin, zamonaviy Shanxay, Chjanszyaszye va Guylin tabiati — Xitoy ko'lami va tafovutlari bilan hayratga soladi.", "highlights": ["Buyuk Xitoy devori", "Pekin va Taqiqlangan shahar", "Shanxay va Vaytan sohili", "Chjanszyaszye va Guylin tabiiy bog'lari"]},
     },
 }

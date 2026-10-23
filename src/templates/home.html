@@ -64,8 +64,14 @@
 <section class="section !pt-0">
   <div class="container">
     {{ m.section_head(S.home.intl_title, S.home.intl_sub, url('international/'), S.common.all_dest) }}
-    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
-      {% for d in INTL %}<div class="{{ 'col-span-2 sm:col-span-1' if loop.last }}">{{ m.intl_card(d, wide=loop.last) }}</div>{% endfor %}
+    <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+      {% for d in INTL %}<div>{{ m.intl_card(d) }}</div>{% endfor %}
+      {# 8-я плитка: ровная сетка 4×2 / 2×4 #}
+      <a href="{{ url('international/') }}" class="group flex min-h-[180px] flex-col justify-between rounded-2xl bg-navy p-5 text-white shadow-card transition hover:-translate-y-1 hover:bg-navy-800">
+        {{ m.icon('travel_explore', 'text-4xl text-accent') }}
+        <span><span class="block text-lg font-bold leading-tight">{{ S.common.all_dest }}</span>
+        <span class="mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition group-hover:bg-accent group-hover:text-navy">{{ m.icon('arrow_forward', 'text-xl') }}</span></span>
+      </a>
     </div>
   </div>
 </section>

@@ -49,11 +49,11 @@ SHOW_REVIEWS = False    # True — когда в src/i18n/*.py → reviews бу�
 SHOW_DEV_NOTES = False  # True — показать служебные пометки на юр. страницах (для согласования с юристом)
 
 UZ_SLUGS = ["tashkent", "samarkand", "bukhara", "khiva", "chimgan"]
-INTL_SLUGS = ["maldives", "turkey", "uae", "thailand", "europe"]
+INTL_SLUGS = ["maldives", "turkey", "egypt", "uae", "thailand", "china", "europe"]
 INTL_KINDS = {"maldives": ["beach", "nature"], "turkey": ["beach", "city"], "uae": ["beach", "city"],
-              "thailand": ["beach", "nature"], "europe": ["city"]}
+              "thailand": ["beach", "nature"], "europe": ["city"], "egypt": ["beach", "city"], "china": ["city", "nature"]}
 IMG_W = {"hero-home": (1200, 2400)}
-IMG_MOBILE = {"hero-home": "hero-home-m"}   # своя картинка для телефона (иначе name-sm)   # ширины вариантов name-sm.webp / name.webp; по умолчанию (800, 2000)
+IMG_MOBILE = {"hero-home": "hero-home-m"}   # своя картинка для телефона (иначе name-sm)
 PROMO = {"href": "uzbekistan/chimgan/", "img": "promo.webp"}
 GEO = {"tashkent": (41.3111, 69.2797), "samarkand": (39.6542, 66.9597), "bukhara": (39.7747, 64.4286),
        "khiva": (41.3783, 60.3639), "chimgan": (41.5333, 70.0167)}
