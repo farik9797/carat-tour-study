@@ -110,9 +110,9 @@
 
 {# ===== ПРОМО + ФОРМА ===== #}
 <section id="lead" class="scroll-mt-20 pb-14 md:pb-20">
-  <div class="container grid gap-5 lg:grid-cols-[0.8fr_1.5fr]">
+  <div class="container grid gap-5 lg:grid-cols-[1fr_1.4fr]">
     <a href="{{ url(PROMO.href) }}" class="group relative block min-h-[320px] overflow-hidden rounded-3xl">
-      <img src="{{ asset('img/' ~ PROMO.img) }}" alt="{{ S.home.promo_title }}" width="1001" height="961" loading="lazy" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+      <img src="{{ asset('img/' ~ PROMO.img) }}" alt="{{ S.home.promo_title }}" width="1600" height="1042" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-[70%_50%] transition duration-700 group-hover:scale-105">
       <span class="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/25 to-transparent" aria-hidden="true"></span>
       <span class="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
         <span class="font-hand block -rotate-3 text-5xl leading-none">{{ S.home.promo_title }}</span>

@@ -99,6 +99,11 @@
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('mail', 'text-xl') }}</span>
     <span><span class="block font-semibold {{ t }}">{{ S.contacts.email }}</span><span class="block break-all text-sm {{ s }} group-hover:underline">{{ SITE.email }}</span></span></a></li>
   {% endif %}
+  {% if SITE.instagram %}
+  <li><a href="{{ SITE.instagram }}" target="_blank" rel="noopener" class="group flex items-start gap-4">
+    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('photo_camera', 'text-xl') }}</span>
+    <span><span class="block font-semibold {{ t }} group-hover:underline">Instagram</span><span class="block text-sm {{ s }}">{{ SITE.instagram_handle }}</span></span></a></li>
+  {% endif %}
   {% if SITE.address and SITE.address[L] %}
   <li class="flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('location_on', 'text-xl') }}</span>

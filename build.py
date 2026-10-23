@@ -28,11 +28,14 @@ SITE = {
     "domain": "https://carattourandstudy.uz",
     "telegram": "https://t.me/carat_tour",
     "telegram_handle": "@carat_tour",
-    # TODO: реальные контакты от заказчика (пустой список / None — блок не выводится)
-    "phones": [],                       # пример: ["+998 71 200 00 00", "+998 90 000 00 00"]
-    "email": "info@carattourandstudy.uz",  # подтвердить у заказчика
-    "address": None,                    # пример: {"uz": "...", "ru": "...", "en": "...", "zh": "..."}
-    "hours": None,                      # пример: {"ru": "Пн–Сб 9:00–18:00", ...}
+    # Контакты — с действующего сайта caratstudy.uz (23.10.2026); пустой список / None — блок не выводится
+    "phones": ["+998 97 409 42 00"],
+    "email": "info@caratstudy.uz",
+    "address": {"uz": "Toshkent, Cho'ponota, 39", "ru": "Ташкент, Чопон-ата, 39",
+                "en": "Tashkent, Cho'ponota, 39", "zh": "塔什干，Cho'ponota 39号"},
+    "hours": None,                      # на caratstudy.uz не указаны; пример: {"ru": "Пн–Сб 9:00–18:00", ...}
+    "instagram": "https://www.instagram.com/carat_tour/",
+    "instagram_handle": "@carat_tour",
 }
 LANGS = ["uz", "ru", "en", "zh"]
 DEFAULT_LANG = "uz"
@@ -166,7 +169,7 @@ def jsonld_for(S, L, path, section, ctx):
         "@context": "https://schema.org", "@type": "TravelAgency", "@id": f"{SITE['domain']}/#agency",
         "name": "Carat Tour & Study", "url": abs_url(L, ""), "logo": f"{SITE['domain']}/assets/img/logo.webp",
         "image": f"{SITE['domain']}/assets/img/hero-samarkand.webp", "description": S["footer"]["about"],
-        "sameAs": [SITE["telegram"]], "areaServed": ["UZ", "Worldwide"],
+        "sameAs": [SITE["telegram"]] + ([SITE["instagram"]] if SITE.get("instagram") else []), "areaServed": ["UZ", "Worldwide"],
         "availableLanguage": ["uz", "ru", "en", "zh"],
     }
     if SITE["phones"]:

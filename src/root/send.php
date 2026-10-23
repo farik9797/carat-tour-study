@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 const TG_BOT_TOKEN = '';                  // getenv('CARAT_TG_TOKEN') ниже имеет приоритет
 const TG_CHAT_ID   = '';                  // getenv('CARAT_TG_CHAT')
-const MAIL_TO      = '';                  // getenv('CARAT_MAIL_TO'), например info@carattourandstudy.uz
+const MAIL_TO      = '';                  // getenv('CARAT_MAIL_TO'), например info@caratstudy.uz
 const MAIL_FROM    = 'noreply@carattourandstudy.uz';
 const MIN_FILL_SEC = 3;                   // антиспам: форма заполнена быстрее — бот
 const RATE_LIMIT   = 5;                   // заявок с одного IP за RATE_WINDOW
