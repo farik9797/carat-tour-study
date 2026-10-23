@@ -67,7 +67,7 @@
 <section class="relative overflow-hidden bg-white">
   {% if img %}
   <div class="absolute inset-0">
-    {% set pn = img[:-5] %}<picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/' ~ pn ~ '-sm.avif') }}"><img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="h-full w-full object-cover object-[50%_60%] lg:object-[70%_50%]"></picture>
+    {% set pn = img[:-5] %}<picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/' ~ pn ~ '-sm.avif') }}"><img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="h-full w-full object-cover object-[50%_60%] lg:object-[70%_40%]"></picture>
     <span class="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/85 via-45% to-white/0 to-[72%] lg:hidden" aria-hidden="true"></span>
     <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
   </div>
@@ -76,7 +76,7 @@
   <span class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal/10 blur-3xl" aria-hidden="true"></span>
   <span class="absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true"></span>
   {% endif %}
-  <div class="container relative pt-10 md:pt-14 {{ 'pb-56 md:pb-28 lg:py-24' if img else 'pb-12 md:pb-16' }}">
+  <div class="container relative pt-10 md:pt-14 {{ 'pb-56 md:pb-28 lg:py-24 2xl:py-32' if img else 'pb-12 md:pb-16' }}">
     {{ breadcrumbs(crumbs) }}
     <h1 class="max-w-2xl text-3xl font-extrabold leading-[1.1] md:text-5xl text-balance">{{ title }}</h1>
     {% if intro %}<p class="mt-5 max-w-lg text-base leading-relaxed text-ink-soft md:text-lg">{{ intro }}</p>{% endif %}

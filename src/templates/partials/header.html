@@ -26,13 +26,13 @@
     </nav>
 
     <div class="flex items-center gap-2 sm:gap-3">
-      <nav class="hidden items-center text-xs font-semibold md:flex" aria-label="{{ S.nav.lang }}">
+      <nav class="hidden items-center whitespace-nowrap text-xs font-semibold md:flex" aria-label="{{ S.nav.lang }}">
         {% for l in LANGS %}
           {% if not loop.first %}<span class="px-1 text-navy/25" aria-hidden="true">|</span>{% endif %}
           <a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" lang="{{ HREFLANG[l] }}" class="rounded px-1 py-0.5 {{ 'text-navy' if l == L else 'text-navy/45 hover:text-navy' }}" {% if l == L %}aria-current="true"{% endif %}>{{ LANG_LABEL[l] }}</a>
         {% endfor %}
       </nav>
-      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="hidden h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 transition hover:bg-navy hover:text-white sm:inline-flex" aria-label="{{ S.nav.tg }}">{{ m.tg() }}</a>
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="hidden h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 transition hover:bg-navy hover:text-white sm:inline-flex lg:hidden xl:inline-flex" aria-label="{{ S.nav.tg }}">{{ m.tg() }}</a>
       <a href="{{ cta_href }}" class="btn-accent hidden !px-5 !py-2.5 sm:inline-flex" data-booking>{{ S.nav.cta }}<span class="material-symbols-rounded text-lg">arrow_forward</span></a>
       <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 lg:hidden" aria-controls="mobile-menu" aria-expanded="false" data-menu-open aria-label="{{ S.nav.menu }}">
         <span class="material-symbols-rounded text-2xl">menu</span>

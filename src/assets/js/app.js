@@ -39,14 +39,24 @@
   /* ---------- Выпадающее меню «Туры» (клавиатура / тач) ---------- */
   $$('[data-dropdown]').forEach(function (btn) {
     var li = btn.parentElement, panel = $('[data-dropdown-panel]', li);
+    function suppress(on) { panel.classList.toggle('!invisible', on); panel.classList.toggle('!opacity-0', on); }
     btn.addEventListener('click', function () {
       var open = btn.getAttribute('aria-expanded') !== 'true';
+      suppress(false);
       btn.setAttribute('aria-expanded', String(open));
       panel.classList.toggle('!visible', open); panel.classList.toggle('!opacity-100', open);
     });
     document.addEventListener('click', function (e) {
       if (!li.contains(e.target)) { btn.setAttribute('aria-expanded', 'false'); panel.classList.remove('!visible', '!opacity-100'); }
     });
+    // Esc закрывает, даже если курсор/фокус ещё на пункте (CSS group-hover / focus-within)
+    li.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      btn.setAttribute('aria-expanded', 'false'); panel.classList.remove('!visible', '!opacity-100');
+      suppress(true); btn.focus();
+    });
+    li.addEventListener('mouseleave', function () { suppress(false); });
+    li.addEventListener('focusout', function (e) { if (!li.contains(e.relatedTarget)) suppress(false); });
   });
 
   /* ---------- Попап бронирования (<dialog>) ---------- */
