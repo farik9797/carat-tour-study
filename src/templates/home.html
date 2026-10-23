@@ -5,7 +5,8 @@
 {# ===== HERO ===== #}
 <section class="relative overflow-hidden bg-white">
   <div class="relative lg:absolute lg:inset-0">
-    <img src="{{ asset('img/hero-home-sm.webp') }}" srcset="{{ asset('img/hero-home-sm.webp') }} 1200w, {{ asset('img/hero-home.webp') }} 2400w" sizes="100vw" alt="{{ S.hero.img_alt }}" width="2400" height="914" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[78%_50%] lg:aspect-auto lg:object-[75%_50%] lg:h-full">
+    <picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/hero-home-sm.avif') }}">
+    <img src="{{ asset('img/hero-home-sm.webp') }}" srcset="{{ asset('img/hero-home-sm.webp') }} 1200w, {{ asset('img/hero-home.webp') }} 2400w" sizes="100vw" alt="{{ S.hero.img_alt }}" width="2400" height="914" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[78%_50%] lg:aspect-auto lg:object-[75%_50%] lg:h-full"></picture>
     <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
     <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent lg:hidden" aria-hidden="true"></span>
   </div>

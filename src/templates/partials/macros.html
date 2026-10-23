@@ -65,7 +65,7 @@
 {% macro page_hero(title, intro=None, crumbs=[], img=None, img_alt='') -%}
 <section class="relative overflow-hidden bg-navy-900 text-white">
   {% if img %}
-  {% set pn = img[:-5] %}<img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45">
+  {% set pn = img[:-5] %}<picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/' ~ pn ~ '-sm.avif') }}"><img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45"></picture>
   <span class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/80 to-navy-900/20"></span>
   {% else %}
   <span class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal/25 blur-3xl" aria-hidden="true"></span>
