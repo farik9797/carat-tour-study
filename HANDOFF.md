@@ -23,7 +23,7 @@
 
 Выбран путь: **макет → статический HTML (Tailwind) → затем перенос на WordPress**.
 
-- Генератор `build.py` (Python + Jinja2) собирает **85 страниц**: 19 страниц × 4 языка + `404.html`.
+- Генератор `build.py` (Python + Jinja2) собирает **85 страниц**: 21 страница × 4 языка + `404.html`.
 - Страницы на язык: главная; туры по Узбекистану (список + 5 направлений: tashkent, samarkand, bukhara, khiva, chimgan); международные туры (список с фильтром + 7: maldives, turkey, egypt, uae, thailand, china, europe — Египет и Китай добавлены 23.10); инфо-туры; о компании; контакты; privacy; consent; thanks (noindex).
 - Корень `/` — автоопределение языка браузера → `/xx/` (по умолчанию UZ, запоминается в localStorage).
 - **SEO:** hreflang + x-default, языковые canonical, OG, `sitemap.xml` с xhtml:link альтернативами, `robots.txt`, JSON-LD (`TravelAgency`, `WebSite`, `BreadcrumbList`, `TouristDestination` с достопримечательностями и geo), один H1, alt, lazy-load, preload LCP.
