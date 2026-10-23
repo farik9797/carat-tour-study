@@ -81,6 +81,7 @@ cd build && php -S localhost:8080   # с рабочей формой; без PHP
 - Скругления 2xl/3xl, мягкие тени `shadow-card/soft/float`.
 - Шрифты свои: Montserrat (variable) и Caveat из npm `@fontsource*` → `src/assets/fonts/` (@font-face в `input.css`); иконки Material Symbols — `build.py → icon_font()` скачивает подмножество в `src/assets/fonts/ms-<hash>.woff2` (без сети — фолбэк на Google). 中文 — системные шрифты (PingFang/YaHei/Noto CJK).
 - LCP-картинки: `name-sm.avif` (телефон, `<picture>`), `name-sm.webp`/`name.webp` (srcset). Журнал скорости — `PERF.md`.
+- Внутренние страницы: `page_hero` в стиле hero главной (белый фон, фото справа уходит в белый `bg-hero-fade`; на телефоне фото снизу под белым градиентом). Без фото (privacy/consent) — светлый градиент.
 - `.container` — свой (core-плагин Tailwind отключён): контент до 1300px, отступы 16/24/32px (`input.css`).
 
 ## 5. Что НЕ готово / нужно от заказчика

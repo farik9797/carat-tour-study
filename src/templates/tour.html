@@ -3,7 +3,7 @@
 {% block content %}
 {% call m.page_hero(D.name, D.tag, [{'name': S.nav.intl, 'href': url('international/')}, {'name': D.name}], D.slug ~ '.webp', D.name) %}
   <div class="mt-6 flex flex-wrap gap-2">
-    {% for k in D.kinds %}<span class="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/25">{{ S.pages.intl.kinds[k] }}</span>{% endfor %}
+    {% for k in D.kinds %}<span class="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-navy ring-1 ring-navy/10 backdrop-blur">{{ S.pages.intl.kinds[k] }}</span>{% endfor %}
   </div>
 {% endcall %}
 

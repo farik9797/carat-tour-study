@@ -51,12 +51,6 @@
     var radio = type && form.querySelector('input[name="tour_type"][value="' + type + '"]');
     if (radio) radio.checked = true;
   }
-  function setSelectByText(sel, text) {
-    if (!sel || !text) return;
-    for (var i = 0; i < sel.options.length; i++) {
-      if (sel.options[i].value === text || sel.options[i].text === text) { sel.selectedIndex = i; return; }
-    }
-  }
   var summary = dlg && $('[data-booking-summary]', dlg);
   function openBooking(opts) {
     opts = opts || {};
