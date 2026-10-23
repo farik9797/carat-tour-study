@@ -140,7 +140,7 @@
   </div>
   <input type="hidden" name="ts" value="">
 
-  <div class="grid gap-4 {{ 'sm:grid-cols-2' if minimal else ('' if compact else ('sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2')) }}">
+  <div class="grid gap-4 {{ ('' if stack else 'sm:grid-cols-2') if minimal else ('' if compact else ('sm:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2' if stack else 'sm:grid-cols-2')) }}">
     <div>
       <label class="field-label" for="{{ form_id }}-name">{{ S.lead.name }} <span class="text-red-500">*</span></label>
       <input class="field" id="{{ form_id }}-name" name="name" type="text" autocomplete="name" placeholder="{{ S.lead.name_ph }}" required minlength="2" maxlength="80">
