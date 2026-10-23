@@ -9,6 +9,24 @@
 | 23.10.2026 | Hero главной: `hero-home-sm.webp` 1200w + `srcset`, preload с `imagesrcset` | LCP 7209 → 5029 мс, вес 1372 → 1181 КБ, score 65 → 71 | **оставлено** | LCP-картинка на мобильном весила 259 КБ вместо 69 КБ |
 | 23.10.2026 | Google Fonts (Montserrat/Caveat) неблокирующими: `media=print` → `all` | LCP 5029 → 5003 мс, score 71 → 72 | откатено | В пределах разброса (±50 мс). Element render delay так и остался ~2.3 с |
 
-Остаток: LCP ≈ 5.0 с, FCP ≈ 3.8 с, CLS 0, TBT 0. Основная часть LCP — «element render delay» ~2.3 с.
-Кандидаты на следующий замер (по одному): self-host шрифтов (Montserrat + Material Symbols) вместо Google Fonts;
-critical CSS для первого экрана; логотипы 757px → 2× от показа (~320px).
+
+## Этап 2 — цель LCP ≤ 2.5 с (23.10.2026)
+
+Замер изменён на **живой сайт** `https://farik9797.github.io/carat-tour-study/ru/` (gzip как на хостинге; локальный
+`http.server` не сжимает и завышает FCP/LCP). Lighthouse 13.5, mobile, по 3–5 прогонов; TTFB GitHub Pages ≈ 0.42 с.
+
+| Идея | До → После (LCP, мс) | Решение | Почему |
+|---|---|---|---|
+| Базовая линия (live) | 4562–4909, score 70–72 | — | Element render delay 1.7 с: CSS Google Fonts (2 чужих домена) ≈ 1 с |
+| Шрифты у себя: Montserrat/Caveat (@fontsource), Material Symbols — подмножество скачивается при сборке | 4715 → 2684 (медиана), FCP 4.1 → 1.7 с, score 93 | **оставлено** | Ушли render-blocking запросы к googleapis/gstatic |
+| Логотипы 757 → 360 px (52→21, 48→18 КБ), футер lazy | 2684 → 2349 (5 прогонов, σ≈310) | **оставлено** | Логотипы делили канал с LCP-картинкой |
+| Hero mobile q76 → q64 (69 → 57 КБ) | 2349 → 2253 (σ≈290) | оставлено | По LCP в пределах шума, но −12 КБ детерминированно и без усложнения кода |
+| 中文: системные CJK-шрифты вместо Noto SC (Google, ~100 файлов) | zh: 10733 → 1653–2061 | **оставлено** | Десятки файлов шрифта с приоритетом VeryHigh душили LCP-картинку |
+| Preload фото шапки «Туры по Узбекистану» | 2413–2479 → 2383–2431 | оставлено | Единственная страница с картинкой в шапке без preload |
+| AVIF q50 для мобильных LCP (`<picture media=max-width:767px>`, preload по media) | ru 2378 → 2123, uz-list 2384 → 2249, zh 1990 → 1850 | **оставлено** | −35…45 % веса LCP-картинок; десктоп получает WebP 2000w |
+
+Итог (live, mobile): ru 1643–2235, ru/uzbekistan 2226–2379, ru/uzbekistan/samarkand 1783–1964, zh 1673–1918 мс;
+uz/en/international/info/about/contacts — 1.1–2.1 с. Score 95–100. CLS 0, TBT 0.
+
+Защита от регресса: перед изменениями картинок/шрифтов — тот же замер (3 прогона live) по `ru/` и `ru/uzbekistan/`;
+бюджет: LCP ≤ 2.5 с, LCP-картинка mobile ≤ 40 КБ (AVIF), никаких внешних CSS в `<head>`.
