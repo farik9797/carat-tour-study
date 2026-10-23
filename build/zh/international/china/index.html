@@ -21,7 +21,7 @@
   <link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
   <style>@font-face{font-family:'Material Symbols Rounded';font-style:normal;font-weight:400;font-display:block;src:url(../../../assets/fonts/ms-748a0a2eb3.woff2) format('woff2')}</style>
   <link rel="preload" as="image" href="../../../assets/img/china-sm.avif" type="image/avif" media="(max-width: 767px)" fetchpriority="high">
-  <link rel="preload" as="image" href="../../../assets/img/china-sm.webp" imagesrcset="../../../assets/img/china-sm.webp 800w, ../../../assets/img/china.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../../assets/css/app.css?v=202610231513">
+  <link rel="preload" as="image" href="../../../assets/img/china-sm.webp" imagesrcset="../../../assets/img/china-sm.webp 800w, ../../../assets/img/china.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../../assets/css/app.css?v=202610231535">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/international/", "name": "\u51fa\u5883\u65c5\u6e38", "position": 2}, {"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/international/china/", "name": "\u4e2d\u56fd", "position": 3}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TouristDestination", "description": "\u5317\u4eac\u7684\u957f\u57ce\u4e0e\u6545\u5bab\u3001\u73b0\u4ee3\u5316\u7684\u4e0a\u6d77\u3001\u5f20\u5bb6\u754c\u4e0e\u6842\u6797\u7684\u5c71\u6c34\u2014\u2014\u4e2d\u56fd\u4ee5\u5176\u89c4\u6a21\u4e0e\u53cd\u5dee\u4ee4\u4eba\u60ca\u53f9\u3002", "image": "https://carattourandstudy.uz/assets/img/china.webp", "inLanguage": "zh-Hans", "name": "\u4e2d\u56fd", "url": "https://carattourandstudy.uz/zh/international/china/"}</script>
 </head>
@@ -68,31 +68,35 @@
     </div>
   </div>
 
-  <!-- Мобильное меню -->
-  <div id="mobile-menu" class="fixed inset-0 z-[60] hidden lg:hidden" role="dialog" aria-modal="true" aria-label="菜单">
-    <div class="absolute inset-0 bg-navy-950/50" data-menu-close></div>
-    <div class="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto bg-white p-5 shadow-float">
-      <div class="mb-6 flex items-center justify-between">
-        <img src="../../../assets/img/logo.webp" alt="Carat Tour &amp; Study" width="360" height="105" class="h-9 w-auto">
-        <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-navy/15" data-menu-close aria-label="关闭"><span class="material-symbols-rounded text-2xl">close</span></button>
-      </div>
-      <nav class="flex flex-col text-base font-semibold text-navy">
-        <a href="../../../zh/" class="rounded-xl px-3 py-3 hover:bg-sky-50">首页</a>
-        <a href="../../../zh/about/" class="rounded-xl px-3 py-3 hover:bg-sky-50">关于我们</a>
-        <a href="../../../zh/uzbekistan/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50"><span class="material-symbols-rounded text-accent-600">mosque</span>乌兹别克斯坦旅游</a>
-        <a href="../../../zh/international/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50"><span class="material-symbols-rounded text-accent-600">flight_takeoff</span>出境旅游</a>
-        <a href="../../../zh/info-tours/" class="rounded-xl px-3 py-3 hover:bg-sky-50">考察团</a>
-        <a href="../../../zh/contacts/" class="rounded-xl px-3 py-3 hover:bg-sky-50">联系我们</a>
-      </nav>
-      <div class="mt-6 flex gap-2" aria-label="网站语言">
-<a href="../../../uz/international/china/" hreflang="uz" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">UZ</a><a href="../../../ru/international/china/" hreflang="ru" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">RU</a><a href="../../../en/international/china/" hreflang="en" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">EN</a><a href="../../../zh/international/china/" hreflang="zh-Hans" class="flex-1 rounded-full py-2 text-center text-sm font-semibold bg-navy text-white">中文</a>      </div>
-      <div class="mt-auto space-y-3 pt-8">
-        <a href="#lead" class="btn-accent w-full" data-menu-close data-booking>定制行程<span class="material-symbols-rounded text-lg">arrow_forward</span></a>
-        <a href="https://t.me/carat_tour" target="_blank" rel="noopener noreferrer" class="btn-navy w-full"><svg viewBox="0 0 24 24" class="h-[1.1em] w-[1.1em]" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg> Telegram 咨询</a>
-      </div>
+</header>
+
+<!-- Мобильное меню -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden lg:hidden" role="dialog" aria-modal="true" aria-label="菜单">
+  <div class="absolute inset-0 bg-navy-950/50" data-menu-close></div>
+  <div class="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col overflow-y-auto bg-white p-5 shadow-float">
+    <div class="mb-6 flex items-center justify-between">
+      <img src="../../../assets/img/logo.webp" alt="Carat Tour &amp; Study" width="360" height="105" class="h-9 w-auto">
+      <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-navy/15" data-menu-close aria-label="关闭"><span class="material-symbols-rounded text-2xl">close</span></button>
+    </div>
+    <nav class="flex flex-col text-base font-semibold text-navy">
+    <a href="../../../zh/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50" >首页</a>
+    <a href="../../../zh/about/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50" >关于我们</a>
+    <a href="../../../zh/uzbekistan/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50" ><span class="material-symbols-rounded text-accent-600">mosque</span>乌兹别克斯坦旅游</a>
+    <a href="../../../zh/international/" class="flex items-center gap-3 rounded-xl px-3 py-3 bg-sky-100 text-navy" aria-current="page"><span class="material-symbols-rounded text-accent-600">flight_takeoff</span>出境旅游</a>
+    <a href="../../../zh/info-tours/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50" >考察团</a>
+    <a href="../../../zh/contacts/" class="flex items-center gap-3 rounded-xl px-3 py-3 hover:bg-sky-50" >联系我们</a>
+  </nav>
+    <div class="mt-6 flex gap-2" aria-label="网站语言">
+<a href="../../../uz/international/china/" hreflang="uz" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">UZ</a><a href="../../../ru/international/china/" hreflang="ru" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">RU</a><a href="../../../en/international/china/" hreflang="en" class="flex-1 rounded-full py-2 text-center text-sm font-semibold ring-1 ring-navy/15 text-navy">EN</a><a href="../../../zh/international/china/" hreflang="zh-Hans" class="flex-1 rounded-full py-2 text-center text-sm font-semibold bg-navy text-white">中文</a>    </div>
+    <div class="mt-auto space-y-3 pt-8">
+      <a href="#lead" class="btn-accent w-full" data-menu-close data-booking>定制行程<span class="material-symbols-rounded text-lg">arrow_forward</span></a>
+      <a href="https://t.me/carat_tour" target="_blank" rel="noopener noreferrer" class="btn-navy w-full"><svg viewBox="0 0 24 24" class="h-[1.1em] w-[1.1em]" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg> Telegram 咨询</a>
+      <div class="flex flex-wrap justify-center gap-2 pt-1">
+<a href="tel:+998974094200" class="social-pill"><span class="material-symbols-rounded text-base" aria-hidden="true">call</span>+998 97 409 42 00</a><a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="social-pill"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a><a href="https://t.me/carat_tournstudy" target="_blank" rel="noopener noreferrer" class="social-pill"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>Telegram 频道</a>      </div>
     </div>
   </div>
-</header>  <main id="main" class="flex-1">
+</div>
+  <main id="main" class="flex-1">
 <section class="relative overflow-hidden bg-white">
   <div class="absolute inset-0">
 <picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="../../../assets/img/china-sm.avif"><img src="../../../assets/img/china-sm.webp" srcset="../../../assets/img/china-sm.webp 800w, ../../../assets/img/china.webp 2000w" sizes="100vw" alt="中国" width="2000" height="1333" fetchpriority="high" class="h-full w-full object-cover object-[50%_60%] lg:object-[70%_50%]"></picture>
@@ -115,7 +119,7 @@
   </div>
 </section>
 <section class="section">
-  <div class="container grid gap-10 lg:grid-cols-[1fr_340px]">
+  <div class="container grid grid-cols-1 gap-10 lg:grid-cols-[1fr_340px]">
     <div class="min-w-0">
       <h2 class="section-title">目的地介绍</h2>
       <p class="mt-5 text-lg leading-relaxed text-ink">北京的长城与故宫、现代化的上海、张家界与桂林的山水——中国以其规模与反差令人惊叹。</p>
@@ -141,9 +145,9 @@
       <div class="card overflow-hidden">
         <img src="../../../assets/img/china-sm.webp" srcset="../../../assets/img/china-sm.webp 800w, ../../../assets/img/china.webp 2000w" sizes="(min-width:1024px) 400px, 100vw" alt="" width="2000" height="1333" loading="lazy" decoding="async" class="aspect-[16/9] w-full object-cover">
         <dl class="divide-y divide-navy/10 px-5">
-          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">schedule</span>行程天数</dt><dd class="text-right text-sm font-semibold text-navy">可协商</dd></div>
-          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">event</span>出行日期</dt><dd class="text-right text-sm font-semibold text-navy">按需报价</dd></div>
-          <div class="flex items-center justify-between gap-4 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">payments</span>价格</dt><dd class="text-right text-sm font-semibold text-navy">按需报价</dd></div>
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">schedule</span>行程天数</dt><dd class="ml-auto text-right text-sm font-semibold text-navy">可协商</dd></div>
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">event</span>出行日期</dt><dd class="ml-auto text-right text-sm font-semibold text-navy">按需报价</dd></div>
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-4"><dt class="flex items-center gap-2 text-sm text-ink-soft"><span class="material-symbols-rounded text-navy" aria-hidden="true">payments</span>价格</dt><dd class="ml-auto text-right text-sm font-semibold text-navy">按需报价</dd></div>
         </dl>
         <div class="space-y-3 p-5 pt-2">
           <a href="#lead" class="btn-accent w-full" data-booking data-direction="中国" data-type="intl">立即预订<span class="material-symbols-rounded text-lg" aria-hidden="true">arrow_forward</span></a>
@@ -294,16 +298,16 @@
         <li><a href="../../../zh/contacts/" class="border-b-2 pb-1 transition hover:text-white border-transparent">联系我们</a></li>
       </ul>
     </nav>
-    <div class="flex items-center gap-5">
-      <nav class="flex items-center text-xs font-semibold" aria-label="网站语言">
+    <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+      <nav class="flex items-center whitespace-nowrap text-xs font-semibold" aria-label="网站语言">
           <a href="../../../uz/international/china/" hreflang="uz" lang="uz" class="text-white/60 hover:text-white" >UZ</a>
 <span class="px-1.5 text-white/30" aria-hidden="true">|</span>          <a href="../../../ru/international/china/" hreflang="ru" lang="ru" class="text-white/60 hover:text-white" >RU</a>
 <span class="px-1.5 text-white/30" aria-hidden="true">|</span>          <a href="../../../en/international/china/" hreflang="en" lang="en" class="text-white/60 hover:text-white" >EN</a>
 <span class="px-1.5 text-white/30" aria-hidden="true">|</span>          <a href="../../../zh/international/china/" hreflang="zh-Hans" lang="zh-Hans" class="text-white" aria-current="true">中文</a>
       </nav>
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center justify-center gap-2">
         <a href="https://t.me/carat_tour" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-navy transition hover:bg-accent" aria-label="Telegram @carat_tour"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg></a>
-<a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="Instagram @carat_tour"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a href="tel:+998974094200" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="电话 +998 97 409 42 00"><span class="material-symbols-rounded text-lg" aria-hidden="true">call</span></a>      </div>
+<a href="https://t.me/carat_tournstudy" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full px-3 text-xs font-semibold text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy"><svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>Telegram 频道</a><a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="Instagram @carat_tour"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a href="tel:+998974094200" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="电话 +998 97 409 42 00"><span class="material-symbols-rounded text-lg" aria-hidden="true">call</span></a>      </div>
     </div>
   </div>
   <div class="container"><div class="border-t border-white/10"></div></div>
@@ -366,9 +370,9 @@
       <p class="text-center text-xs font-semibold uppercase tracking-wider text-ink-soft">或直接联系我们</p>
       <div class="mt-3 flex flex-wrap justify-center gap-2">
         <a href="https://t.me/carat_tour" target="_blank" rel="noopener noreferrer" class="social-pill"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>Telegram</a>
-<a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="social-pill"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a><a href="tel:+998974094200" class="social-pill"><span class="material-symbols-rounded text-base" aria-hidden="true">call</span>+998 97 409 42 00</a>      </div>
+<a href="https://t.me/carat_tournstudy" target="_blank" rel="noopener noreferrer" class="social-pill"><svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor" aria-hidden="true"><path d="M9.78 15.6 9.4 20.9c.54 0 .78-.23 1.06-.51l2.55-2.44 5.28 3.87c.97.53 1.65.25 1.91-.89l3.46-16.2c.31-1.43-.52-1.99-1.46-1.64L1.86 10.86C.47 11.4.49 12.18 1.62 12.53l5.2 1.62 12.07-7.6c.57-.37 1.09-.17.66.21z"/></svg>Telegram 频道</a><a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="social-pill"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a><a href="tel:+998974094200" class="social-pill"><span class="material-symbols-rounded text-base" aria-hidden="true">call</span>+998 97 409 42 00</a>      </div>
     </div>
   </div>
-</dialog>  <script src="../../../assets/js/app.js?v=202610231513" defer></script>
+</dialog>  <script src="../../../assets/js/app.js?v=202610231535" defer></script>
 </body>
 </html>

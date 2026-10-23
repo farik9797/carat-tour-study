@@ -84,7 +84,7 @@ S = {
     },
 
     "contacts": {
-        "tg": "Telegram", "tg_text": "Bir bosishda yozing",
+        "tg_channel": "Telegram-kanal", "tg": "Telegram", "tg_text": "Bir bosishda yozing",
         "phone": "Telefon", "email": "Email", "address": "Ofis manzili", "hours": "Ish vaqti",
     },
 

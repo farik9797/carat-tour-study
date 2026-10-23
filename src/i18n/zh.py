@@ -84,7 +84,7 @@ S = {
     },
 
     "contacts": {
-        "tg": "Telegram", "tg_text": "一键联系我们",
+        "tg_channel": "Telegram 频道", "tg": "Telegram", "tg_text": "一键联系我们",
         "phone": "电话", "email": "电子邮箱", "address": "办公地址", "hours": "工作时间",
     },
 

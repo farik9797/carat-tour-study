@@ -29,7 +29,8 @@ SRC, OUT = ROOT / "src", ROOT / "build"
 SITE = {
     "domain": "https://carattourandstudy.uz",
     "telegram": "https://t.me/carat_tour",
-    "telegram_handle": "@carat_tour",
+    "telegram_handle": "@carat_tour",          # рабочий чат менеджера
+    "telegram_channel": "https://t.me/carat_tournstudy",   # публичный канал (на него ссылается Instagram)
     # Контакты — с действующего сайта caratstudy.uz (23.10.2026); пустой список / None — блок не выводится
     "phones": ["+998 97 409 42 00"],
     "email": "info@caratstudy.uz",
@@ -176,7 +177,7 @@ def jsonld_for(S, L, path, section, ctx):
         "@context": "https://schema.org", "@type": "TravelAgency", "@id": f"{SITE['domain']}/#agency",
         "name": "Carat Tour & Study", "url": abs_url(L, ""), "logo": f"{SITE['domain']}/assets/img/logo.webp",
         "image": f"{SITE['domain']}/assets/img/hero-samarkand.webp", "description": S["footer"]["about"],
-        "sameAs": [SITE["telegram"]] + ([SITE["instagram"]] if SITE.get("instagram") else []), "areaServed": ["UZ", "Worldwide"],
+        "sameAs": [SITE["telegram"]] + [SITE[k] for k in ("telegram_channel", "instagram") if SITE.get(k)], "areaServed": ["UZ", "Worldwide"],
         "availableLanguage": ["uz", "ru", "en", "zh"],
     }
     if SITE["phones"]:

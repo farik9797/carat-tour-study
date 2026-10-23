@@ -26,7 +26,14 @@
   if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
   $$('[data-menu-close]').forEach(function (el) { el.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && menu && !menu.classList.contains('hidden')) setMenu(false);
+    if (!menu || menu.classList.contains('hidden')) return;
+    if (e.key === 'Escape') { setMenu(false); return; }
+    if (e.key === 'Tab') {   // фокус не уходит на страницу под меню
+      var f = $$('a[href], button', menu).filter(function (el) { return el.offsetParent !== null; });
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   /* ---------- Выпадающее меню «Туры» (клавиатура / тач) ---------- */

@@ -84,7 +84,7 @@ S = {
     },
 
     "contacts": {
-        "tg": "Telegram", "tg_text": "Message us in one click",
+        "tg_channel": "Telegram channel", "tg": "Telegram", "tg_text": "Message us in one click",
         "phone": "Phone", "email": "Email", "address": "Office address", "hours": "Working hours",
     },
 

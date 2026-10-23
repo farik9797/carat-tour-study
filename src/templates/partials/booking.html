@@ -14,6 +14,7 @@
       <p class="text-center text-xs font-semibold uppercase tracking-wider text-ink-soft">{{ S.booking.social }}</p>
       <div class="mt-3 flex flex-wrap justify-center gap-2">
         <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.tg('h-4 w-4') }}Telegram</a>
+        {% if SITE.telegram_channel %}<a href="{{ SITE.telegram_channel }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.tg('h-4 w-4') }}{{ S.contacts.tg_channel }}</a>{% endif %}
         {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.ig('h-4 w-4') }}Instagram</a>{% endif %}
         {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="social-pill">{{ m.icon('call', 'text-base') }}{{ p }}</a>{% endfor %}
       </div>
