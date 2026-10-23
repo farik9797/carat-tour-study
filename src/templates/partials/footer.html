@@ -2,7 +2,7 @@
 {# Футер как в макете: логотип · меню в строку · языки + иконки связи; ниже копирайт, юр. ссылки, слоган #}
 <footer class="bg-navy-900 text-white">
   <div class="container flex flex-col items-center gap-7 py-10 text-center lg:flex-row lg:justify-between lg:gap-8 lg:text-left">
-    <a href="{{ url('') }}" class="shrink-0"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="757" height="220" class="h-12 w-auto"></a>
+    <a href="{{ url('') }}" class="shrink-0"><img src="{{ asset('img/logo-white.webp') }}" alt="Carat Tour &amp; Study" width="360" height="105" loading="lazy" decoding="async" class="h-12 w-auto"></a>
     <nav aria-label="{{ S.footer.sections }}">
       <ul class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/75">
         {% for href, label, sec in [('', S.nav.home, 'home'), ('about/', S.nav.about, 'about'), ('international/', S.nav.tours, 'intl'), ('info-tours/', S.nav.info, 'info'), ('contacts/', S.nav.contacts, 'contacts')] %}
