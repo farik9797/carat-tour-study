@@ -33,7 +33,7 @@ for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getA
      中文 — системные шрифты (веб-шрифт Noto SC — ~100 файлов, LCP zh был 10.7 с) #}
   <!--ICON-FONT:{{ asset('fonts/') }}-->
   {% if preload_img %}{% set pn = preload_img[:-5] %}{% set pw = IMG_W.get(pn, (800, 2000)) %}{# LCP-картинка: на телефоне AVIF (как в <picture>), шире — WebP srcset #}
-  <link rel="preload" as="image" href="{{ asset('img/' ~ pn ~ '-sm.avif') }}" type="image/avif" media="(max-width: 767px)" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ asset('img/' ~ IMG_MOBILE.get(pn, pn ~ '-sm') ~ '.avif') }}" type="image/avif" media="(max-width: 767px)" fetchpriority="high">
   <link rel="preload" as="image" href="{{ asset('img/' ~ pn ~ '-sm.webp') }}" imagesrcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} {{ pw[0] }}w, {{ asset('img/' ~ preload_img) }} {{ pw[1] }}w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">{% endif %}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ VERSION }}">
   {% for ld in jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>

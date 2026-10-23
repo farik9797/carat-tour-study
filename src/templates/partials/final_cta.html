@@ -1,13 +1,9 @@
 {% import 'partials/macros.html' as m with context %}
-{# Callback как в макете: фактура воды, эмблема слева, одна CTA-кнопка, самолёт со следом справа #}
+{# Callback как в макете: фон «вода + самолёт» (от заказчика), эмблема слева, одна CTA-кнопка #}
 <section class="relative overflow-hidden bg-navy-950 text-white">
-  <img src="{{ asset('img/cta-water.webp') }}" alt="" width="1600" height="262" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover" aria-hidden="true">
-  <span class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/55 to-navy-900/15" aria-hidden="true"></span>
-  <svg class="absolute right-6 top-6 hidden h-24 w-72 text-white md:block lg:right-16" viewBox="0 0 288 96" fill="none" aria-hidden="true">
-    <path d="M4 92C70 84 150 64 236 30" stroke="currentColor" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1 0"/>
-    <path d="M14 94C84 88 160 70 240 38" stroke="currentColor" stroke-opacity=".2" stroke-width="1" stroke-linecap="round"/>
-  </svg>
-  <span class="material-symbols-rounded icon-fill absolute right-6 top-5 hidden !w-auto rotate-45 text-5xl text-white/80 md:block lg:right-16" aria-hidden="true">flight</span>
+  <picture class="contents"><source media="(max-width: 767px)" srcset="{{ asset('img/cta-bg-sm.webp') }}">
+  <img src="{{ asset('img/cta-bg.webp') }}" alt="" width="2000" height="593" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-[80%_30%] md:object-center" aria-hidden="true"></picture>
+  <span class="absolute inset-0 bg-navy-950/45 md:bg-transparent md:bg-gradient-to-r md:from-navy-950/85 md:via-navy-900/40 md:to-transparent" aria-hidden="true"></span>
   <div class="container relative flex flex-col gap-6 py-12 md:flex-row md:items-center md:gap-10 md:py-14">
     <img src="{{ asset('img/cta-emblem.webp') }}" alt="" width="163" height="216" loading="lazy" decoding="async" class="hidden h-20 w-auto shrink-0 opacity-30 grayscale md:block lg:h-24" aria-hidden="true">
     <div class="max-w-2xl md:flex-1">

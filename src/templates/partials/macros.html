@@ -22,9 +22,9 @@
 {%- endmacro %}
 
 {# ===== Карточка направления по Узбекистану (фото + подпись поверх) ===== #}
-{% macro uz_card(d, lazy=True) -%}
-<a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-card sm:aspect-[3/4]">
-  {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, 68vw', lazy) }}
+{% macro uz_card(d, lazy=True, wide=False) -%}
+<a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="group relative block {{ 'aspect-[16/9]' if wide else 'aspect-[4/5]' }} overflow-hidden rounded-2xl shadow-card sm:aspect-[3/4]">
+  {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, ' ~ ('100vw' if wide else '50vw'), lazy) }}
   <span class="bg-card-fade absolute inset-0"></span>
   <span class="absolute inset-x-0 bottom-0 p-4 text-white">
     <span class="block text-lg font-bold leading-tight">{{ d.name }}</span>
@@ -35,12 +35,12 @@
 {%- endmacro %}
 
 {# ===== Карточка международного направления (фото сверху, текст снизу) ===== #}
-{% macro intl_card(d, show_btn=False) -%}
+{% macro intl_card(d, show_btn=False, wide=False) -%}
 <a href="{{ url('international/' ~ d.slug ~ '/') }}" class="group card flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-float" data-kinds="{{ d.kinds|join(' ') }}">
-  <span class="block aspect-[7/6] overflow-hidden">
-    {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, 90vw') }}
+  <span class="block {{ 'aspect-[16/9]' if wide else 'aspect-[7/6]' }} overflow-hidden sm:aspect-[7/6]">
+    {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, ' ~ ('100vw' if wide else '50vw')) }}
   </span>
-  <span class="flex flex-1 flex-col p-4">
+  <span class="flex flex-1 flex-col p-3 sm:p-4">
     <span class="font-bold text-navy">{{ d.name }}</span>
     <span class="mt-1 text-[13px] text-ink-soft">{{ d.tag }}</span>
     {% if show_btn %}<span class="mt-auto pt-4 link-arrow">{{ S.common.more }}{{ icon('arrow_forward', 'text-lg') }}</span>{% endif %}

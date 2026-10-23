@@ -52,7 +52,8 @@ UZ_SLUGS = ["tashkent", "samarkand", "bukhara", "khiva", "chimgan"]
 INTL_SLUGS = ["maldives", "turkey", "uae", "thailand", "europe"]
 INTL_KINDS = {"maldives": ["beach", "nature"], "turkey": ["beach", "city"], "uae": ["beach", "city"],
               "thailand": ["beach", "nature"], "europe": ["city"]}
-IMG_W = {"hero-home": (1200, 2400)}   # ширины вариантов name-sm.webp / name.webp; по умолчанию (800, 2000)
+IMG_W = {"hero-home": (1200, 2400)}
+IMG_MOBILE = {"hero-home": "hero-home-m"}   # своя картинка для телефона (иначе name-sm)   # ширины вариантов name-sm.webp / name.webp; по умолчанию (800, 2000)
 PROMO = {"href": "uzbekistan/chimgan/", "img": "promo.webp"}
 GEO = {"tashkent": (41.3111, 69.2797), "samarkand": (39.6542, 66.9597), "bukhara": (39.7747, 64.4286),
        "khiva": (41.3783, 60.3639), "chimgan": (41.5333, 70.0167)}
@@ -232,7 +233,7 @@ def main():
                       undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
     base_ctx = dict(SITE=SITE, LANGS=LANGS, DEFAULT_LANG=DEFAULT_LANG, HREFLANG=HREFLANG, LANG_LABEL=LANG_LABEL,
                     LANG_OG=LANG_OG, YEAR=dt.date.today().year, VERSION=VERSION, ICON_NAMES=ICONS_TOKEN,
-                    PROMO=PROMO, IMG_W=IMG_W, SHOW_DEV_NOTES=SHOW_DEV_NOTES, abs_url=abs_url)
+                    PROMO=PROMO, IMG_W=IMG_W, IMG_MOBILE=IMG_MOBILE, SHOW_DEV_NOTES=SHOW_DEV_NOTES, abs_url=abs_url)
 
     rendered = {}
     sitemap = []
