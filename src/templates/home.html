@@ -140,13 +140,14 @@
     {{ m.section_head(S.home.reviews_title) }}
     <div class="grid gap-4 md:grid-cols-3">
       {% for r in REVIEWS %}
-      <figure class="card relative flex flex-col p-6">
-        {{ m.icon('format_quote', 'icon-fill text-4xl text-accent/70') }}
+      <figure class="relative flex flex-col rounded-2xl bg-white p-6 ring-1 ring-navy/10 md:p-8">
         {% if DEMO_REVIEWS %}<span class="absolute right-4 top-4 rounded-full bg-sky-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-navy/60">{{ S.common.demo_review }}</span>{% endif %}
-        <blockquote class="mt-2 flex-1 text-[15px] leading-relaxed text-ink">“{{ r.text }}”</blockquote>
-        <figcaption class="mt-5 flex items-center gap-3">
-          <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">{{ r.name[:1] }}</span>
-          <span><span class="block text-sm font-semibold text-navy">{{ r.name }}</span><span class="block text-xs text-ink-soft">{{ r.place }}</span></span>
+        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink-soft{% if DEMO_REVIEWS %} pt-4{% endif %}">“{{ r.text }}”</blockquote>
+        <figcaption class="mt-6 flex items-center gap-4">
+          {# фото из макета — только для демо-отзывов; у реальных отзывов фото добавить с разрешения клиента #}
+          {% if DEMO_REVIEWS and loop.index <= 3 %}<img src="{{ asset('img/review-' ~ loop.index ~ '.webp') }}" alt="" width="192" height="192" loading="lazy" decoding="async" class="h-14 w-14 shrink-0 rounded-full object-cover">
+          {% else %}<span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy text-base font-bold text-white">{{ r.name[:1] }}</span>{% endif %}
+          <span><span class="block text-sm font-semibold text-navy">{{ r.name }}</span><span class="mt-0.5 block text-xs text-ink-soft">{{ r.place }}</span></span>
         </figcaption>
       </figure>
       {% endfor %}
