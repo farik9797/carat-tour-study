@@ -234,7 +234,7 @@ def main():
             if not extra.get("noindex"):
                 sitemap.append((L, path))
 
-    # 404 (корень; ссылки абсолютные от корня)
+    # 404 (корень; ссылки от <base>, см. root_base в base.html)
     S = data[DEFAULT_LANG]
     e = S["pages"]["e404"]
     rendered["404.html"] = render(env, base_ctx, S, DEFAULT_LANG, "", "thanks.html", "e404",
@@ -259,8 +259,9 @@ def main():
 
 
 def render(env, base_ctx, S, L, path, tpl, section, extra, root_abs=False):
+    # root_abs (404): ссылки относительные от <base> — "/" на домене, /<repo>/ на GitHub Pages (base.html)
     depth = 0 if root_abs else len(f"{L}/{path}".strip("/").split("/"))
-    prefix = "/" if root_abs else "../" * depth
+    prefix = "../" * depth
 
     def url(p):
         if p.startswith("#"):
@@ -278,7 +279,7 @@ def render(env, base_ctx, S, L, path, tpl, section, extra, root_abs=False):
                rel_root=prefix, UZ=uz_list(S), INTL=intl_list(S),
                REVIEWS=S["reviews"] if DEMO_REVIEWS else [],
                meta_desc="", noindex=False, og_image=None, preload_img=None, show_langs=False,
-               icon_name="check_circle", D=None, P=None)
+               icon_name="check_circle", D=None, P=None, root_base=root_abs)
     ctx.update(extra)
     ctx["cta_href"] = "#lead" if extra.get("lead") else url("contacts/") + "#lead"
     ctx["jsonld"] = [] if ctx["noindex"] else jsonld_for(S, L, path, section, ctx)

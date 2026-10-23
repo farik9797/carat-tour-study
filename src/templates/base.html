@@ -2,6 +2,12 @@
 <html lang="{{ S.lang.html }}">
 <head>
   <meta charset="utf-8">
+  {% if root_base %}{# 404 открывается по любому URL: ссылки считаем от корня сайта. На *.github.io сайт лежит в /<repo>/ —
+     скрипт пишет свой <base> раньше статического (действует только первый). Якоря (#main) возвращаем на текущую страницу. #}
+  <script>(function(){var b="/",s=location.pathname.split("/")[1];if(/\.github\.io$/.test(location.hostname)&&s)b="/"+s+"/";
+document.write('<base href="'+b+'">');document.addEventListener("DOMContentLoaded",function(){var a=document.querySelectorAll('a[href^="#"]');
+for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getAttribute("href")})})();</script>
+  <base href="/">{% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{ meta_title }}</title>
   {% if meta_desc %}<meta name="description" content="{{ meta_desc }}">{% endif %}
