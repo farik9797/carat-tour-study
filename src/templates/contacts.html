@@ -10,10 +10,10 @@
       {{ m.contact_list() }}
       <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-navy mt-8 w-full">{{ m.tg() }}{{ S.nav.tg }}</a>
     </div>
-    <div class="card p-6 md:p-8">
+    <div class="card flex flex-col justify-center p-6 md:p-8">
       <h2 class="text-xl font-bold md:text-2xl">{{ P.form_title }}</h2>
       <p class="mb-6 mt-2 text-ink-soft">{{ S.lead.text }}</p>
-      {{ m.lead_form() }}
+      {{ m.lead_form(minimal=True) }}
     </div>
   </div>
 </section>
