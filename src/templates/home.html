@@ -4,14 +4,14 @@
 
 {# ===== HERO ===== #}
 <section class="relative overflow-hidden bg-white">
-  <div class="relative lg:absolute lg:inset-y-0 lg:right-0 lg:w-[64%]">
-    <img src="{{ asset('img/hero-samarkand.webp') }}" alt="{{ S.hero.img_alt }}" width="1448" height="1056" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[60%_50%] lg:aspect-auto lg:h-full">
+  <div class="relative lg:absolute lg:inset-0">
+    <img src="{{ asset('img/hero-samarkand.webp') }}" alt="{{ S.hero.img_alt }}" width="1448" height="1056" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[60%_50%] lg:aspect-auto lg:object-[70%_45%] lg:h-full">
     <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
     <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent lg:hidden" aria-hidden="true"></span>
-    <p class="font-hand absolute bottom-24 right-6 hidden max-w-[16rem] -rotate-6 text-right text-4xl leading-[1.05] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.45)] xl:block">{{ S.hero.tagline }}
-      <svg viewBox="0 0 200 20" class="ml-auto mt-1 h-4 w-40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M4 16C60 6 120 2 196 6"/></svg></p>
   </div>
   <div class="container relative pb-28 pt-6 lg:pb-40 lg:pt-20">
+    <p class="font-hand absolute bottom-24 right-8 hidden max-w-[16rem] -rotate-6 text-right text-4xl leading-[1.05] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.45)] xl:block">{{ S.hero.tagline }}
+      <svg viewBox="0 0 200 20" class="ml-auto mt-1 h-4 w-40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M4 16C60 6 120 2 196 6"/></svg></p>
     <div class="max-w-xl">
       <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-teal-600">{{ S.hero.eyebrow }}</p>
       <h1 class="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.5rem] text-balance">{{ S.hero.title }}</h1>

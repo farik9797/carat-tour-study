@@ -60,7 +60,8 @@
   .text-balance { text-wrap: balance; }
   .scrollbar-none { scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }
-  .bg-hero-fade { background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,.92) 32%, rgba(255,255,255,.35) 55%, rgba(255,255,255,0) 72%); }
+  /* Hero на всю ширину: светлая подложка под текстом (контент слева, до ~47% ширины) */
+  .bg-hero-fade { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.9) 34%, rgba(255,255,255,.45) 52%, rgba(255,255,255,0) 68%); }
   .bg-card-fade { background: linear-gradient(180deg, rgba(6,41,88,0) 40%, rgba(6,41,88,.85) 100%); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
