@@ -18,8 +18,8 @@
         {% endfor %}
       </nav>
       <div class="flex items-center gap-2">
-        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-navy transition hover:bg-accent" aria-label="Telegram {{ SITE.telegram_handle }}">{{ m.tg('h-4 w-4') }}</a>
-        {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="Instagram {{ SITE.instagram_handle }}">{{ m.icon('photo_camera', 'text-lg') }}</a>{% endif %}
+        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-navy transition hover:bg-accent" aria-label="Telegram {{ SITE.telegram_handle }}">{{ m.tg('h-4 w-4') }}</a>
+        {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="Instagram {{ SITE.instagram_handle }}">{{ m.icon('photo_camera', 'text-lg') }}</a>{% endif %}
         {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-white ring-1 ring-white/30 transition hover:bg-white hover:text-navy" aria-label="{{ S.contacts.phone }} {{ p }}">{{ m.icon('call', 'text-lg') }}</a>{% endfor %}
       </div>
     </div>

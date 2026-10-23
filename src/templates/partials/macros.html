@@ -16,10 +16,15 @@
 </div>
 {%- endmacro %}
 
+{# ===== Фото с адаптивным srcset: name-sm.webp (sm_w) и name.webp (big_w) ===== #}
+{% macro pic(name, alt, cls='img-cover', sizes='100vw', lazy=True, w=2000, h=1333, sm_w=800, big_w=2000) -%}
+<img src="{{ asset('img/' ~ name ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ name ~ '-sm.webp') }} {{ sm_w }}w, {{ asset('img/' ~ name ~ '.webp') }} {{ big_w }}w" sizes="{{ sizes }}" alt="{{ alt }}" width="{{ w }}" height="{{ h }}" {% if lazy %}loading="lazy" decoding="async"{% endif %} class="{{ cls }}">
+{%- endmacro %}
+
 {# ===== Карточка направления по Узбекистану (фото + подпись поверх) ===== #}
 {% macro uz_card(d, lazy=True) -%}
 <a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-card sm:aspect-[3/4]">
-  <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="709" height="798" {% if lazy %}loading="lazy" decoding="async"{% endif %} class="img-cover transition duration-500 group-hover:scale-105">
+  {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, 68vw', lazy) }}
   <span class="bg-card-fade absolute inset-0"></span>
   <span class="absolute inset-x-0 bottom-0 p-4 text-white">
     <span class="block text-lg font-bold leading-tight">{{ d.name }}</span>
@@ -33,7 +38,7 @@
 {% macro intl_card(d, show_btn=False) -%}
 <a href="{{ url('international/' ~ d.slug ~ '/') }}" class="group card flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-float" data-kinds="{{ d.kinds|join(' ') }}">
   <span class="block aspect-[7/6] overflow-hidden">
-    <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="704" height="617" loading="lazy" decoding="async" class="img-cover transition duration-500 group-hover:scale-105">
+    {{ pic(d.slug, d.name, 'img-cover transition duration-500 group-hover:scale-105', '(min-width:1024px) 20vw, (min-width:640px) 33vw, 90vw') }}
   </span>
   <span class="flex flex-1 flex-col p-4">
     <span class="font-bold text-navy">{{ d.name }}</span>
@@ -60,7 +65,7 @@
 {% macro page_hero(title, intro=None, crumbs=[], img=None, img_alt='') -%}
 <section class="relative overflow-hidden bg-navy-900 text-white">
   {% if img %}
-  <img src="{{ asset('img/' ~ img) }}" alt="{{ img_alt }}" width="1600" height="900" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45">
+  {% set pn = img[:-5] %}<img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45">
   <span class="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/80 to-navy-900/20"></span>
   {% else %}
   <span class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal/25 blur-3xl" aria-hidden="true"></span>
@@ -86,7 +91,7 @@
 {% set s = 'text-white/70' if dark else 'text-ink-soft' %}
 {% set c = 'bg-white text-navy' if dark else 'bg-navy text-white' %}
 <ul class="space-y-5">
-  <li><a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="group flex items-start gap-4">
+  <li><a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ tg('h-5 w-5') }}</span>
     <span><span class="block font-semibold {{ t }} group-hover:underline">{{ S.contacts.tg }}</span><span class="block text-sm {{ s }}">{{ SITE.telegram_handle }} · {{ S.contacts.tg_text }}</span></span></a></li>
   {% for p in SITE.phones %}
@@ -100,7 +105,7 @@
     <span><span class="block font-semibold {{ t }}">{{ S.contacts.email }}</span><span class="block break-all text-sm {{ s }} group-hover:underline">{{ SITE.email }}</span></span></a></li>
   {% endif %}
   {% if SITE.instagram %}
-  <li><a href="{{ SITE.instagram }}" target="_blank" rel="noopener" class="group flex items-start gap-4">
+  <li><a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('photo_camera', 'text-xl') }}</span>
     <span><span class="block font-semibold {{ t }} group-hover:underline">Instagram</span><span class="block text-sm {{ s }}">{{ SITE.instagram_handle }}</span></span></a></li>
   {% endif %}
@@ -176,7 +181,7 @@
   <div class="field-wrap">
     <label class="flex cursor-pointer items-start gap-3 text-sm text-ink-soft">
       <input type="checkbox" name="consent" value="1" required class="mt-0.5 h-5 w-5 shrink-0 cursor-pointer rounded border-navy/30 accent-[#0B2A7A]">
-      <span>{{ S.lead.consent_pre }} <a href="{{ url('consent/') }}" class="font-semibold text-navy underline underline-offset-2" target="_blank">{{ S.lead.consent_link }}</a></span>
+      <span>{{ S.lead.consent_pre }} <a href="{{ url('consent/') }}" class="font-semibold text-navy underline underline-offset-2" target="_blank" rel="noopener noreferrer">{{ S.lead.consent_link }}</a></span>
     </label>
     <p class="field-error">{{ S.lead.err_consent }}</p>
   </div>

@@ -5,7 +5,7 @@
 {# ===== HERO ===== #}
 <section class="relative overflow-hidden bg-white">
   <div class="relative lg:absolute lg:inset-0">
-    <img src="{{ asset('img/hero-home.webp') }}" alt="{{ S.hero.img_alt }}" width="2400" height="914" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[78%_50%] lg:aspect-auto lg:object-[75%_50%] lg:h-full">
+    <img src="{{ asset('img/hero-home-sm.webp') }}" srcset="{{ asset('img/hero-home-sm.webp') }} 1200w, {{ asset('img/hero-home.webp') }} 2400w" sizes="100vw" alt="{{ S.hero.img_alt }}" width="2400" height="914" fetchpriority="high" decoding="async" class="aspect-[16/10] w-full object-cover object-[78%_50%] lg:aspect-auto lg:object-[75%_50%] lg:h-full">
     <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
     <span class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent lg:hidden" aria-hidden="true"></span>
   </div>
@@ -73,7 +73,7 @@
   <div class="container">
     <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-sky-100 via-sky-50 to-white ring-1 ring-navy/5">
       <div class="absolute inset-y-0 right-0 hidden w-[48%] md:block">
-        <img src="{{ asset('img/infotour.webp') }}" alt="" width="1311" height="818" loading="lazy" class="img-cover">
+        {{ m.pic('infotour', '', 'img-cover', '(min-width:768px) 50vw, 100vw') }}
         <span class="absolute inset-0 bg-gradient-to-r from-sky-100 via-sky-100/30 to-transparent" aria-hidden="true"></span>
       </div>
       <div class="relative p-6 md:w-[62%] md:p-10">
@@ -87,7 +87,7 @@
         </ul>
         <a href="{{ url('info-tours/') }}" class="btn-navy mt-8">{{ S.home.info_btn }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
       </div>
-      <img src="{{ asset('img/infotour.webp') }}" alt="" width="1311" height="818" loading="lazy" class="aspect-[16/10] w-full object-cover md:hidden">
+      {{ m.pic('infotour', '', 'aspect-[16/10] w-full object-cover md:hidden', '100vw') }}
     </div>
   </div>
 </section>
@@ -112,7 +112,7 @@
 <section id="lead" class="scroll-mt-20 pb-14 md:pb-20">
   <div class="container grid gap-5 lg:grid-cols-[1fr_1.4fr]">
     <a href="{{ url(PROMO.href) }}" class="group relative block min-h-[320px] overflow-hidden rounded-3xl">
-      <img src="{{ asset('img/' ~ PROMO.img) }}" alt="{{ S.home.promo_title }}" width="1600" height="1042" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-[70%_50%] transition duration-700 group-hover:scale-105">
+      <img src="{{ asset('img/' ~ PROMO.img) }}" alt="{{ S.home.promo_title }}" width="1600" height="1042" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-[70%_50%] transition duration-500 group-hover:scale-105">
       <span class="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/25 to-transparent" aria-hidden="true"></span>
       <span class="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
         <span class="font-hand block -rotate-3 text-5xl leading-none">{{ S.home.promo_title }}</span>
@@ -141,12 +141,9 @@
     <div class="grid gap-4 md:grid-cols-3">
       {% for r in REVIEWS %}
       <figure class="relative flex flex-col rounded-2xl bg-white p-6 ring-1 ring-navy/10 md:p-8">
-        {% if DEMO_REVIEWS %}<span class="absolute right-4 top-4 rounded-full bg-sky-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-navy/60">{{ S.common.demo_review }}</span>{% endif %}
-        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink-soft{% if DEMO_REVIEWS %} pt-4{% endif %}">“{{ r.text }}”</blockquote>
+        <blockquote class="flex-1 text-[15px] leading-relaxed text-ink-soft">“{{ r.text }}”</blockquote>
         <figcaption class="mt-6 flex items-center gap-4">
-          {# фото из макета — только для демо-отзывов; у реальных отзывов фото добавить с разрешения клиента #}
-          {% if DEMO_REVIEWS and loop.index <= 3 %}<img src="{{ asset('img/review-' ~ loop.index ~ '.webp') }}" alt="" width="192" height="192" loading="lazy" decoding="async" class="h-14 w-14 shrink-0 rounded-full object-cover">
-          {% else %}<span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy text-base font-bold text-white">{{ r.name[:1] }}</span>{% endif %}
+          <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy text-base font-bold text-white">{{ r.name[:1] }}</span>
           <span><span class="block text-sm font-semibold text-navy">{{ r.name }}</span><span class="mt-0.5 block text-xs text-ink-soft">{{ r.place }}</span></span>
         </figcaption>
       </figure>

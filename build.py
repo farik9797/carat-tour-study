@@ -43,13 +43,14 @@ HREFLANG = {"uz": "uz", "ru": "ru", "en": "en", "zh": "zh-Hans"}
 LANG_LABEL = {"uz": "UZ", "ru": "RU", "en": "EN", "zh": "中文"}
 LANG_OG = {"uz": "uz_UZ", "ru": "ru_RU", "en": "en_US", "zh": "zh_CN"}
 
-DEMO_REVIEWS = True     # False перед публикацией, пока нет реальных отзывов с разрешением
-SHOW_DEV_NOTES = True   # служебные пометки (юр. документы требуют согласования)
+SHOW_REVIEWS = False    # True — когда в src/i18n/*.py → reviews будут реальные отзывы клиентов (с их разрешением)
+SHOW_DEV_NOTES = False  # True — показать служебные пометки на юр. страницах (для согласования с юристом)
 
 UZ_SLUGS = ["tashkent", "samarkand", "bukhara", "khiva", "chimgan"]
 INTL_SLUGS = ["maldives", "turkey", "uae", "thailand", "europe"]
 INTL_KINDS = {"maldives": ["beach", "nature"], "turkey": ["beach", "city"], "uae": ["beach", "city"],
               "thailand": ["beach", "nature"], "europe": ["city"]}
+IMG_W = {"hero-home": (1200, 2400)}   # ширины вариантов name-sm.webp / name.webp; по умолчанию (800, 2000)
 PROMO = {"href": "uzbekistan/chimgan/", "img": "promo.webp"}
 GEO = {"tashkent": (41.3111, 69.2797), "samarkand": (39.6542, 66.9597), "bukhara": (39.7747, 64.4286),
        "khiva": (41.3783, 60.3639), "chimgan": (41.5333, 70.0167)}
@@ -226,7 +227,7 @@ def main():
                       undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
     base_ctx = dict(SITE=SITE, LANGS=LANGS, DEFAULT_LANG=DEFAULT_LANG, HREFLANG=HREFLANG, LANG_LABEL=LANG_LABEL,
                     LANG_OG=LANG_OG, YEAR=dt.date.today().year, VERSION=VERSION, ICON_NAMES=ICONS_TOKEN,
-                    PROMO=PROMO, DEMO_REVIEWS=DEMO_REVIEWS, SHOW_DEV_NOTES=SHOW_DEV_NOTES, abs_url=abs_url)
+                    PROMO=PROMO, IMG_W=IMG_W, SHOW_DEV_NOTES=SHOW_DEV_NOTES, abs_url=abs_url)
 
     rendered = {}
     sitemap = []
@@ -280,7 +281,7 @@ def render(env, base_ctx, S, L, path, tpl, section, extra, root_abs=False):
     ctx = dict(base_ctx)
     ctx.update(S=S, L=L, path=path, section=section, url=url, lang_url=lang_url, asset=asset,
                rel_root=prefix, UZ=uz_list(S), INTL=intl_list(S),
-               REVIEWS=S["reviews"] if DEMO_REVIEWS else [],
+               REVIEWS=S["reviews"] if SHOW_REVIEWS else [],
                meta_desc="", noindex=False, og_image=None, preload_img=None, show_langs=False,
                icon_name="check_circle", D=None, P=None, root_base=root_abs)
     ctx.update(extra)

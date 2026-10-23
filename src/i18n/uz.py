@@ -14,7 +14,7 @@ S = {
     "common": {
         "more": "Batafsil", "all_dest": "Barcha yo'nalishlar", "home_crumb": "Bosh sahifa",
         "photo_slot": "Agentlik fotosurati uchun joy", "on_request": "so'rov bo'yicha",
-        "by_agreement": "kelishuv asosida", "example": "namuna", "demo_review": "demo",
+        "by_agreement": "kelishuv asosida", "example": "namuna",
     },
 
     "hero": {
@@ -155,7 +155,7 @@ S = {
             "dirs_text": "Asosiy geografiya — O'zbekiston shaharlari va hududlari. Xorijiy info-turlar dasturlar shakllanishiga qarab tashkil etiladi.",
             "cond_title": "Sanalar va ishtirok shartlari",
             "cond_text": "Har bir safarning sanalari, dasturi, ishtirok shartlari va narxi u shakllangani sari e'lon qilinadi. Ariza qoldiring — eng yaqin info-turlar haqida xabar beramiz.",
-            "gallery_title": "Oldingi safarlardan suratlar",
+            "gallery_title": "Info-turlar qanday o'tadi",
             "form_title": "Info-turga ariza",
         },
         "about": {
@@ -174,7 +174,7 @@ S = {
                 {"icon": "travel_explore", "title": "Info-turlar", "text": "Soha mutaxassislari uchun tanishuv safarlari."},
             ],
             "principles_title": "Ish tamoyillari",
-            "team_title": "Jamoa va tadbirlar",
+            "team_title": "Sayohatingizni rejalashtiramiz",
         },
         "contacts": {
             "meta_title": "Carat Tour & Study bilan aloqa — telefon, Telegram, email",

@@ -14,7 +14,7 @@ S = {
     "common": {
         "more": "Learn more", "all_dest": "All destinations", "home_crumb": "Home",
         "photo_slot": "Space for agency photo", "on_request": "on request",
-        "by_agreement": "flexible", "example": "example", "demo_review": "demo",
+        "by_agreement": "flexible", "example": "example",
     },
 
     "hero": {
@@ -155,7 +155,7 @@ S = {
             "dirs_text": "The main geography is the cities and regions of Uzbekistan. Info tours abroad are organised as programmes are formed.",
             "cond_title": "Dates and participation terms",
             "cond_text": "Dates, programme, terms and price are published as each trip is formed. Send a request and we will let you know about upcoming info tours.",
-            "gallery_title": "Photos from previous trips",
+            "gallery_title": "What an info tour looks like",
             "form_title": "Info tour request",
         },
         "about": {
@@ -174,7 +174,7 @@ S = {
                 {"icon": "travel_explore", "title": "Info tours", "text": "Familiarization trips for industry professionals."},
             ],
             "principles_title": "How we work",
-            "team_title": "Team and events",
+            "team_title": "Planning your journey",
         },
         "contacts": {
             "meta_title": "Contact Carat Tour & Study — phone, Telegram, email",

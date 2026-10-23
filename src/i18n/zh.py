@@ -14,7 +14,7 @@ S = {
     "common": {
         "more": "了解详情", "all_dest": "全部目的地", "home_crumb": "首页",
         "photo_slot": "旅行社照片位置", "on_request": "按需报价",
-        "by_agreement": "可协商", "example": "示例", "demo_review": "示例",
+        "by_agreement": "可协商", "example": "示例",
     },
 
     "hero": {
@@ -155,7 +155,7 @@ S = {
             "dirs_text": "主要覆盖乌兹别克斯坦各城市和地区。境外考察团将随行程安排陆续推出。",
             "cond_title": "日期与参加条件",
             "cond_text": "每次考察的日期、行程、参加条件和费用将在确定后公布。提交申请，我们会通知您最近的考察团。",
-            "gallery_title": "往期考察照片",
+            "gallery_title": "考察之旅是什么样的",
             "form_title": "考察团报名",
         },
         "about": {
@@ -174,7 +174,7 @@ S = {
                 {"icon": "travel_explore", "title": "考察团", "text": "面向行业人士的考察之旅。"},
             ],
             "principles_title": "服务理念",
-            "team_title": "团队与活动",
+            "team_title": "为您规划旅程",
         },
         "contacts": {
             "meta_title": "联系 Carat Tour & Study — 电话、Telegram、电子邮箱",

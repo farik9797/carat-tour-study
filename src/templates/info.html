@@ -28,7 +28,7 @@
         {% for g in P.goals %}<li class="flex items-start gap-3 text-ink">{{ m.icon('check_circle', 'icon-fill text-2xl text-teal-600') }}<span class="pt-0.5">{{ g }}</span></li>{% endfor %}
       </ul>
     </div>
-    <img src="{{ asset('img/infotour.webp') }}" alt="{{ P.h1 }}" width="1311" height="818" loading="lazy" class="aspect-[4/3] w-full rounded-3xl object-cover shadow-card">
+    {{ m.pic('infotour', P.h1, 'aspect-[4/3] w-full rounded-3xl object-cover shadow-card', '(min-width:1024px) 600px, 100vw') }}
   </div>
 </section>
 
@@ -47,7 +47,7 @@
       </div>
       <div>
         <h2 class="mb-4 text-xl font-bold">{{ P.gallery_title }}</h2>
-        <div class="grid grid-cols-2 gap-3">{% for i in range(4) %}{{ m.photo_slot('aspect-[4/3]') }}{% endfor %}</div>
+        <div class="grid grid-cols-2 gap-3">{% for i in range(1, 5) %}<a href="{{ asset('img/info-' ~ i ~ '.webp') }}" class="block overflow-hidden rounded-2xl" data-lightbox>{{ m.pic('info-' ~ i, P.gallery_title ~ ' ' ~ i, 'img-cover aspect-[4/3] transition duration-500 hover:scale-105', '(min-width:1024px) 300px, 50vw', True, 1400, 933, 700, 1400) }}</a>{% endfor %}</div>
       </div>
     </div>
   </div>

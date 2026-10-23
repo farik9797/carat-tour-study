@@ -84,12 +84,12 @@ cd build && php -S localhost:8080   # с рабочей формой; без PHP
 
 | # | Что | Где менять |
 |---|---|---|
-| 1 | Оригинальные фото (сейчас вырезки из макета). Hero главной — `hero-home.webp` 2400×914 (чистый кадр без надписей, прислан 23.10, сгенерирован). Карточки направлений (10 шт.) — из макета 8K (~700 px), у узбекских стёрты вшитые подписи, низ — размытый тёмный градиент. `infotour` (1311×818) и `promo` (1001×961) — из макета 8K; `hero-samarkand` (1200×898, «О компании», шапка списка Узбекистана, og:image) — кроп чистого hero; `cta-water` — фактура воды для финального CTA с листа ассетов (Gemini). Аватары отзывов из макета не ставились — отзывы демо, фото вымышленных людей не публикуем. Остальные ~1600 px WebP, имена те же: `hero-samarkand, tashkent, samarkand, bukhara, khiva, chimgan, maldives, turkey, uae, thailand, europe, infotour, promo` | `src/assets/img/` |
+| 1 | Фото: 23.10 заменены на реальные с Unsplash (направления, галереи по 4 фото, «О компании», инфо-туры) — список в `IMAGE-SOURCES.md`. Hero и фото озера — от заказчика. Фото команды/офиса/прошлых инфо-туров агентства по-прежнему нужны: сейчас там нейтральные стоковые блоки «Планируем ваше путешествие» / «Как проходят инфо-туры» | `src/assets/img/`, `IMAGE-SOURCES.md` |
 | 2 | Логотип SVG — желательно. Сейчас `logo.webp` (прозрачный фон) и `logo-white.webp` (navy→белый, для футера) сделаны из PNG заказчика 2103×748, 757×220 px | `src/assets/img/`, header/footer |
 | 3 | Контакты взяты с caratstudy.uz (23.10): +998 97 409 42 00, info@caratstudy.uz, «Tashkent, Cho'ponota, №39», Instagram @carat_tour. Нужно подтвердить; график работы — нет данных. Telegram — `t.me/carat_tour` (решено 23.10; ссылку-приглашение с caratstudy.uz не используем) | `build.py` → `SITE` |
 | 4 | Токен Telegram-бота, chat_id менеджеров, email для заявок | `src/root/send.php` или env `CARAT_TG_TOKEN`, `CARAT_TG_CHAT`, `CARAT_MAIL_TO` |
-| 5 | Реальные отзывы с разрешением; до этого `DEMO_REVIEWS = False` (сейчас True, на карточках метка «демо») | `build.py`, `src/i18n/*.py` → `reviews` |
-| 6 | Согласовать политику и согласие с юристом → `SHOW_DEV_NOTES = False` | `build.py`, `src/i18n/*.py` → `pages.privacy/consent` |
+| 5 | Реальные отзывы с разрешением. Блок отзывов скрыт (`SHOW_REVIEWS = False`, 23.10) — вписать отзывы в `reviews` и включить | `build.py`, `src/i18n/*.py` → `reviews` |
+| 6 | Согласовать политику и согласие с юристом (служебные пометки уже скрыты: `SHOW_DEV_NOTES = False`, 23.10) | `build.py`, `src/i18n/*.py` → `pages.privacy/consent` |
 | 7 | Точный список зарубежных стран, программы, даты, цены (сейчас «по запросу») | `INTL_SLUGS`, `intl_dest`, шаблон `tour.html` |
 | 8 | Данные по инфо-турам: даты, условия, фото прошлых поездок | `pages.info`, `info.html` |
 | 9 | Тексты о компании (история, команда, фото) | `pages.about`, `about.html` |
@@ -109,7 +109,16 @@ cd build && php -S localhost:8080   # с рабочей формой; без PHP
    - Schema.org: тот же набор JSON-LD.
 4. Дополнительные страницы/шаблоны по мере появления контента (карточки конкретных туров с ценами, страница отдельного инфо-тура).
 
-## 7. Известные нюансы
+## 7. Инструменты (установлены 23.10.2026, профиль пользователя Claude Code)
+
+- **agent-skills** (addyosmani, 25 скиллов) и **скиллы Strix** (9) — `~/.claude/skills`; применены performance-optimization (журнал в `PERF.md`) и 21st-ui-review.
+- **context7** — HTTP MCP, подключён (без ключа, лимиты ниже).
+- **21st.dev** — CLI `21st` + скиллы; MCP `magic` добавлен, но ждёт ключ: `21st login` или переменная `API_KEY_21ST`.
+- **Graphify** — `~/.local/bin/graphify` (venv `~/.venvs/graphify`), граф проекта: `graphify update .` → `graphify-out/` (в .gitignore).
+- **Strix CLI** 1.7.0 — `~/.strix/bin/strix`; для скана нужен запущенный Docker и LLM-ключ (`STRIX_LLM`, `LLM_API_KEY`).
+- Побочный эффект: прерванный `brew install uv` обновил системный python3 до 3.15 → jinja2 переустановлен (`pip install jinja2 --break-system-packages`).
+
+## 8. Известные нюансы
 
 - В песочнице прошлой сессии Google Fonts были недоступны — скриншоты делались с подменой шрифтов (Playwright route → локальные woff2 из npm `material-symbols`, `@fontsource/montserrat`, `@fontsource/caveat`). На реальном хостинге шрифты грузятся с Google Fonts.
 - Иконка в шапке и мобильном меню — inline SVG Telegram (макрос `m.tg()`), остальные — Material Symbols Rounded.

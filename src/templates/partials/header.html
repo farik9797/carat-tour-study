@@ -32,7 +32,7 @@
           <a href="{{ lang_url(l) }}" hreflang="{{ HREFLANG[l] }}" lang="{{ HREFLANG[l] }}" class="rounded px-1 py-0.5 {{ 'text-navy' if l == L else 'text-navy/45 hover:text-navy' }}" {% if l == L %}aria-current="true"{% endif %}>{{ LANG_LABEL[l] }}</a>
         {% endfor %}
       </nav>
-      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="hidden h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 transition hover:bg-navy hover:text-white sm:inline-flex" aria-label="{{ S.nav.tg }}">{{ m.tg() }}</a>
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="hidden h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 transition hover:bg-navy hover:text-white sm:inline-flex" aria-label="{{ S.nav.tg }}">{{ m.tg() }}</a>
       <a href="{{ cta_href }}" class="btn-accent hidden !px-5 !py-2.5 sm:inline-flex">{{ S.nav.cta }}<span class="material-symbols-rounded text-lg">arrow_forward</span></a>
       <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full text-navy ring-1 ring-navy/15 lg:hidden" aria-controls="mobile-menu" aria-expanded="false" data-menu-open aria-label="{{ S.nav.menu }}">
         <span class="material-symbols-rounded text-2xl">menu</span>
@@ -61,7 +61,7 @@
       </div>
       <div class="mt-auto space-y-3 pt-8">
         <a href="{{ cta_href }}" class="btn-accent w-full" data-menu-close>{{ S.nav.cta }}<span class="material-symbols-rounded text-lg">arrow_forward</span></a>
-        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-navy w-full">{{ m.tg() }} {{ S.nav.tg }}</a>
+        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-navy w-full">{{ m.tg() }} {{ S.nav.tg }}</a>
       </div>
     </div>
   </div>

@@ -9,11 +9,11 @@
       {% for t in P.text %}<p>{{ t }}</p>{% endfor %}
       <div class="flex flex-wrap gap-3 pt-4">
         <a href="{{ url('contacts/') }}" class="btn-navy">{{ S.nav.contacts }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
-        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener" class="btn-ghost">{{ m.tg() }}Telegram</a>
+        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-ghost">{{ m.tg() }}Telegram</a>
       </div>
     </div>
     <div class="relative">
-      <img src="{{ asset('img/hero-samarkand.webp') }}" alt="{{ S.hero.img_alt }}" width="1200" height="898" loading="lazy" class="aspect-[4/3] w-full rounded-3xl object-cover shadow-card">
+      {{ m.pic('hero-samarkand', S.hero.img_alt, 'aspect-[4/3] w-full rounded-3xl object-cover shadow-card', '(min-width:1024px) 600px, 100vw') }}
       <p class="font-hand absolute -bottom-5 left-6 -rotate-3 rounded-2xl bg-white px-5 py-3 text-3xl text-navy shadow-float">{{ S.hero.tagline }}</p>
     </div>
   </div>
@@ -49,7 +49,7 @@
       {% endfor %}
     </div>
     <h2 class="mb-4 mt-14 text-xl font-bold">{{ P.team_title }}</h2>
-    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">{% for i in range(4) %}{{ m.photo_slot('aspect-[4/3]') }}{% endfor %}</div>
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-4">{% for i in range(1, 5) %}<div class="overflow-hidden rounded-2xl">{{ m.pic('about-' ~ i, P.team_title ~ ' ' ~ i, 'img-cover aspect-[4/3]', '(min-width:768px) 25vw, 50vw', True, 1400, 933, 700, 1400) }}</div>{% endfor %}</div>
   </div>
 </section>
 

@@ -34,7 +34,7 @@ for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getA
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap">
   {% if L == 'zh' %}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap">{% endif %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&icon_names={{ ICON_NAMES }}&display=block">
-  {% if preload_img %}<link rel="preload" as="image" href="{{ asset('img/' ~ preload_img) }}" fetchpriority="high">{% endif %}
+  {% if preload_img %}{% set pn = preload_img[:-5] %}{% set pw = IMG_W.get(pn, (800, 2000)) %}<link rel="preload" as="image" href="{{ asset('img/' ~ pn ~ '-sm.webp') }}" imagesrcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} {{ pw[0] }}w, {{ asset('img/' ~ preload_img) }} {{ pw[1] }}w" imagesizes="100vw" fetchpriority="high">{% endif %}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ VERSION }}">
   {% for ld in jsonld %}<script type="application/ld+json">{{ ld | tojson }}</script>
   {% endfor %}
