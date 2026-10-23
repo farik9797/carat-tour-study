@@ -9,7 +9,7 @@
       {% for d in UZ %}
       <article class="card group flex flex-col overflow-hidden {{ 'lg:col-span-2 lg:flex-row' if loop.first }}">
         <a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="block overflow-hidden {{ 'aspect-[16/10] lg:aspect-auto lg:w-1/2' if loop.first else 'aspect-[16/10]' }}">
-          <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="420" height="324" {% if loop.index > 2 %}loading="lazy"{% endif %} class="img-cover transition duration-500 group-hover:scale-105">
+          <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="709" height="798" {% if loop.index > 2 %}loading="lazy"{% endif %} class="img-cover object-[50%_30%] transition duration-500 group-hover:scale-105">
         </a>
         <div class="flex flex-1 flex-col p-6">
           <p class="text-xs font-semibold uppercase tracking-wider text-teal-600">{{ d.tag }}</p>

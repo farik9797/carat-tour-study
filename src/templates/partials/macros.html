@@ -19,7 +19,7 @@
 {# ===== Карточка направления по Узбекистану (фото + подпись поверх) ===== #}
 {% macro uz_card(d, lazy=True) -%}
 <a href="{{ url('uzbekistan/' ~ d.slug ~ '/') }}" class="group relative block aspect-[4/5] overflow-hidden rounded-2xl shadow-card sm:aspect-[3/4]">
-  <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="420" height="324" {% if lazy %}loading="lazy" decoding="async"{% endif %} class="img-cover transition duration-500 group-hover:scale-105">
+  <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="709" height="798" {% if lazy %}loading="lazy" decoding="async"{% endif %} class="img-cover transition duration-500 group-hover:scale-105">
   <span class="bg-card-fade absolute inset-0"></span>
   <span class="absolute inset-x-0 bottom-0 p-4 text-white">
     <span class="block text-lg font-bold leading-tight">{{ d.name }}</span>
@@ -33,7 +33,7 @@
 {% macro intl_card(d, show_btn=False) -%}
 <a href="{{ url('international/' ~ d.slug ~ '/') }}" class="group card flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:shadow-float" data-kinds="{{ d.kinds|join(' ') }}">
   <span class="block aspect-[7/6] overflow-hidden">
-    <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="420" height="360" loading="lazy" decoding="async" class="img-cover transition duration-500 group-hover:scale-105">
+    <img src="{{ asset('img/' ~ d.slug ~ '.webp') }}" alt="{{ d.name }}" width="704" height="617" loading="lazy" decoding="async" class="img-cover transition duration-500 group-hover:scale-105">
   </span>
   <span class="flex flex-1 flex-col p-4">
     <span class="font-bold text-navy">{{ d.name }}</span>
