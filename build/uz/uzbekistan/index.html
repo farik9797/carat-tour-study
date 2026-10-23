@@ -21,7 +21,7 @@
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <style>@font-face{font-family:'Material Symbols Rounded';font-style:normal;font-weight:400;font-display:block;src:url(../../assets/fonts/ms-748a0a2eb3.woff2) format('woff2')}</style>
   <link rel="preload" as="image" href="../../assets/img/hero-samarkand-sm.avif" type="image/avif" media="(max-width: 767px)" fetchpriority="high">
-  <link rel="preload" as="image" href="../../assets/img/hero-samarkand-sm.webp" imagesrcset="../../assets/img/hero-samarkand-sm.webp 800w, ../../assets/img/hero-samarkand.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../assets/css/app.css?v=202610231114">
+  <link rel="preload" as="image" href="../../assets/img/hero-samarkand-sm.webp" imagesrcset="../../assets/img/hero-samarkand-sm.webp 800w, ../../assets/img/hero-samarkand.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../assets/css/app.css?v=202610231128">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://carattourandstudy.uz/uz/", "name": "Bosh sahifa", "position": 1}, {"@type": "ListItem", "item": "https://carattourandstudy.uz/uz/uzbekistan/", "name": "O\u0027zbekiston bo\u0027ylab turlar", "position": 2}]}</script>
 </head>
 <body class="flex min-h-screen flex-col" data-lang="uz" data-endpoint="../../send.php" data-thanks="../../uz/thanks/">
@@ -210,51 +210,8 @@
     </div>
   </div>
 
-  <div class="grid gap-4 ">
-    <div>
-      <label class="field-label" for="lead-form-direction">Qiziqtirgan yo&#39;nalish</label>
-      <select class="field field-select" id="lead-form-direction" name="direction">
-        <option value="">Yo&#39;nalishni tanlang</option><optgroup label="O&#39;zbekiston">
-<option value="Toshkent" >Toshkent</option><option value="Samarqand" >Samarqand</option><option value="Buxoro" >Buxoro</option><option value="Xiva" >Xiva</option><option value="Chimyon" >Chimyon</option></optgroup>
-<optgroup label="Xorijda">
-<option value="Maldiv orollari" >Maldiv orollari</option><option value="Turkiya" >Turkiya</option><option value="BAA" >BAA</option><option value="Tailand" >Tailand</option><option value="Yevropa" >Yevropa</option></optgroup>
-<optgroup label="Info-turlar">
-  <option value="Info-tur (mutaxassislar uchun)" >Info-tur (mutaxassislar uchun)</option>
-</optgroup>
-<option value="Boshqa / hali hal qilmadim">Boshqa / hali hal qilmadim</option>
-      </select>
-    </div>
-  </div>
-
-  <fieldset>
-    <legend class="field-label">Tur turi</legend>
-    <div class="flex flex-wrap gap-2">
-      <label class="relative">
-        <input type="radio" name="tour_type" value="intl" class="chip-input peer sr-only" >
-        <span class="chip">Xalqaro</span>
-      </label>
-      <label class="relative">
-        <input type="radio" name="tour_type" value="uz" class="chip-input peer sr-only" checked>
-        <span class="chip">O&#39;zbekiston bo&#39;ylab</span>
-      </label>
-      <label class="relative">
-        <input type="radio" name="tour_type" value="info" class="chip-input peer sr-only" >
-        <span class="chip">Axborot (info-tur)</span>
-      </label>
-    </div>
-  </fieldset>
-
-  <div class="grid gap-4 sm:grid-cols-2">
-    <div>
-      <label class="field-label" for="lead-form-dates">Istalgan sanalar <span class="font-normal normal-case text-ink-soft">(ixtiyoriy)</span></label>
-      <input class="field" id="lead-form-dates" name="dates" type="text" maxlength="80" placeholder="Masalan, may, 7–10 kun">
-    </div>
-    <div>
-      <label class="field-label" for="lead-form-comment">Izoh <span class="font-normal normal-case text-ink-soft">(ixtiyoriy)</span></label>
-      <textarea class="field min-h-[52px] resize-y" id="lead-form-comment" name="comment" rows="1" maxlength="1000" placeholder="Sayyohlar soni, mehmonxona bo&#39;yicha istaklar, byudjet…"></textarea>
-    </div>
-  </div>
-
+  <input type="hidden" name="direction" value=""><input type="hidden" name="tour_type" value="uz">
+  <input type="hidden" name="tourists" value=""><input type="hidden" name="dates" value="">
 
   <div class="field-wrap">
     <label class="flex cursor-pointer items-start gap-3 text-sm text-ink-soft">
@@ -394,6 +351,6 @@
 <a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="social-pill"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a><a href="tel:+998974094200" class="social-pill"><span class="material-symbols-rounded text-base" aria-hidden="true">call</span>+998 97 409 42 00</a>      </div>
     </div>
   </div>
-</dialog>  <script src="../../assets/js/app.js?v=202610231114" defer></script>
+</dialog>  <script src="../../assets/js/app.js?v=202610231128" defer></script>
 </body>
 </html>

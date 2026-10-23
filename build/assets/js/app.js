@@ -48,7 +48,10 @@
   var bookingForm = dlg && $('[data-lead-form]', dlg);
 
   function setType(form, type) {
-    var radio = type && form.querySelector('input[name="tour_type"][value="' + type + '"]');
+    var el = form.elements.tour_type;
+    if (!type || !el) return;
+    if (el.type === 'hidden') { el.value = type; return; }   // минимальная форма
+    var radio = form.querySelector('input[name="tour_type"][value="' + type + '"]');
     if (radio) radio.checked = true;
   }
   var summary = dlg && $('[data-booking-summary]', dlg);

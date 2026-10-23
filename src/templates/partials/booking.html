@@ -8,7 +8,7 @@
     <h2 id="booking-title" class="pr-10 text-2xl font-bold md:text-3xl">{{ S.booking.title }}</h2>
     <p class="mb-5 mt-2 text-sm text-ink-soft">{{ S.booking.text }}</p>
     <p class="mb-5 hidden items-center gap-2 rounded-xl bg-sky-50 px-4 py-2.5 text-sm font-semibold text-navy" data-booking-summary>{{ m.icon('location_on', 'text-lg text-accent-600') }}<span></span></p>
-    {{ m.lead_form('booking-form', booking=True, minimal=True) }}
+    {{ m.lead_form('booking-form', booking=True) }}
     <p class="mt-3 text-center text-xs text-ink-soft">{{ S.booking.note }}</p>
     <div class="mt-6 border-t border-navy/10 pt-5">
       <p class="text-center text-xs font-semibold uppercase tracking-wider text-ink-soft">{{ S.booking.social }}</p>

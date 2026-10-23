@@ -128,7 +128,8 @@
 {%- endmacro %}
 
 {# ===== Форма заявки ===== #}
-{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False, booking=False, minimal=False) -%}
+{% macro lead_form(form_id='lead-form', preset_dest='', preset_type='', compact=False, stack=False, booking=False, minimal=True) -%}
+{# minimal (по умолчанию на всём сайте): имя + контакт + согласие; minimal=False — полная форма #}
 <form id="{{ form_id }}" class="lead-form space-y-4" novalidate data-lead-form>
   <input type="hidden" name="page" value="{{ abs_url(L, path) }}">
   <input type="hidden" name="lang" value="{{ L }}">
@@ -153,8 +154,9 @@
   </div>
 
   {% if minimal %}
-  {# параметры поездки приходят из поиска/кнопки (app.js → openBooking) #}
-  <input type="hidden" name="direction" value=""><input type="hidden" name="tour_type" value="">
+  {# параметры поездки: со страницы направления/тура (preset_*) или из поиска/кнопки (app.js) #}
+  {% set pd = (UZ + INTL) | selectattr('slug', 'equalto', preset_dest) | list %}
+  <input type="hidden" name="direction" value="{{ pd[0].name if pd else '' }}"><input type="hidden" name="tour_type" value="{{ preset_type }}">
   <input type="hidden" name="tourists" value=""><input type="hidden" name="dates" value="">
   {% else %}
   <div class="grid gap-4 {{ 'sm:grid-cols-[1.4fr_1fr]' if booking }}">

@@ -21,7 +21,7 @@
   <link rel="icon" href="../../../assets/img/favicon.svg" type="image/svg+xml">
   <style>@font-face{font-family:'Material Symbols Rounded';font-style:normal;font-weight:400;font-display:block;src:url(../../../assets/fonts/ms-748a0a2eb3.woff2) format('woff2')}</style>
   <link rel="preload" as="image" href="../../../assets/img/chimgan-sm.avif" type="image/avif" media="(max-width: 767px)" fetchpriority="high">
-  <link rel="preload" as="image" href="../../../assets/img/chimgan-sm.webp" imagesrcset="../../../assets/img/chimgan-sm.webp 800w, ../../../assets/img/chimgan.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../../assets/css/app.css?v=202610231114">
+  <link rel="preload" as="image" href="../../../assets/img/chimgan-sm.webp" imagesrcset="../../../assets/img/chimgan-sm.webp 800w, ../../../assets/img/chimgan.webp 2000w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">  <link rel="stylesheet" href="../../../assets/css/app.css?v=202610231128">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/uzbekistan/", "name": "\u4e4c\u5179\u522b\u514b\u65af\u5766\u65c5\u6e38", "position": 2}, {"@type": "ListItem", "item": "https://carattourandstudy.uz/zh/uzbekistan/chimgan/", "name": "\u5947\u59c6\u5e72", "position": 3}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TouristDestination", "containedInPlace": {"@type": "Country", "name": "Uzbekistan"}, "description": "\u5947\u59c6\u5e72\u5c71\u662f\u5854\u4ec0\u5e72\u9644\u8fd1\u70ed\u95e8\u7684\u4f11\u95f2\u80dc\u5730\u3002\u590f\u5b63\u5f92\u6b65\u8d4f\u6e56\uff0c\u51ac\u5b63\u9ad8\u5c71\u6ed1\u96ea\uff0c\u5168\u5e74\u90fd\u80fd\u547c\u5438\u65b0\u9c9c\u7a7a\u6c14\u3001\u8fdc\u773a\u6070\u5c14\u74e6\u514b\u6e56\u3002", "geo": {"@type": "GeoCoordinates", "latitude": 41.5333, "longitude": 70.0167}, "image": "https://carattourandstudy.uz/assets/img/chimgan.webp", "inLanguage": "zh-Hans", "includesAttraction": [{"@type": "TouristAttraction", "description": "\u6d77\u62d4 3300 \u7c73\u4ee5\u4e0a\u7684\u5c71\u5cf0\uff0c\u5f92\u6b65\u7231\u597d\u8005\u7684\u76ee\u6807\u3002", "name": "\u5927\u5947\u59c6\u5e72\u5cf0"}, {"@type": "TouristAttraction", "description": "\u78a7\u7eff\u7684\u9ad8\u5c71\u6e56\u6cca\uff0c\u8bbe\u6709\u6c99\u6ee9\u548c\u4f11\u95f2\u533a\u3002", "name": "\u6070\u5c14\u74e6\u514b\u6c34\u5e93"}, {"@type": "TouristAttraction", "description": "\u914d\u6709\u7f06\u8f66\u7684\u73b0\u4ee3\u5316\u5c71\u5730\u5ea6\u5047\u6751\u3002", "name": "\u963f\u7c73\u5c14\u7d22\u4f0a\u5ea6\u5047\u6751"}, {"@type": "TouristAttraction", "description": "\u767b\u4e0a\u5c71\u5761\u548c\u89c2\u666f\u53f0\u3002", "name": "\u522b\u5c14\u6770\u5c14\u8d5b\u7f06\u8f66"}], "name": "\u5947\u59c6\u5e72", "url": "https://carattourandstudy.uz/zh/uzbekistan/chimgan/"}</script>
 </head>
@@ -242,51 +242,8 @@
     </div>
   </div>
 
-  <div class="grid gap-4 ">
-    <div>
-      <label class="field-label" for="lead-form-direction">感兴趣的目的地</label>
-      <select class="field field-select" id="lead-form-direction" name="direction">
-        <option value="">选择目的地</option><optgroup label="乌兹别克斯坦">
-<option value="塔什干" >塔什干</option><option value="撒马尔罕" >撒马尔罕</option><option value="布哈拉" >布哈拉</option><option value="希瓦" >希瓦</option><option value="奇姆干" selected>奇姆干</option></optgroup>
-<optgroup label="境外">
-<option value="马尔代夫" >马尔代夫</option><option value="土耳其" >土耳其</option><option value="阿联酋" >阿联酋</option><option value="泰国" >泰国</option><option value="欧洲" >欧洲</option></optgroup>
-<optgroup label="考察团">
-  <option value="考察团（行业人士）" >考察团（行业人士）</option>
-</optgroup>
-<option value="其他 / 尚未确定">其他 / 尚未确定</option>
-      </select>
-    </div>
-  </div>
-
-  <fieldset>
-    <legend class="field-label">线路类型</legend>
-    <div class="flex flex-wrap gap-2">
-      <label class="relative">
-        <input type="radio" name="tour_type" value="intl" class="chip-input peer sr-only" >
-        <span class="chip">出境游</span>
-      </label>
-      <label class="relative">
-        <input type="radio" name="tour_type" value="uz" class="chip-input peer sr-only" checked>
-        <span class="chip">乌兹别克斯坦游</span>
-      </label>
-      <label class="relative">
-        <input type="radio" name="tour_type" value="info" class="chip-input peer sr-only" >
-        <span class="chip">考察团</span>
-      </label>
-    </div>
-  </fieldset>
-
-  <div class="grid gap-4 sm:grid-cols-2">
-    <div>
-      <label class="field-label" for="lead-form-dates">期望日期 <span class="font-normal normal-case text-ink-soft">(选填)</span></label>
-      <input class="field" id="lead-form-dates" name="dates" type="text" maxlength="80" placeholder="例如：五月，7–10 天">
-    </div>
-    <div>
-      <label class="field-label" for="lead-form-comment">备注 <span class="font-normal normal-case text-ink-soft">(选填)</span></label>
-      <textarea class="field min-h-[52px] resize-y" id="lead-form-comment" name="comment" rows="1" maxlength="1000" placeholder="出行人数、酒店要求、预算……"></textarea>
-    </div>
-  </div>
-
+  <input type="hidden" name="direction" value="奇姆干"><input type="hidden" name="tour_type" value="uz">
+  <input type="hidden" name="tourists" value=""><input type="hidden" name="dates" value="">
 
   <div class="field-wrap">
     <label class="flex cursor-pointer items-start gap-3 text-sm text-ink-soft">
@@ -412,6 +369,6 @@
 <a href="https://www.instagram.com/carat_tour/" target="_blank" rel="noopener noreferrer" class="social-pill"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>Instagram</a><a href="tel:+998974094200" class="social-pill"><span class="material-symbols-rounded text-base" aria-hidden="true">call</span>+998 97 409 42 00</a>      </div>
     </div>
   </div>
-</dialog>  <script src="../../../assets/js/app.js?v=202610231114" defer></script>
+</dialog>  <script src="../../../assets/js/app.js?v=202610231128" defer></script>
 </body>
 </html>
