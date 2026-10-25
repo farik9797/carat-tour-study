@@ -1,4 +1,4 @@
-/* Carat Tour & Study — интерфейс: меню, поиск тура, формы заявок, фильтр, лайтбокс */
+/* Carat Tour & Study — интерфейс: меню, поиск тура, формы заявок, фильтр, появление при прокрутке, лайтбокс */
 (function () {
   'use strict';
   var I18N = window.CARAT_I18N || {};
@@ -193,6 +193,47 @@
       if (empty) empty.classList.toggle('hidden', shown > 0);
     });
   }
+
+  /* ---------- Плавное появление блоков при прокрутке ----------
+     Блоки ниже первого экрана получают .reveal (прозрачность + сдвиг), карточки сеток — по очереди.
+     То, что видно сразу при загрузке, не трогаем (LCP, без мигания); без JS и при
+     prefers-reduced-motion всё просто видно. После анимации классы снимаются — ховеры карточек как были. */
+  (function () {
+    if (!('IntersectionObserver' in window) || !window.matchMedia ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var fold = window.innerHeight, targets = [];
+    var below = function (el) { return el.getBoundingClientRect().top > fold; };
+    var add = function (el, i) {
+      if (!el || el.nodeType !== 1 || !below(el) || el.getAttribute('aria-hidden') === 'true') return;
+      var pos = window.getComputedStyle(el).position;
+      if (pos === 'absolute' || pos === 'fixed') return;   // фоны и декор (у них своя прозрачность)
+      if (i) el.style.setProperty('--reveal-delay', Math.min(i, 6) * 80 + 'ms');
+      el.classList.add('reveal'); targets.push(el);
+    };
+    var isGrid = function (el) { return /(^|\s)(grid|flex-wrap)(\s|$)/.test(el.className) && el.children.length > 2; };
+    $$('main > section').slice(1).forEach(function (sec) {
+      var box = $('.container', sec) || sec;
+      var kids = isGrid(box) ? [box] : Array.prototype.slice.call(box.children);
+      kids.forEach(function (k) {
+        if (isGrid(k)) Array.prototype.slice.call(k.children).forEach(function (c, i) { add(c, i); });
+        else add(k, 0);
+      });
+    });
+    if (!targets.length) return;
+    var done = function (el) {
+      el.classList.remove('reveal', 'is-visible'); el.style.removeProperty('--reveal-delay');
+    };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target; io.unobserve(el);
+        el.classList.add('is-visible');
+        var ms = parseInt(el.style.getPropertyValue('--reveal-delay'), 10) || 0;
+        setTimeout(function () { done(el); }, ms + 900);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    targets.forEach(function (el) { io.observe(el); });
+  })();
 
   /* ---------- Лайтбокс ---------- */
   $$('[data-lightbox]').forEach(function (a) {

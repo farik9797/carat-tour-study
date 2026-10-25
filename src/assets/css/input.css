@@ -89,3 +89,14 @@
   .bg-card-fade { background: linear-gradient(180deg, rgba(6,41,88,0) 40%, rgba(6,41,88,.85) 100%); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* Плавное появление при прокрутке (классы ставит app.js; без JS и при reduced-motion — не действует) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0; transform: translate3d(0, 28px, 0);
+    transition: opacity .8s cubic-bezier(.22, 1, .36, 1), transform .8s cubic-bezier(.22, 1, .36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+}
+
