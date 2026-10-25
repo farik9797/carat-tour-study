@@ -3,9 +3,9 @@
    и поиск «Найти тур» — их параметры уходят скрытыми полями и показываются сводкой. Без <dialog> — ссылка на #lead. #}
 <dialog id="booking" class="booking-dialog" aria-labelledby="booking-title">
   <div class="relative p-6 sm:p-8">
-    <button type="button" class="absolute right-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-navy transition hover:bg-sky-100" data-booking-close aria-label="{{ S.booking.close }}">{{ m.icon('close', 'text-2xl') }}</button>
+    <button type="button" class="absolute end-3 top-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-navy transition hover:bg-sky-100" data-booking-close aria-label="{{ S.booking.close }}">{{ m.icon('close', 'text-2xl') }}</button>
     <p class="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[.16em] text-teal-600">{{ m.icon('event_available', 'text-lg') }}{{ S.booking.btn }}</p>
-    <h2 id="booking-title" class="pr-10 text-2xl font-bold md:text-3xl">{{ S.booking.title }}</h2>
+    <h2 id="booking-title" class="pe-10 text-2xl font-bold md:text-3xl">{{ S.booking.title }}</h2>
     <p class="mb-5 mt-2 text-sm text-ink-soft">{{ S.booking.text }}</p>
     <p class="mb-5 hidden items-center gap-2 rounded-xl bg-sky-50 px-4 py-2.5 text-sm font-semibold text-navy" data-booking-summary>{{ m.icon('location_on', 'text-lg text-accent-600') }}<span></span></p>
     {{ m.lead_form('booking-form', booking=True) }}
@@ -16,7 +16,7 @@
         <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.tg('h-4 w-4') }}Telegram</a>
         {% if SITE.telegram_channel %}<a href="{{ SITE.telegram_channel }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.tg('h-4 w-4') }}{{ S.contacts.tg_channel }}</a>{% endif %}
         {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.ig('h-4 w-4') }}Instagram</a>{% endif %}
-        {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="social-pill">{{ m.icon('call', 'text-base') }}{{ p }}</a>{% endfor %}
+        {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="social-pill">{{ m.icon('call', 'text-base') }}<bdi dir="ltr">{{ p }}</bdi></a>{% endfor %}
       </div>
     </div>
   </div>

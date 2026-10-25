@@ -6,7 +6,7 @@
 <section class="section">
   <div class="container">
     <div class="mb-8 flex flex-wrap items-center gap-2" role="group" aria-label="{{ P.filter }}" data-filter>
-      <span class="mr-2 flex items-center gap-1.5 text-sm font-semibold text-navy">{{ m.icon('tune', 'text-lg') }}{{ P.filter }}:</span>
+      <span class="me-2 flex items-center gap-1.5 text-sm font-semibold text-navy">{{ m.icon('tune', 'text-lg') }}{{ P.filter }}:</span>
       <button type="button" class="chip is-active" data-filter-value="" aria-pressed="true">{{ P.all }}</button>
       {% for k, v in P.kinds.items() %}<button type="button" class="chip" data-filter-value="{{ k }}" aria-pressed="false">{{ v }}</button>{% endfor %}
     </div>

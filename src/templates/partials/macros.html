@@ -4,7 +4,7 @@
 {%- endmacro %}
 
 {% macro ig(cls='h-[1.1em] w-[1.1em]') -%}<svg class="{{ cls }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>{%- endmacro %}
-{% macro icon(name, cls='') -%}<span class="material-symbols-rounded {{ cls }}" aria-hidden="true">{{ name }}</span>{%- endmacro %}
+{% macro icon(name, cls='') -%}<span class="material-symbols-rounded{{ ' rtl-flip' if name in ('arrow_forward', 'arrow_back', 'arrow_outward') }} {{ cls }}" aria-hidden="true">{{ name }}</span>{%- endmacro %}
 
 {# ===== Заголовок секции ===== #}
 {% macro section_head(title, sub=None, link=None, link_text=None, tag='h2') -%}
@@ -31,7 +31,7 @@
     <span class="block text-lg font-bold leading-tight">{{ d.name }}</span>
     <span class="mt-1 block text-[13px] leading-snug text-white/85">{{ d.tag }}</span>
   </span>
-  <span class="absolute right-3 top-3 inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 text-navy opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">{{ icon('arrow_outward', 'text-lg') }}</span>
+  <span class="absolute end-3 top-3 inline-flex h-9 w-9 translate-y-1 items-center justify-center rounded-full bg-white/90 text-navy opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">{{ icon('arrow_outward', 'text-lg') }}</span>
 </a>
 {%- endmacro %}
 
@@ -69,12 +69,12 @@
   <div class="absolute inset-0">
     {% set pn = img[:-5] %}<picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/' ~ pn ~ '-sm.avif') }}"><img src="{{ asset('img/' ~ pn ~ '-sm.webp') }}" srcset="{{ asset('img/' ~ pn ~ '-sm.webp') }} 800w, {{ asset('img/' ~ img) }} 2000w" sizes="100vw" alt="{{ img_alt }}" width="2000" height="1333" fetchpriority="high" class="h-full w-full object-cover object-[50%_60%] lg:object-[70%_40%]"></picture>
     <span class="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/85 via-45% to-white/0 to-[72%] lg:hidden" aria-hidden="true"></span>
-    <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
+    <span class="bg-hero-fade rtl-flip absolute inset-0 hidden lg:block" aria-hidden="true"></span>
   </div>
   {% else %}
   <span class="absolute inset-0 bg-gradient-to-br from-sky-100 via-sky-50 to-white" aria-hidden="true"></span>
-  <span class="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-teal/10 blur-3xl" aria-hidden="true"></span>
-  <span class="absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true"></span>
+  <span class="absolute -end-24 -top-24 h-80 w-80 rounded-full bg-teal/10 blur-3xl" aria-hidden="true"></span>
+  <span class="absolute -bottom-32 start-1/3 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true"></span>
   {% endif %}
   <div class="container relative pt-10 md:pt-14 {{ 'pb-56 md:pb-28 lg:py-24 2xl:py-32' if img else 'pb-12 md:pb-16' }}">
     {{ breadcrumbs(crumbs) }}
@@ -98,11 +98,11 @@
 <ul class="space-y-5">
   <li><a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ tg('h-5 w-5') }}</span>
-    <span><span class="block font-semibold {{ t }} group-hover:underline">{{ S.contacts.tg }}</span><span class="block text-sm {{ s }}">{{ SITE.telegram_handle }} · {{ S.contacts.tg_text }}</span></span></a></li>
+    <span><span class="block font-semibold {{ t }} group-hover:underline">{{ S.contacts.tg }}</span><span class="block text-sm {{ s }}"><bdi dir="ltr">{{ SITE.telegram_handle }}</bdi> · {{ S.contacts.tg_text }}</span></span></a></li>
   {% for p in SITE.phones %}
   <li><a href="tel:{{ p|replace(' ', '') }}" class="group flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ icon('call', 'text-xl') }}</span>
-    <span><span class="block font-semibold {{ t }}">{{ S.contacts.phone }}</span><span class="block text-sm {{ s }} group-hover:underline">{{ p }}</span></span></a></li>
+    <span><span class="block font-semibold {{ t }}">{{ S.contacts.phone }}</span><span class="block text-sm {{ s }} group-hover:underline"><bdi dir="ltr">{{ p }}</bdi></span></span></a></li>
   {% endfor %}
   {% if SITE.email %}
   <li><a href="mailto:{{ SITE.email }}" class="group flex items-start gap-4">
@@ -112,7 +112,7 @@
   {% if SITE.instagram %}
   <li><a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-4">
     <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full {{ c }}">{{ ig('h-5 w-5') }}</span>
-    <span><span class="block font-semibold {{ t }} group-hover:underline">Instagram</span><span class="block text-sm {{ s }}">{{ SITE.instagram_handle }}</span></span></a></li>
+    <span><span class="block font-semibold {{ t }} group-hover:underline">Instagram</span><span class="block text-sm {{ s }}"><bdi dir="ltr">{{ SITE.instagram_handle }}</bdi></span></span></a></li>
   {% endif %}
   {% if SITE.address and SITE.address[L] %}
   <li class="flex items-start gap-4">
@@ -135,7 +135,7 @@
   <input type="hidden" name="lang" value="{{ L }}">
   <input type="hidden" name="search" value="">
   {% if booking %}<input type="hidden" name="kind" value="booking">{% endif %}
-  <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+  <div class="sr-only" aria-hidden="true">
     <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
   </div>
   <input type="hidden" name="ts" value="">
@@ -239,7 +239,7 @@
         <p class="mb-6 mt-2 text-ink-soft">{{ text or S.lead.text }}</p>
         {{ lead_form(preset_dest=preset_dest, preset_type=preset_type) }}
       </div>
-      <div class="lg:border-l lg:border-navy/10 lg:pl-12">
+      <div class="lg:border-s lg:border-navy/10 lg:ps-12">
         {{ contact_list() }}
       </div>
     </div>

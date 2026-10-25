@@ -5,7 +5,7 @@
 {# ===== HERO ===== #}
 <section class="relative overflow-hidden bg-white">
   <div class="absolute inset-0">
-    {# телефон: вертикальный кадр (портал медресе), шире — панорама #}
+    {# телефон: вертикальный кадр (портал медресе), шире — панорама. Слоган и затемнение — физически справа/слева, как в макете #}
     <picture class="contents"><source type="image/avif" media="(max-width: 767px)" srcset="{{ asset('img/hero-home-m.avif') }}"><source type="image/webp" media="(max-width: 767px)" srcset="{{ asset('img/hero-home-m.webp') }}">
     <img src="{{ asset('img/hero-home-sm.webp') }}" srcset="{{ asset('img/hero-home-sm.webp') }} 1200w, {{ asset('img/hero-home.webp') }} 2400w" sizes="100vw" alt="{{ S.hero.img_alt }}" width="2400" height="914" fetchpriority="high" decoding="async" class="h-full w-full object-cover object-[50%_100%] md:object-[78%_50%] lg:object-[75%_50%]"></picture>
     <span class="bg-hero-fade absolute inset-0 hidden lg:block" aria-hidden="true"></span>
@@ -14,7 +14,8 @@
   <div class="container relative pb-72 pt-8 md:pb-80 lg:pb-40 lg:pt-20">
     <p class="font-hand absolute bottom-24 right-8 hidden max-w-[16rem] -rotate-6 text-right text-4xl leading-[1.05] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,.45)] xl:block">{{ S.hero.tagline }}
       <svg viewBox="0 0 200 20" class="ml-auto mt-1 h-4 w-40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M4 16C60 6 120 2 196 6"/></svg></p>
-    <div class="max-w-xl">
+    {# RTL: фото не зеркалим (каллиграфия на изразцах), блок текста остаётся на светлой левой части кадра #}
+    <div class="max-w-xl lg:rtl:ms-auto">
       <p class="mb-4 text-xs font-semibold uppercase tracking-[.18em] text-teal-600">{{ S.hero.eyebrow }}</p>
       <h1 class="text-4xl font-extrabold leading-[1.08] md:text-5xl lg:text-[3.5rem] text-balance">{{ S.hero.title }}</h1>
       <p class="mt-5 max-w-md text-base leading-relaxed text-ink-soft md:text-lg">{{ S.hero.text }}</p>
@@ -30,22 +31,22 @@
 <section class="relative z-10 -mt-20 lg:-mt-24" aria-label="{{ S.search.aria }}">
   <div class="container">
     <form class="card grid grid-cols-2 gap-2 p-3 shadow-float md:grid-cols-[1.3fr_1fr_1fr_auto] md:items-center md:gap-0" data-tour-search>
-      <label class="col-span-2 flex items-center gap-3 rounded-xl bg-sky-50 px-3 py-2.5 md:col-span-1 md:rounded-none md:border-r md:border-navy/10 md:bg-transparent md:py-2">
+      <label class="col-span-2 flex items-center gap-3 rounded-xl bg-sky-50 px-3 py-2.5 md:col-span-1 md:rounded-none md:border-e md:border-navy/10 md:bg-transparent md:py-2">
         {{ m.icon('location_on', 'text-2xl text-navy') }}
         <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.dest }}</span>
-        <select name="direction" class="field-select w-full cursor-pointer appearance-none truncate border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{{ m.direction_options() }}</select></span>
+        <select name="direction" class="field-select w-full cursor-pointer appearance-none truncate border-0 bg-transparent p-0 pe-7 text-sm text-ink-soft focus:ring-0">{{ m.direction_options() }}</select></span>
       </label>
-      <label class="flex min-w-0 items-center gap-2 rounded-xl bg-sky-50 px-3 py-2.5 md:gap-3 md:rounded-none md:border-r md:border-navy/10 md:bg-transparent md:py-2">
+      <label class="flex min-w-0 items-center gap-2 rounded-xl bg-sky-50 px-3 py-2.5 md:gap-3 md:rounded-none md:border-e md:border-navy/10 md:bg-transparent md:py-2">
         {{ m.icon('calendar_month', 'hidden text-2xl text-navy md:inline-block') }}
         <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.dates }}</span>
-        <select name="dates" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.dates_opts %}<option {% if loop.first %}value=""{% endif %}>{{ o }}</option>{% endfor %}</select></span>
+        <select name="dates" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pe-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.dates_opts %}<option {% if loop.first %}value=""{% endif %}>{{ o }}</option>{% endfor %}</select></span>
       </label>
       <label class="flex min-w-0 items-center gap-2 rounded-xl bg-sky-50 px-3 py-2.5 md:gap-3 md:bg-transparent md:py-2">
         {{ m.icon('group', 'hidden text-2xl text-navy md:inline-block') }}
         <span class="min-w-0 flex-1"><span class="block text-xs font-semibold text-navy">{{ S.search.tourists }}</span>
-        <select name="tourists" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pr-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.tourists_opts %}<option {% if loop.index == 2 %}selected{% endif %}>{{ o }}</option>{% endfor %}</select></span>
+        <select name="tourists" class="field-select w-full cursor-pointer appearance-none border-0 bg-transparent p-0 pe-7 text-sm text-ink-soft focus:ring-0">{% for o in S.search.tourists_opts %}<option {% if loop.index == 2 %}selected{% endif %}>{{ o }}</option>{% endfor %}</select></span>
       </label>
-      <button type="submit" class="btn-navy col-span-2 !rounded-xl !px-8 !py-3.5 md:col-span-1 md:ml-2 md:!py-4">{{ m.icon('search', 'text-xl') }}{{ S.search.btn }}</button>
+      <button type="submit" class="btn-navy col-span-2 !rounded-xl !px-8 !py-3.5 md:col-span-1 md:ms-2 md:!py-4">{{ m.icon('search', 'text-xl') }}{{ S.search.btn }}</button>
     </form>
   </div>
 </section>
@@ -79,10 +80,10 @@
 {# ===== ИНФО-ТУРЫ ===== #}
 <section class="pb-14 md:pb-20">
   <div class="container">
-    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-sky-100 via-sky-50 to-white ring-1 ring-navy/5">
-      <div class="absolute inset-y-0 right-0 hidden w-[48%] md:block">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r rtl:bg-gradient-to-l from-sky-100 via-sky-50 to-white ring-1 ring-navy/5">
+      <div class="absolute inset-y-0 end-0 hidden w-[48%] md:block">
         {{ m.pic('infotour', '', 'img-cover', '(min-width:768px) 50vw, 100vw') }}
-        <span class="absolute inset-0 bg-gradient-to-r from-sky-100 via-sky-100/30 to-transparent" aria-hidden="true"></span>
+        <span class="absolute inset-0 bg-gradient-to-r rtl:bg-gradient-to-l from-sky-100 via-sky-100/30 to-transparent" aria-hidden="true"></span>
       </div>
       <div class="relative p-6 md:w-[62%] md:p-10">
         <div class="flex items-center gap-4">
@@ -135,7 +136,7 @@
           <p class="mb-6 mt-2 text-sm text-ink-soft">{{ S.lead.text }}</p>
           {{ m.lead_form(stack=True) }}
         </div>
-        <div class="xl:border-l xl:border-navy/10 xl:pl-8">{{ m.contact_list() }}</div>
+        <div class="xl:border-s xl:border-navy/10 xl:ps-8">{{ m.contact_list() }}</div>
       </div>
     </div>
   </div>

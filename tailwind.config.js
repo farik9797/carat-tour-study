@@ -11,8 +11,8 @@ module.exports = {
         ink: { DEFAULT: '#1E2B4A', soft: '#5B6B8C' },
       },
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-        hand: ['Caveat', 'cursive'],
+        sans: ['Montserrat', 'Cairo', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+        hand: ['Caveat', 'Cairo', 'cursive'],
       },
       boxShadow: {
         card: '0 6px 24px -8px rgba(11,42,122,.18)',

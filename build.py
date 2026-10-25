@@ -6,7 +6,7 @@ Carat Tour & Study — генератор статического многоя�
     python3 build.py            # собрать в ./build
     python3 -m http.server -d build 8080   # предпросмотр: http://localhost:8080/ru/
 
-Контент: src/i18n/{uz,ru,en,zh}.py   Шаблоны: src/templates   Ассеты: src/assets
+Контент: src/i18n/{uz,ru,en,zh,ar}.py   Шаблоны: src/templates   Ассеты: src/assets
 """
 import datetime as dt
 import hashlib
@@ -35,16 +35,18 @@ SITE = {
     "phones": ["+998 97 409 42 00"],
     "email": "info@caratstudy.uz",
     "address": {"uz": "Toshkent, Cho'ponota, 39", "ru": "Ташкент, Чопон-ата, 39",
-                "en": "Tashkent, Cho'ponota, 39", "zh": "塔什干，Cho'ponota 39号"},
+                "en": "Tashkent, Cho'ponota, 39", "zh": "塔什干，Cho'ponota 39号",
+                "ar": "طشقند، شارع تشوبون أتا، 39"},
     "hours": None,                      # на caratstudy.uz не указаны; пример: {"ru": "Пн–Сб 9:00–18:00", ...}
     "instagram": "https://www.instagram.com/carat_tour/",
     "instagram_handle": "@carat_tour",
 }
-LANGS = ["uz", "ru", "en", "zh"]
+LANGS = ["uz", "ru", "en", "zh", "ar"]
 DEFAULT_LANG = "uz"
-HREFLANG = {"uz": "uz", "ru": "ru", "en": "en", "zh": "zh-Hans"}
-LANG_LABEL = {"uz": "UZ", "ru": "RU", "en": "EN", "zh": "中文"}
-LANG_OG = {"uz": "uz_UZ", "ru": "ru_RU", "en": "en_US", "zh": "zh_CN"}
+HREFLANG = {"uz": "uz", "ru": "ru", "en": "en", "zh": "zh-Hans", "ar": "ar"}
+LANG_LABEL = {"uz": "UZ", "ru": "RU", "en": "EN", "zh": "中文", "ar": "عربي"}
+LANG_OG = {"uz": "uz_UZ", "ru": "ru_RU", "en": "en_US", "zh": "zh_CN", "ar": "ar_AR"}
+RTL = {"ar"}   # языки с письмом справа налево: <html dir="rtl">, вёрстка на логических классах (ms-/pe-/start-/text-end)
 
 SHOW_REVIEWS = False    # True — когда в src/i18n/*.py → reviews будут реальные отзывы клиентов (с их разрешением)
 SHOW_DEV_NOTES = False  # True — показать служебные пометки на юр. страницах (для согласования с юристом)
@@ -178,7 +180,7 @@ def jsonld_for(S, L, path, section, ctx):
         "name": "Carat Tour & Study", "url": abs_url(L, ""), "logo": f"{SITE['domain']}/assets/img/logo.webp",
         "image": f"{SITE['domain']}/assets/img/hero-samarkand.webp", "description": S["footer"]["about"],
         "sameAs": [SITE["telegram"]] + [SITE[k] for k in ("telegram_channel", "instagram") if SITE.get(k)], "areaServed": ["UZ", "Worldwide"],
-        "availableLanguage": ["uz", "ru", "en", "zh"],
+        "availableLanguage": LANGS,
     }
     if SITE["phones"]:
         org["telephone"] = SITE["phones"][0]
@@ -233,7 +235,7 @@ def main():
     env = Environment(loader=FileSystemLoader(SRC / "templates"), autoescape=True,
                       undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True)
     base_ctx = dict(SITE=SITE, LANGS=LANGS, DEFAULT_LANG=DEFAULT_LANG, HREFLANG=HREFLANG, LANG_LABEL=LANG_LABEL,
-                    LANG_OG=LANG_OG, YEAR=dt.date.today().year, VERSION=VERSION, ICON_NAMES=ICONS_TOKEN,
+                    LANG_OG=LANG_OG, RTL=RTL, YEAR=dt.date.today().year, VERSION=VERSION, ICON_NAMES=ICONS_TOKEN,
                     PROMO=PROMO, IMG_W=IMG_W, IMG_MOBILE=IMG_MOBILE, SHOW_DEV_NOTES=SHOW_DEV_NOTES, abs_url=abs_url)
 
     rendered = {}
@@ -311,7 +313,7 @@ def write_root_index():
 <title>Carat Tour &amp; Study</title><meta name="robots" content="noindex, follow">
 <link rel="canonical" href="{abs_url(DEFAULT_LANG, '')}">{alts}
 <link rel="alternate" hreflang="x-default" href="{abs_url(DEFAULT_LANG, '')}">
-<script>(function(){{var s=["uz","ru","en","zh"],l=(navigator.languages||[navigator.language||""]),t="{DEFAULT_LANG}";
+<script>(function(){{var s={json.dumps(LANGS)},l=(navigator.languages||[navigator.language||""]),t="{DEFAULT_LANG}";
 for(var i=0;i<l.length;i++){{var c=(l[i]||"").slice(0,2).toLowerCase();if(s.indexOf(c)>-1){{t=c;break}}}}
 try{{var m=localStorage.getItem("carat_lang");if(s.indexOf(m)>-1)t=m}}catch(e){{}}location.replace(t+"/");}})();</script>
 <noscript><meta http-equiv="refresh" content="0; url={DEFAULT_LANG}/"></noscript>

@@ -5,6 +5,7 @@ Disallow: /uz/thanks/
 Disallow: /ru/thanks/
 Disallow: /en/thanks/
 Disallow: /zh/thanks/
+Disallow: /ar/thanks/
 
 Sitemap: https://carattourandstudy.uz/sitemap.xml
 Host: https://carattourandstudy.uz

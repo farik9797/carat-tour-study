@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ S.lang.html }}">
+<html lang="{{ S.lang.html }}" dir="{{ 'rtl' if L in RTL else 'ltr' }}">
 <head>
   <meta charset="utf-8">
   {% if root_base %}{# 404 открывается по любому URL: ссылки считаем от корня сайта. На *.github.io сайт лежит в /<repo>/ —
@@ -40,7 +40,7 @@ for(var i=0;i<a.length;i++)a[i].href=location.pathname+location.search+a[i].getA
   {% endfor %}
 </head>
 <body class="flex min-h-screen flex-col" data-lang="{{ L }}" data-endpoint="{{ rel_root }}send.php" data-thanks="{{ url('thanks/') }}">
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-card">{{ S.nav.skip }}</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow-card">{{ S.nav.skip }}</a>
   {% include 'partials/header.html' %}
   <main id="main" class="flex-1">
     {% block content %}{% endblock %}

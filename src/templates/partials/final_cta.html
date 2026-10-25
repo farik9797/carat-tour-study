@@ -3,14 +3,14 @@
 <section class="relative overflow-hidden bg-navy-950 text-white">
   <picture class="contents"><source media="(max-width: 767px)" srcset="{{ asset('img/cta-bg-sm.webp') }}">
   <img src="{{ asset('img/cta-bg.webp') }}" alt="" width="2000" height="593" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-[80%_30%] md:object-center" aria-hidden="true"></picture>
-  <span class="absolute inset-0 bg-navy-950/45 md:bg-transparent md:bg-gradient-to-r md:from-navy-950/85 md:via-navy-900/40 md:to-transparent" aria-hidden="true"></span>
+  <span class="absolute inset-0 bg-navy-950/45 md:bg-transparent md:bg-gradient-to-r md:rtl:bg-gradient-to-l md:from-navy-950/85 md:via-navy-900/40 md:to-transparent" aria-hidden="true"></span>
   <div class="container relative flex flex-col gap-6 py-12 md:flex-row md:items-center md:gap-10 md:py-14">
     <img src="{{ asset('img/cta-emblem.webp') }}" alt="" width="163" height="216" loading="lazy" decoding="async" class="hidden h-20 w-auto shrink-0 opacity-30 grayscale md:block lg:h-24" aria-hidden="true">
     <div class="max-w-2xl md:flex-1">
       <h2 class="text-2xl font-bold !text-white md:text-3xl text-balance">{{ S.home.final_title }}</h2>
       <p class="mt-2 text-white/80">{{ S.home.final_text }}</p>
     </div>
-    <div class="md:pr-40 lg:pr-48">
+    <div class="md:pe-40 lg:pe-48">
       <a href="{{ cta_href }}" class="btn-accent !px-8 !py-3.5" data-booking>{{ S.nav.cta }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
     </div>
   </div>
