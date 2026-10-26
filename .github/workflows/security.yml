@@ -9,10 +9,9 @@ on:
   pull_request:
     # Только изменения исполняемого кода — не тексты, картинки, шаблоны и переводы.
     paths:
-      - '**/*.php'                 # send.php, тема WordPress
+      - '**/*.php'                 # send.php
       - 'src/assets/js/**'         # клиентский JS
       - 'build.py'                 # генератор
-      - 'wordpress/**'             # будущая WP-тема
       - '.github/workflows/security.yml'
 
 permissions:
