@@ -61,7 +61,7 @@
     </div>
     <div class="mt-auto space-y-3 pt-8">
       <a href="{{ cta_href }}" class="btn-accent w-full" data-menu-close data-booking>{{ S.nav.cta }}<span class="material-symbols-rounded rtl-flip text-lg">arrow_forward</span></a>
-      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-navy w-full">{{ m.tg() }} {{ S.nav.tg }}</a>
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-2 w-full">{{ m.tg() }} {{ S.nav.tg }}</a>
       <div class="flex flex-wrap justify-center gap-2 pt-1">
         {% for p in SITE.phones[:1] %}<a href="tel:{{ p|replace(' ', '') }}" class="social-pill">{{ m.icon('call', 'text-base') }}<bdi dir="ltr">{{ p }}</bdi></a>{% endfor %}
         {% if SITE.instagram %}<a href="{{ SITE.instagram }}" target="_blank" rel="noopener noreferrer" class="social-pill">{{ m.ig('h-4 w-4') }}Instagram</a>{% endif %}

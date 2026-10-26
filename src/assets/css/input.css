@@ -50,6 +50,9 @@
   .btn-navy { @apply btn bg-navy text-white hover:bg-navy-800; }
   .btn-ghost { @apply btn bg-white/90 text-navy ring-1 ring-navy/20 hover:ring-navy/50 hover:bg-white; }
   .btn-outline-light { @apply btn text-white ring-1 ring-white/50 hover:bg-white/10; }
+  /* Иерархия пары кнопок: основная крупнее, второстепенная — контурная на светлом фоне */
+  .btn-lead { @apply !px-7 !py-3.5 !text-base; }
+  .btn-2 { @apply btn bg-transparent text-navy ring-1 ring-navy/25 hover:bg-navy/[0.06] hover:ring-navy/45; }
 
   .section { @apply py-14 md:py-20; }
   .section-title { @apply relative ps-5 text-2xl md:text-3xl font-bold text-navy; }

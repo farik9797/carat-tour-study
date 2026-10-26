@@ -8,8 +8,8 @@
     <div class="space-y-4 text-lg leading-relaxed text-ink">
       {% for t in P.text %}<p>{{ t }}</p>{% endfor %}
       <div class="flex flex-wrap gap-3 pt-4">
-        <a href="{{ url('contacts/') }}" class="btn-navy">{{ S.nav.contacts }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
-        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-ghost">{{ m.tg() }}Telegram</a>
+        <a href="{{ url('contacts/') }}" class="btn-navy btn-lead">{{ S.nav.contacts }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+        <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-2">{{ m.tg() }}Telegram</a>
       </div>
     </div>
     <div class="relative">

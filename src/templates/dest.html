@@ -3,7 +3,7 @@
 {% block content %}
 {% call m.page_hero(D.name, D.tag, [{'name': S.nav.uz, 'href': url('uzbekistan/')}, {'name': D.name}], D.slug ~ '.webp', D.name) %}
   <div class="mt-8 flex flex-wrap gap-3">
-    <a href="#lead" class="btn-accent" data-booking data-direction="{{ D.name }}" data-type="uz">{{ S.booking.btn }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
+    <a href="#lead" class="btn-accent btn-lead" data-booking data-direction="{{ D.name }}" data-type="uz">{{ S.booking.btn }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
     <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-ghost">{{ m.tg() }}Telegram</a>
   </div>
 {% endcall %}
@@ -46,7 +46,7 @@
         </dl>
         <div class="space-y-3 p-5 pt-2">
           <a href="#lead" class="btn-accent w-full" data-booking data-direction="{{ D.name }}" data-type="uz">{{ S.booking.btn }}{{ m.icon('arrow_forward', 'text-lg') }}</a>
-          <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-ghost w-full">{{ m.tg() }}{{ S.nav.tg }}</a>
+          <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-2 w-full">{{ m.tg() }}{{ S.nav.tg }}</a>
         </div>
       </div>
     </aside>

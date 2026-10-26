@@ -8,8 +8,8 @@
     <h1 class="mt-6 text-3xl font-extrabold md:text-4xl">{{ P.h1 }}</h1>
     <p class="mt-4 text-lg leading-relaxed text-ink-soft">{{ P.text }}</p>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="{{ url('') }}" class="btn-navy">{{ m.icon('home', 'text-lg') }}{{ P.home }}</a>
-      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-ghost">{{ m.tg() }}Telegram</a>
+      <a href="{{ url('') }}" class="btn-navy btn-lead">{{ m.icon('home', 'text-lg') }}{{ P.home }}</a>
+      <a href="{{ SITE.telegram }}" target="_blank" rel="noopener noreferrer" class="btn-2">{{ m.tg() }}Telegram</a>
     </div>
     {% if show_langs %}
     <div class="mt-10 flex justify-center gap-2">{% for l in LANGS %}<a href="{{ lang_url(l) }}" class="rounded-full px-4 py-1.5 text-sm font-semibold ring-1 ring-navy/15 hover:bg-sky-50">{{ LANG_LABEL[l] }}</a>{% endfor %}</div>
