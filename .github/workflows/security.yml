@@ -1,0 +1,48 @@
+name: Security Scan
+
+# Пентест изменённого кода на каждый pull request (Strix, self-hosted OSS CLI).
+# В headless-режиме Strix сам ограничивается файлами из диффа PR (--scope-mode auto).
+# Нужны два секрета репозитория (Settings → Secrets and variables → Actions):
+#   STRIX_LLM     — id модели, например openai/gpt-5.4
+#   LLM_API_KEY   — ключ провайдера
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write   # для загрузки SARIF в GitHub code scanning
+
+jobs:
+  strix-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # нужно для вычисления диффа PR
+
+      - name: Install Strix
+        run: curl -sSL https://strix.ai/install | bash
+
+      - name: Run Security Scan
+        env:
+          STRIX_LLM: ${{ secrets.STRIX_LLM }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: strix -n -t ./ --scan-mode quick --max-budget 10
+
+      # Не «падать молча»: при исчерпании бюджета Strix выходит с кодом 0, но
+      # оставляет status != "completed". Требуем явного завершения скана.
+      - name: Fail unless the scan completed
+        if: always()
+        run: |
+          run_json=$(ls -t strix_runs/*/run.json | head -1)
+          status=$(jq -r .status "$run_json")
+          if [ "$status" != "completed" ]; then
+            echo "Strix run status is '$status' — скан не завершился (вероятно, исчерпан бюджет). Поднимите --max-budget." >&2
+            exit 1
+          fi
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: strix_runs
